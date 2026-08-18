@@ -129,3 +129,34 @@ The visual and interactive foundation for **Masoud Zeynali**'s personal technolo
 ### Project Metadata & Scope Treatment
 - Neutral technology badges for verified development scope (`Go`, `Model Context Protocol`, `SSH`, `Linux`, `PowerShell`, `Infrastructure Inventory`, `Inventory Reconciliation`, `Server Onboarding`, `Automation`).
 - Structured engineering notes covering dedicated `infra` onboarding, inventory reconciliation, and explicit security design constraints without claiming completed production guarantees.
+
+---
+
+## 12. Phase 5 Component Patterns
+
+### Operational Reasoning Lab
+- Dedicated section (`#lab`) immediately following the Phase 4 engineering dossier, presenting a browser-only, simulated workbench for structured infrastructure reasoning.
+- Clear technical header composition: marker (`05 / INTERACTIVE EXPERIENCE`), technical label (`BROWSER-ONLY SIMULATION`), primary heading (`OPERATIONAL REASONING LAB`), and supporting statement.
+
+### Simulation Disclosure
+- High-visibility structural note container (`bg-canvas-950/90 border border-border-panel`) placed prominently at the top of the workbench.
+- Explicit technical copy clarifying the absence of live infrastructure connections, remote execution, application-level data requests, or real server data.
+
+### Structured Operational Workbench
+- Asymmetric two-region interactive workbench container (`bg-canvas-900/40 border border-border-subtle p-6 sm:p-8 lg:p-10 telemetry-corners`).
+- Desktop composition: Scenario Selector (~30% left column) paired with Selected Scenario & Structured Workflow (~70% right column).
+
+### Scenario Selector
+- Semantic `<button>` elements with `aria-pressed` state attributes for keyboard accessibility.
+- Static Selected-State Treatment: Subtle cyan border (`border-accent-cyan/60`), restrained left rail indicator (`border-l-2 border-l-accent-cyan`), dark surface elevation (`bg-canvas-950`), and typography emphasis.
+- Explicitly avoids live system status metaphors such as pulsing beacons, status LEDs, or health indicators.
+
+### Structured Workflow
+- Three-stage sequential reasoning display (`01 / REQUEST` → `02 / OPERATIONAL BOUNDARY` → `03 / EXPECTED SYSTEM BEHAVIOR`).
+- Horizontal 3-column layout on desktop connected with directional indicators, transitioning to comfortable vertical stacking on tablet and mobile viewports.
+- Structured dark containers (`bg-canvas-950/80 border border-border-subtle`) emphasizing disciplined operational boundaries without synthetic verdicts or execution results.
+
+### Responsive Reasoning-Workbench Behavior
+- Desktop (1440px): 2-region side-by-side layout with horizontal 3-stage reasoning cards.
+- Tablet (768px): Vertically stacked scenario selector and workflow blocks with preserved paragraph widths and clear touch targets.
+- Mobile (375px): Disciplined single-column vertical hierarchy ensuring zero horizontal scroll, legible typography, and accessible touch interactions.

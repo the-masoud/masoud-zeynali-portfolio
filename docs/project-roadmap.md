@@ -35,18 +35,19 @@ This roadmap outlines the multi-phase engineering plan for building the personal
 ---
 
 ### Phase 4 — Selected Engineering Work & InfraForge Case Study
-- **Status**: `IMPLEMENTED / PENDING EXTERNAL ACCEPTANCE`
+- **Status**: `COMPLETE`
 - **Scope**:
   - Featured Engineering Dossier for InfraForge (AI-assisted infrastructure operations via MCP).
   - Problem statement, system intent, five-node conceptual architecture flow, engineering principles, verified development scope, server onboarding, inventory reconciliation, and security design requirements.
 
 ---
 
-### Phase 5 — Interactive Experience
-- **Status**: `PLANNED`
+### Phase 5 — Interactive Experience / Operational Reasoning Lab
+- **Status**: `IMPLEMENTED / PENDING EXTERNAL ACCEPTANCE`
 - **Scope**:
-  - Interactive infrastructure terminal simulator or telemetry playground.
-  - Architecture inspector and live log demonstration components.
+  - Browser-only, simulated, deterministic Operational Reasoning Lab workbench.
+  - Three predefined scenarios (Discover Inventory, Review Access Boundary, Reconcile Inventory) illustrating the structured operational workflow: `REQUEST` → `OPERATIONAL BOUNDARY` → `EXPECTED SYSTEM BEHAVIOR`.
+  - Visible simulation disclosure and accessible keyboard interaction model.
 
 ---
 
