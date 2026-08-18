@@ -108,3 +108,24 @@ The visual and interactive foundation for **Masoud Zeynali**'s personal technolo
 - Asymmetric 3-column desktop composition: Domain Index & Title (~25%), Capability Statement (~35%), and Verified Technology Labels (~40%).
 - Neutral Technology Labels: Compact monospace chips with subtle borders (`bg-canvas-900 border-border-subtle`), avoiding vendor logos, skill meters, or rainbow badges.
 - Responsive Matrix Flow: Stacks into clean vertical domain blocks on mobile (375px) with subtle separators and clear reading hierarchy.
+
+---
+
+## 11. Phase 4 Component Patterns
+
+### Featured Engineering Dossier
+- Single integrated technical dossier container (`bg-canvas-900/40 border border-border-subtle p-6 sm:p-8 lg:p-10 telemetry-corners`) presenting an in-depth case study of active engineering work.
+- Two-part project header balancing title hierarchy (`INFRAFORGE`), descriptor (`AI-Assisted Infrastructure Operations via MCP`), project classification, static project development-state metadata treatment, and direct repository action.
+- Symmetrical editorial split for problem space analysis and system design intent.
+
+### Conceptual Architecture Flow
+- Five-node disciplined sequence (`AI / MCP CLIENT` → `INFRAFORGE` → `SERVER ACCESS` → `LINUX INFRASTRUCTURE` → `DISCOVERY & INVENTORY`) establishing clear operational boundaries.
+- Horizontal layout on desktop with subtle direction chevrons and vertical stacked sequence on mobile/tablet.
+- Semantic HTML `<ol>` list structure with decorative connectors marked `aria-hidden="true"`.
+
+### Engineering Principles Treatment
+- Compact 4-column matrix (2x2 on tablet, 1-col on mobile) framing operational tenets (`LEAST PRIVILEGE`, `CREDENTIAL HYGIENE`, `CONTROLLED ONBOARDING`, `AUTOMATION WITH GUARDRAILS`) with micro-icons and monospace tags.
+
+### Project Metadata & Scope Treatment
+- Neutral technology badges for verified development scope (`Go`, `Model Context Protocol`, `SSH`, `Linux`, `PowerShell`, `Infrastructure Inventory`, `Inventory Reconciliation`, `Server Onboarding`, `Automation`).
+- Structured engineering notes covering dedicated `infra` onboarding, inventory reconciliation, and explicit security design constraints without claiming completed production guarantees.

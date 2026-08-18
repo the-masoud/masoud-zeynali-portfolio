@@ -27,18 +27,18 @@ This roadmap outlines the multi-phase engineering plan for building the personal
 ---
 
 ### Phase 3 — Expertise & Technology Landscape
-- **Status**: `IMPLEMENTED / PENDING EXTERNAL ACCEPTANCE`
+- **Status**: `COMPLETE`
 - **Scope**:
   - Categorized technical stack and domain expertise (Network Architecture, Virtualization, Windows/Linux Server, Firewalls, Email Systems, Cloudflare Edge, LLM/MCP Automation).
   - Interactive technology relationship graph and deep architectural competencies.
 
 ---
 
-### Phase 4 — Projects & Case Studies
-- **Status**: `PLANNED`
+### Phase 4 — Selected Engineering Work & InfraForge Case Study
+- **Status**: `IMPLEMENTED / PENDING EXTERNAL ACCEPTANCE`
 - **Scope**:
-  - Detailed case studies of enterprise infrastructure builds, high-availability deployments, security architectures, and AI automation pipelines.
-  - Problem statements, architectural diagrams, technical solutions, and verified outcomes.
+  - Featured Engineering Dossier for InfraForge (AI-assisted infrastructure operations via MCP).
+  - Problem statement, system intent, five-node conceptual architecture flow, engineering principles, verified development scope, server onboarding, inventory reconciliation, and security design requirements.
 
 ---
 
