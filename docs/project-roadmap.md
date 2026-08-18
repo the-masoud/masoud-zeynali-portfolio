@@ -5,9 +5,9 @@ This roadmap outlines the multi-phase engineering plan for building the personal
 ---
 
 ### Phase 1 — Foundation, Design System & Hero Experience
-- **Status**: `ACTIVE`
+- **Status**: `COMPLETE`
 - **Scope**:
-  - Application foundation (Next.js 15 App Router, React 19, TypeScript strict mode, Tailwind CSS).
+  - Application foundation (Next.js App Router, React 19, TypeScript strict mode, Tailwind CSS).
   - Modern ESLint configuration (`eslint.config.mjs`).
   - High-end dark design system with design tokens, typography hierarchy, and telemetry components.
   - Global responsive navigation with mobile drawer and non-destructive resume action.
@@ -18,7 +18,7 @@ This roadmap outlines the multi-phase engineering plan for building the personal
 ---
 
 ### Phase 2 — Professional Story & Career Journey
-- **Status**: `PLANNED`
+- **Status**: `IMPLEMENTED / PENDING EXTERNAL ACCEPTANCE`
 - **Scope**:
   - In-depth architectural narrative covering nearly two decades of continuous engineering experience.
   - Chronological timeline of technical leadership, enterprise migrations, and infrastructure governance.

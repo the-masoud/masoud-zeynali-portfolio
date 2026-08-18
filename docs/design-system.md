@@ -82,6 +82,19 @@ The visual and interactive foundation for **Masoud Zeynali**'s personal technolo
 
 ## 8. Accessibility Principles
 - **WCAG 2.1 AA Compliance**: All body text and accents exceed 4.5:1 contrast against dark canvases.
-- **Semantic HTML**: Strict usage of `<header>`, `<nav>`, `<main>`, `<section>`, `<h1>`, `<p>`, `<footer>`, `<button>`.
+- **Semantic HTML**: Strict usage of `<header>`, `<nav>`, `<main>`, `<section>`, `<h1>`, `<h2>`, `<h3>`, `<p>`, `<footer>`, `<button>`.
 - **Keyboard Navigation**: Distinct `:focus-visible` cyan halo ring (2px offset 3px), tab index ordering, and `Escape` key listeners for modal/drawer states.
 - **Screen Reader Support**: Skip-to-content anchor link (`#main-content`) and ARIA landmarks.
+
+---
+
+## 9. Phase 2 Component Patterns
+
+### Profile Editorial Composition
+- Two-column asymmetric layout pairing a prominent editorial heading (`01 / PROFILE`) and technical coordinate tags with concise narrative prose.
+- Horizontal Principles Rail: 4-column structured disciplinary indicators (Reliability, Security, Automation, Leadership) with micro-telemetry accents and compact typography.
+
+### Vertical Career Timeline Architecture
+- Continuous architectural vertical rail connecting progression nodes chronologically from operational foundation through infrastructure ownership up to IT leadership.
+- Two-part composition: Left duration metadata and node beacon paired with right narrative container and verified responsibility highlights.
+- Preserves vertical orientation across desktop, tablet, and mobile breakpoints without switching to cards or alternating layouts.
