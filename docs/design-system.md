@@ -98,3 +98,13 @@ The visual and interactive foundation for **Masoud Zeynali**'s personal technolo
 - Continuous architectural vertical rail connecting progression nodes chronologically from operational foundation through infrastructure ownership up to IT leadership.
 - Two-part composition: Left duration metadata and node beacon paired with right narrative container and verified responsibility highlights.
 - Preserves vertical orientation across desktop, tablet, and mobile breakpoints without switching to cards or alternating layouts.
+
+---
+
+## 10. Phase 3 Component Patterns
+
+### Technical Landscape Matrix
+- Structured horizontal engineering matrix composed of six domain rows (Infrastructure & Platforms, Networking & Security, Messaging & Collaboration, Web & Cloud, Endpoint Operations, AI-Assisted Operations & Automation).
+- Asymmetric 3-column desktop composition: Domain Index & Title (~25%), Capability Statement (~35%), and Verified Technology Labels (~40%).
+- Neutral Technology Labels: Compact monospace chips with subtle borders (`bg-canvas-900 border-border-subtle`), avoiding vendor logos, skill meters, or rainbow badges.
+- Responsive Matrix Flow: Stacks into clean vertical domain blocks on mobile (375px) with subtle separators and clear reading hierarchy.

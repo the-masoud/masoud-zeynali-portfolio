@@ -3,6 +3,7 @@ import { Navbar } from "@/components/navigation/Navbar";
 import { Hero } from "@/components/hero/Hero";
 import { ProfessionalStory } from "@/components/about/ProfessionalStory";
 import { CareerJourney } from "@/components/experience/CareerJourney";
+import { ExpertiseLandscape } from "@/components/expertise/ExpertiseLandscape";
 import { Footer } from "@/components/layout/Footer";
 
 export default function HomePage() {
@@ -13,6 +14,7 @@ export default function HomePage() {
         <Hero />
         <ProfessionalStory />
         <CareerJourney />
+        <ExpertiseLandscape />
       </main>
       <Footer />
     </div>
