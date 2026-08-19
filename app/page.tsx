@@ -6,6 +6,7 @@ import { CareerJourney } from "@/components/experience/CareerJourney";
 import { ExpertiseLandscape } from "@/components/expertise/ExpertiseLandscape";
 import { InfraForgeCaseStudy } from "@/components/work/InfraForgeCaseStudy";
 import { OperationalReasoningLab } from "@/components/lab/OperationalReasoningLab";
+import { ProfessionalRecord } from "@/components/contact/ProfessionalRecord";
 import { Footer } from "@/components/layout/Footer";
 
 export default function HomePage() {
@@ -19,6 +20,7 @@ export default function HomePage() {
         <ExpertiseLandscape />
         <InfraForgeCaseStudy />
         <OperationalReasoningLab />
+        <ProfessionalRecord />
       </main>
       <Footer />
     </div>

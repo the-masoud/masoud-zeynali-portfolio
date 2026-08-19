@@ -51,7 +51,7 @@ export const ScenarioSelector: React.FC<ScenarioSelectorProps> = ({
                   className={`px-2 py-0.5 rounded font-mono text-[10px] tracking-wider uppercase ${
                     isSelected
                       ? "bg-accent-cyan/10 text-accent-cyan border border-accent-cyan/30"
-                      : "bg-canvas-900 text-fg-subtle border border-border-subtle"
+                      : "bg-canvas-900 text-fg-secondary border border-border-subtle"
                   }`}
                 >
                   {scenario.category}

@@ -2,11 +2,10 @@
 
 import React, { useState, useEffect } from "react";
 import Link from "next/link";
-import { Menu, X, Terminal, FileText, Info } from "lucide-react";
+import { Menu, X, Terminal, FileText } from "lucide-react";
 
 export const Navbar: React.FC = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-  const [resumeNoticeOpen, setResumeNoticeOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
 
   useEffect(() => {
@@ -17,12 +16,11 @@ export const Navbar: React.FC = () => {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  // Close mobile menu or dialog on Escape key
+  // Close mobile menu on Escape key
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
       if (e.key === "Escape") {
         setMobileMenuOpen(false);
-        setResumeNoticeOpen(false);
       }
     };
     window.addEventListener("keydown", handleKeyDown);
@@ -55,7 +53,6 @@ export const Navbar: React.FC = () => {
             <Link
               href="/"
               className="group flex items-center gap-3 focus-visible:ring-2 focus-visible:ring-accent-cyan rounded px-1 py-0.5"
-              aria-label="Masoud Zeynali Home"
             >
               <div className="w-8 h-8 rounded bg-canvas-900 border border-white/10 flex items-center justify-center text-accent-cyan group-hover:border-accent-cyan/50 group-hover:shadow-[0_0_12px_rgba(56,189,248,0.25)] transition-all">
                 <Terminal className="w-4 h-4" />
@@ -87,27 +84,27 @@ export const Navbar: React.FC = () => {
               </ul>
 
               {/* Resume Action */}
-              <button
-                type="button"
-                onClick={() => setResumeNoticeOpen(true)}
+              <a
+                href="/resume/Masoud_Zeynali_Professional_CV_EN.pdf"
+                download="Masoud_Zeynali_Professional_CV_EN.pdf"
                 className="inline-flex items-center gap-1.5 text-xs font-mono px-3 py-1.5 rounded border border-border-panel bg-canvas-900/90 text-fg-secondary hover:text-accent-cyan hover:border-accent-cyan/40 hover:bg-canvas-850 transition-all focus-visible:ring-2 focus-visible:ring-accent-cyan"
-                aria-label="View Resume Information"
+                aria-label="Download Resume (PDF)"
               >
                 <FileText className="w-3.5 h-3.5 text-accent-cyan" />
                 <span>Resume</span>
-              </button>
+              </a>
             </div>
 
             {/* Mobile Menu Button */}
             <div className="flex md:hidden items-center gap-2">
-              <button
-                type="button"
-                onClick={() => setResumeNoticeOpen(true)}
+              <a
+                href="/resume/Masoud_Zeynali_Professional_CV_EN.pdf"
+                download="Masoud_Zeynali_Professional_CV_EN.pdf"
                 className="p-2 text-xs font-mono rounded border border-border-subtle bg-canvas-900 text-fg-secondary hover:text-accent-cyan focus-visible:ring-2 focus-visible:ring-accent-cyan"
-                aria-label="Resume Information"
+                aria-label="Download Resume (PDF)"
               >
                 <FileText className="w-4 h-4" />
-              </button>
+              </a>
 
               <button
                 type="button"
@@ -148,74 +145,19 @@ export const Navbar: React.FC = () => {
             </ul>
 
             <div className="pt-2">
-              <button
-                type="button"
-                onClick={() => {
-                  setMobileMenuOpen(false);
-                  setResumeNoticeOpen(true);
-                }}
+              <a
+                href="/resume/Masoud_Zeynali_Professional_CV_EN.pdf"
+                download="Masoud_Zeynali_Professional_CV_EN.pdf"
+                onClick={() => setMobileMenuOpen(false)}
                 className="w-full flex items-center justify-center gap-2 py-2.5 px-4 text-xs font-mono rounded border border-accent-cyan/40 bg-accent-cyan/10 text-accent-cyan hover:bg-accent-cyan/20 transition-all"
               >
                 <FileText className="w-4 h-4" />
-                <span>View Resume Credentials</span>
-              </button>
+                <span>Download Resume</span>
+              </a>
             </div>
           </div>
         )}
       </header>
-
-      {/* Non-destructive Resume Modal Notice */}
-      {resumeNoticeOpen && (
-        <div
-          role="dialog"
-          aria-modal="true"
-          aria-labelledby="resume-notice-title"
-          className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/70 backdrop-blur-sm"
-        >
-          <div className="relative w-full max-w-md bg-canvas-900 border border-border-panel rounded-lg p-6 shadow-2xl telemetry-corners">
-            <div className="flex items-start justify-between gap-3 mb-4">
-              <div className="flex items-center gap-2 text-accent-cyan font-mono text-sm font-semibold">
-                <Info className="w-4 h-4" />
-                <span id="resume-notice-title">CREDENTIALS & RESUME</span>
-              </div>
-              <button
-                type="button"
-                onClick={() => setResumeNoticeOpen(false)}
-                className="text-fg-muted hover:text-fg-primary p-1 rounded focus-visible:ring-2 focus-visible:ring-accent-cyan"
-                aria-label="Close dialog"
-              >
-                <X className="w-4 h-4" />
-              </button>
-            </div>
-
-            <p className="text-xs sm:text-sm text-fg-secondary leading-relaxed font-sans mb-5">
-              The verified curriculum vitae, certifications, and technical credentials for{" "}
-              <strong className="text-fg-primary">Masoud Zeynali</strong> are scheduled for release during Phase 6. For immediate professional inquiries, please reach out directly via the contact channel.
-            </p>
-
-            <div className="p-3 bg-canvas-950 border border-border-subtle rounded text-xs font-mono text-fg-muted mb-5">
-              <div className="flex justify-between">
-                <span>SECTION:</span>
-                <span className="text-accent-cyan">VERIFIED CREDENTIALS</span>
-              </div>
-              <div className="flex justify-between mt-1">
-                <span>ROADMAP STAGE:</span>
-                <span>PHASE 6 [CREDENTIALS & RESUME]</span>
-              </div>
-            </div>
-
-            <div className="flex justify-end gap-3">
-              <button
-                type="button"
-                onClick={() => setResumeNoticeOpen(false)}
-                className="px-4 py-2 text-xs font-mono rounded bg-canvas-800 hover:bg-canvas-700 text-fg-primary border border-border-subtle transition-colors focus-visible:ring-2 focus-visible:ring-accent-cyan"
-              >
-                Close
-              </button>
-            </div>
-          </div>
-        </div>
-      )}
     </>
   );
 };

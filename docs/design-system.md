@@ -160,3 +160,30 @@ The visual and interactive foundation for **Masoud Zeynali**'s personal technolo
 - Desktop (1440px): 2-region side-by-side layout with horizontal 3-stage reasoning cards.
 - Tablet (768px): Vertically stacked scenario selector and workflow blocks with preserved paragraph widths and clear touch targets.
 - Mobile (375px): Disciplined single-column vertical hierarchy ensuring zero horizontal scroll, legible typography, and accessible touch interactions.
+
+---
+
+## 13. Phase 6 Component Patterns
+
+### Professional Record Dossier
+- Section anchor (`#contact`) paired with disciplined header (`06 / CREDENTIALS & CONTACT`, `VERIFIED PROFESSIONAL RECORD`).
+- Integrated dossier container (`bg-canvas-900/40 border border-border-subtle p-6 sm:p-8 lg:p-10 telemetry-corners`) housing four distinct verified information layers without resorting to HR template or dashboard aesthetics.
+
+### Resume Access Treatment
+- High-visibility dossier card (`bg-canvas-950/80 border border-border-subtle p-5 sm:p-6`) presenting the verified English CV download.
+- Native same-origin download anchor with format indicator (`PDF / ENGLISH`), clear supporting narrative, and restrained cyan glow action.
+- Zero client-side overhead: no JavaScript fetch, no preloading, no iframes.
+
+### Credential & Education Records
+- Microsoft Certifications: Structured list format with verified credential names, qualification family (`Microsoft Certified Solutions Expert`), issuing organization (`Microsoft`), and factual completion years (`2012`, `2016`). Direct external link to official Microsoft Learn transcript (`target="_blank" rel="noopener noreferrer"`). No synthetic validity or expiration metaphors.
+- Education: Semantic list featuring `Master of Business Administration (MBA)` at `University of Tehran` (`IN PROGRESS`) and `Associate Degree in Information Technology (IT)` at `Karaj University`. Avoids fabricated graduation dates or completion claims.
+
+### Direct Contact
+- Professional identity header and semantic `<address>` container providing verified channels: direct `mailto:zeynali@outlook.com`, location (`Tehran, Iran`), and GitHub profile (`https://github.com/the-masoud`).
+- Primary actions: `EMAIL MASOUD` and `VIEW GITHUB`.
+- Strict privacy: No unverified personal phone number exposure in HTML or schema; no contact form or back-end API dependencies.
+
+### Responsive Professional-Record Behavior
+- Desktop (1440px): Balanced 2-column dossier pairing Primary Access (Resume + Contact) with Verified Records (Credentials + Education).
+- Tablet (768px): Stacked structural layout with preserved line lengths and touch-friendly actions.
+- Mobile (375px): Disciplined single-column vertical sequence: Section identity → Resume Access → Microsoft Credentials → Education → Direct Contact, with zero horizontal overflow.

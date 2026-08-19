@@ -88,7 +88,7 @@ export const CareerStage: React.FC<CareerStageProps> = ({
                 ) : (
                   <ShieldCheck className="w-3.5 h-3.5 text-accent-cyan" />
                 )}
-                <span className="text-fg-muted">VERIFIED SCALE:</span>
+                <span className="text-fg-secondary">VERIFIED SCALE:</span>
                 <span className="text-accent-cyan font-semibold">
                   {stage.scaleHighlight}
                 </span>

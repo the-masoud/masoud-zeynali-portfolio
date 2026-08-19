@@ -72,10 +72,11 @@ export const ProfessionalStory: React.FC = () => {
                 responsibility, leading infrastructure development planning, defining the
                 organization’s technology roadmap, supervising critical technology projects, and
                 guiding more than 15 technical staff and specialists across network, security, help
-                desk, and infrastructure functions. Today, nearly two decades of IT and
-                infrastructure experience is complemented by a modern focus on automation, Linux
-                systems engineering, AI-assisted technical workflows, and Model Context Protocol
-                (MCP).
+                desk, and infrastructure functions. Today, nearly two decades of enterprise IT,
+                infrastructure governance, and network security leadership serve as the foundation
+                for his current engineering direction as a Senior AI Engineer—focused on AI agents,
+                Model Context Protocol (MCP), infrastructure automation, and secure AI-assisted
+                operational workflows.
               </p>
             </div>
           </div>

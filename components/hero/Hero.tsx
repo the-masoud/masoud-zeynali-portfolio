@@ -28,8 +28,8 @@ export const Hero: React.FC = () => {
           </span>
           <span className="hidden sm:inline-block text-border-panel">|</span>
           <span className="hidden md:flex items-center gap-1.5 text-xs font-mono text-fg-secondary">
-            <Cpu className="w-3.5 h-3.5 text-accent-blue" />
-            <span>AI & MCP AUTOMATION</span>
+            <Cpu className="w-3.5 h-3.5 text-accent-cyan" />
+            <span>AI AGENTS &amp; MCP</span>
           </span>
         </div>
 
@@ -46,19 +46,25 @@ export const Hero: React.FC = () => {
           </h1>
 
           {/* Primary Professional Positioning */}
-          <div className="flex flex-wrap items-center gap-2 sm:gap-3 text-lg sm:text-2xl md:text-3xl font-mono font-medium text-accent-cyan mb-6">
+          <div className="flex flex-wrap items-center gap-2 sm:gap-3 text-lg sm:text-2xl md:text-3xl font-mono font-medium text-accent-cyan mb-3">
             <span>IT Infrastructure</span>
             <span className="text-fg-subtle font-sans">·</span>
             <span>Security</span>
             <span className="text-fg-subtle font-sans">·</span>
-            <span className="text-fg-primary">AI Automation</span>
+            <span className="text-fg-primary">AI Engineering</span>
+          </div>
+
+          {/* User-Authorized Senior AI Engineer Specialization */}
+          <div className="flex items-center gap-2 text-sm sm:text-base md:text-lg font-mono text-slate-200 font-semibold mb-6">
+            <span className="text-accent-cyan">::</span>
+            <span className="tracking-wide">Senior AI Engineer — Agents, MCP &amp; Infrastructure</span>
           </div>
 
           {/* Mature Professional Supporting Statement */}
           <p className="text-base sm:text-lg md:text-xl text-slate-300/90 leading-relaxed font-sans max-w-3xl font-normal">
             Nearly two decades of enterprise IT and infrastructure engineering experience,
-            combined with a modern focus on automation, AI-assisted operations, and
-            Model Context Protocol (MCP) infrastructure tooling.
+            combined with senior AI engineering focused on AI agents, Model Context Protocol (MCP),
+            infrastructure automation, and secure AI-assisted operations.
           </p>
         </div>
 

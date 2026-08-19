@@ -31,9 +31,9 @@ export const ExpertiseLandscape: React.FC = () => {
               TECHNOLOGY LANDSCAPE
             </h2>
             <p className="text-sm sm:text-base text-fg-secondary font-sans leading-relaxed max-w-3xl">
-              A technical landscape spanning enterprise systems, network security,
-              messaging, web and cloud services, endpoint operations, and modern
-              AI-assisted automation.
+              A structured engineering matrix spanning enterprise platforms, network security,
+              messaging, edge and cloud infrastructure, endpoint governance, and senior AI
+              engineering across agents and Model Context Protocol (MCP).
             </p>
           </div>
         </div>

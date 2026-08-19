@@ -1,4 +1,5 @@
 import type { Metadata, Viewport } from "next";
+import { StructuredData } from "@/components/seo/StructuredData";
 import "./globals.css";
 
 export const viewport: Viewport = {
@@ -9,39 +10,24 @@ export const viewport: Viewport = {
 };
 
 export const metadata: Metadata = {
-  title: "Masoud Zeynali — IT Infrastructure · Security · AI Automation",
+  title: "Masoud Zeynali — Senior AI Engineer, Infrastructure & Security",
   description:
-    "Personal technology platform of Masoud Zeynali. Nearly two decades of enterprise IT infrastructure, systems administration, and network security leadership, combined with modern AI automation and Model Context Protocol (MCP) workflows.",
-  keywords: [
-    "Masoud Zeynali",
-    "IT Infrastructure",
-    "Network Security",
-    "Systems Engineering",
-    "AI Automation",
-    "Model Context Protocol",
-    "MCP",
-    "Enterprise Systems",
-    "Cloudflare",
-    "Docker",
-    "Linux Administration",
-    "Windows Server",
-  ],
+    "Personal technology portfolio of Masoud Zeynali, a Senior AI Engineer focused on AI Agents, Model Context Protocol (MCP), infrastructure automation, network security, and AI-assisted infrastructure operations.",
   authors: [{ name: "Masoud Zeynali" }],
   creator: "Masoud Zeynali",
   openGraph: {
     type: "website",
     locale: "en_US",
-    url: "https://masoudzeynali.com",
-    title: "Masoud Zeynali — IT Infrastructure · Security · AI Automation",
+    title: "Masoud Zeynali — Senior AI Engineer, Infrastructure & Security",
     description:
-      "Enterprise IT infrastructure, security-conscious systems engineering, and modern AI automation workflows.",
-    siteName: "Masoud Zeynali — Technology Platform",
+      "Personal technology portfolio of Masoud Zeynali, a Senior AI Engineer focused on AI Agents, Model Context Protocol (MCP), infrastructure automation, network security, and AI-assisted infrastructure operations.",
+    siteName: "Masoud Zeynali",
   },
   twitter: {
-    card: "summary_large_image",
-    title: "Masoud Zeynali — IT Infrastructure · Security · AI Automation",
+    card: "summary",
+    title: "Masoud Zeynali — Senior AI Engineer, Infrastructure & Security",
     description:
-      "Enterprise IT infrastructure, security-conscious systems engineering, and modern AI automation workflows.",
+      "Personal technology portfolio of Masoud Zeynali, a Senior AI Engineer focused on AI Agents, Model Context Protocol (MCP), infrastructure automation, network security, and AI-assisted infrastructure operations.",
   },
   robots: {
     index: true,
@@ -56,6 +42,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className="dark scroll-smooth">
+      <head>
+        <StructuredData />
+      </head>
       <body className="bg-canvas-950 text-fg-primary antialiased selection:bg-accent-cyan/30 selection:text-white min-h-screen flex flex-col justify-between relative bg-grid-pattern bg-radial-glow">
         <a
           href="#main-content"

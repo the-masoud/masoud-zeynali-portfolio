@@ -43,7 +43,7 @@ This roadmap outlines the multi-phase engineering plan for building the personal
 ---
 
 ### Phase 5 — Interactive Experience / Operational Reasoning Lab
-- **Status**: `IMPLEMENTED / PENDING EXTERNAL ACCEPTANCE`
+- **Status**: `COMPLETE`
 - **Scope**:
   - Browser-only, simulated, deterministic Operational Reasoning Lab workbench.
   - Three predefined scenarios (Discover Inventory, Review Access Boundary, Reconcile Inventory) illustrating the structured operational workflow: `REQUEST` → `OPERATIONAL BOUNDARY` → `EXPECTED SYSTEM BEHAVIOR`.
@@ -51,19 +51,23 @@ This roadmap outlines the multi-phase engineering plan for building the personal
 
 ---
 
-### Phase 6 — Resume, Credentials & Contact
-- **Status**: `PLANNED`
+### Phase 6 — Resume, Verified Credentials & Direct Contact
+- **Status**: `IMPLEMENTED / PENDING EXTERNAL ACCEPTANCE`
 - **Scope**:
-  - Official downloadable Curriculum Vitae dossier and verified certification credentials.
-  - Direct communication portal and enterprise consultation booking mechanism.
+  - Official verified downloadable Curriculum Vitae dossier (English PDF).
+  - Verified Microsoft transcript integration and two MCSE certifications (Server Infrastructure 2012, Cloud Platform & Infrastructure 2016).
+  - Verified education records (MBA in progress at University of Tehran, Associate Degree in IT at Karaj University).
+  - Direct professional contact channels (Email, GitHub, Location) with privacy safeguards and native navigation targets.
 
 ---
 
-### Phase 7 — Performance, Accessibility & SEO
-- **Status**: `PLANNED`
+### Phase 7 — Advanced Lighthouse Optimization & Schema.org JSON-LD
+- **Status**: `IMPLEMENTED / PENDING EXTERNAL ACCEPTANCE`
 - **Scope**:
-  - Lighthouse 100/100 performance audit, bundle analysis, static image/asset compression.
-  - Comprehensive OpenGraph / Schema.org structured data (JSON-LD) and sitemap generation.
+  - Factual Next.js metadata and OpenGraph/Twitter summary configuration.
+  - Schema.org JSON-LD structured data graph featuring `Person` (with verified credentials) and `SoftwareSourceCode` (`InfraForge`).
+  - Accessibility, semantic HTML, and pre-deployment performance hardening.
+  - Strict server/client component boundaries without external tracking or unnecessary client overhead.
 
 ---
 
@@ -71,7 +75,7 @@ This roadmap outlines the multi-phase engineering plan for building the personal
 - **Status**: `PLANNED`
 - **Scope**:
   - Cloudflare Pages / Vercel production deployment pipeline.
-  - Custom domain DNS configuration, SSL/TLS enforcement, and edge caching rules.
+  - Custom domain DNS configuration, canonical URL finalization, SSL/TLS enforcement, and edge caching rules.
 
 ---
 

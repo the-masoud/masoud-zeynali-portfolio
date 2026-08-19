@@ -22,7 +22,7 @@ export const reasoningLabMetadata: ReasoningLabMetadata = {
   technicalLabel: "BROWSER-ONLY SIMULATION",
   sectionHeading: "OPERATIONAL REASONING LAB",
   supportingStatement:
-    "Explore how infrastructure requests can be translated into explicit operational boundaries and predictable system behavior.",
+    "Explore how agentic requests translate into explicit operational boundaries, predictable system behavior, and safe AI-assisted infrastructure workflows.",
   simulationDisclosureLabel: "SIMULATED INTERACTIVE DEMO",
   simulationDisclosureCopy:
     "Browser-only demonstration. No live infrastructure connection, remote execution, application-level data request, or real server data is involved.",

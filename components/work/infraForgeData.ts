@@ -24,10 +24,10 @@ export const infraForgeMetadata = {
   sectionCategory: "CASE STUDY",
   sectionHeading: "ENGINEERING IN PRACTICE",
   sectionSupporting:
-    "Selected engineering work where infrastructure operations, security, automation, and modern AI integration converge.",
+    "Selected engineering work illustrating AI engineering at the infrastructure boundary—where systems operations, security controls, and agentic workflows converge.",
   projectMarker: "PROJECT 01 / FEATURED",
   projectName: "INFRAFORGE",
-  descriptor: "AI-Assisted Infrastructure Operations via MCP",
+  descriptor: "Agentic Infrastructure Operations via Model Context Protocol (MCP)",
   classification: "PERSONAL ENGINEERING PROJECT",
   developmentState: "ACTIVE DEVELOPMENT",
   repositoryAction: "VIEW REPOSITORY",
