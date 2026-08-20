@@ -47,11 +47,11 @@ export const Hero: React.FC = () => {
 
           {/* Primary Professional Positioning */}
           <div className="flex flex-wrap items-center gap-2 sm:gap-3 text-lg sm:text-2xl md:text-3xl font-mono font-medium text-accent-cyan mb-3">
+            <span>AI Engineering</span>
+            <span className="text-fg-subtle font-sans">·</span>
             <span>IT Infrastructure</span>
             <span className="text-fg-subtle font-sans">·</span>
             <span>Security</span>
-            <span className="text-fg-subtle font-sans">·</span>
-            <span className="text-fg-primary">AI Engineering</span>
           </div>
 
           {/* User-Authorized Senior AI Engineer Specialization */}
