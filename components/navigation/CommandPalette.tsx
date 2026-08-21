@@ -320,7 +320,7 @@ export const CommandPalette: React.FC<CommandPaletteProps> = ({
         <div
           role="listbox"
           aria-label="Command suggestions"
-          className="flex-1 overflow-y-auto p-2 space-y-1 divide-y divide-transparent min-h-[140px] max-h-[360px]"
+          className="flex-1 overflow-y-auto p-2 space-y-1 divide-y divide-transparent min-h-[140px] max-h-[360px] agent-console-scroll"
         >
           {displayItems.length === 0 ? (
             <div className="flex flex-col items-center justify-center py-10 px-4 text-center">
