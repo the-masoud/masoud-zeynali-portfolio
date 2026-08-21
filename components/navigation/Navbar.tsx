@@ -4,6 +4,7 @@ import React, { useState, useEffect } from "react";
 import Link from "next/link";
 import { Menu, X, Terminal, FileText, Globe } from "lucide-react";
 import { NavbarData } from "@/lib/i18n/types";
+import { CommandPalette } from "./CommandPalette";
 
 interface NavbarProps {
   data: NavbarData;
@@ -11,6 +12,7 @@ interface NavbarProps {
 
 export const Navbar: React.FC<NavbarProps> = ({ data }) => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [paletteOpen, setPaletteOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
 
   const {
@@ -21,6 +23,7 @@ export const Navbar: React.FC<NavbarProps> = ({ data }) => {
     mobileMenuCloseAriaLabel,
     currentLocale,
     langSwitch,
+    commandPalette,
   } = data;
 
   useEffect(() => {
@@ -40,6 +43,19 @@ export const Navbar: React.FC<NavbarProps> = ({ data }) => {
     };
     window.addEventListener("keydown", handleKeyDown);
     return () => window.removeEventListener("keydown", handleKeyDown);
+  }, []);
+
+  // Global Ctrl+K / Meta+K keyboard listener
+  useEffect(() => {
+    const handleGlobalKeyDown = (e: KeyboardEvent) => {
+      if (e.repeat || e.isComposing) return;
+      if ((e.ctrlKey || e.metaKey) && (e.key === "k" || e.key === "K")) {
+        e.preventDefault();
+        setPaletteOpen((prev) => !prev);
+      }
+    };
+    window.addEventListener("keydown", handleGlobalKeyDown);
+    return () => window.removeEventListener("keydown", handleGlobalKeyDown);
   }, []);
 
   const homeHref = currentLocale === "fa" ? "/fa" : "/";
@@ -106,8 +122,22 @@ export const Navbar: React.FC<NavbarProps> = ({ data }) => {
               </ul>
             </div>
 
-            {/* Desktop Secondary Controls (Language Switch + Resume) */}
+            {/* Desktop Secondary Controls (Agent Console + Language Switch + Resume) */}
             <div className="hidden md:flex items-center gap-2.5 shrink-0">
+              {/* Agent Console Trigger (Desktop) */}
+              <button
+                type="button"
+                onClick={() => setPaletteOpen(true)}
+                className="h-8 inline-flex items-center gap-2 text-xs px-2.5 rounded border border-border-panel bg-canvas-900/90 text-fg-secondary hover:text-accent-cyan hover:border-accent-cyan/40 hover:bg-canvas-850 transition-all focus-visible:ring-2 focus-visible:ring-accent-cyan font-mono select-none"
+                aria-label={commandPalette.triggerAriaLabel}
+              >
+                <span className="text-accent-cyan font-bold">&gt;_</span>
+                <span className="tracking-wider">{commandPalette.triggerLabel}</span>
+                <kbd className="ms-1 text-[10px] px-1.5 py-0.2 rounded bg-white/5 border border-white/10 text-fg-muted font-mono">
+                  Ctrl K
+                </kbd>
+              </button>
+
               {/* Language Switcher (Desktop) */}
               <div
                 role="group"
@@ -177,8 +207,19 @@ export const Navbar: React.FC<NavbarProps> = ({ data }) => {
               </a>
             </div>
 
-            {/* Mobile Controls: Language Switch + Resume + Menu Button */}
-            <div className="flex md:hidden items-center gap-2 shrink-0">
+            {/* Mobile Controls: Agent Console + Language Switch + Resume + Menu Button */}
+            <div className="flex md:hidden items-center gap-1.5 shrink-0">
+              {/* Agent Console Trigger (Mobile) */}
+              <button
+                type="button"
+                onClick={() => setPaletteOpen(true)}
+                className="h-8 px-2 inline-flex items-center justify-center gap-1 text-xs rounded border border-border-subtle bg-canvas-900 text-fg-secondary hover:text-accent-cyan focus-visible:ring-2 focus-visible:ring-accent-cyan font-mono"
+                aria-label={commandPalette.triggerAriaLabel}
+              >
+                <span className="text-accent-cyan font-bold text-xs">&gt;_</span>
+                <span className="text-[10px] font-semibold tracking-wider">CMD</span>
+              </button>
+
               {/* Language Switcher (Mobile Header) */}
               <div
                 role="group"
@@ -300,6 +341,14 @@ export const Navbar: React.FC<NavbarProps> = ({ data }) => {
           </div>
         )}
       </header>
+
+      {/* Command Palette Modal */}
+      <CommandPalette
+        isOpen={paletteOpen}
+        onClose={() => setPaletteOpen(false)}
+        paletteData={commandPalette}
+        locale={currentLocale}
+      />
     </>
   );
 };

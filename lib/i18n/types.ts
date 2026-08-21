@@ -5,6 +5,30 @@ export interface NavLinkData {
   href: string;
 }
 
+export interface CommandItemPresentation {
+  label: string;
+  description?: string;
+  keywords: readonly string[];
+}
+
+export interface CommandPaletteI18n {
+  triggerLabel: string;
+  triggerAriaLabel: string;
+  title: string;
+  subtitle: string;
+  badge: string;
+  placeholder: string;
+  noResultsText: string;
+  quickAccessHeading: string;
+  actionsHeading: string;
+  footerLegend: {
+    navigate: string;
+    open: string;
+    close: string;
+  };
+  commands: Record<string, CommandItemPresentation>;
+}
+
 export interface NavbarData {
   navLinks: NavLinkData[];
   resumeLabel: string;
@@ -18,6 +42,7 @@ export interface NavbarData {
     enAriaLabel: string;
     faAriaLabel: string;
   };
+  commandPalette: CommandPaletteI18n;
 }
 
 export interface HeroMetricItem {

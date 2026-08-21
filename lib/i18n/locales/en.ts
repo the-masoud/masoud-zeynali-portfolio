@@ -34,6 +34,99 @@ export const enDictionary: PortfolioDictionary = {
       enAriaLabel: "English language",
       faAriaLabel: "Switch to Persian language",
     },
+    commandPalette: {
+      triggerLabel: "COMMAND",
+      triggerAriaLabel: "Open Agent Console",
+      title: "AGENT CONSOLE",
+      subtitle: "LOCAL COMMAND INDEX",
+      badge: "NO EXTERNAL REQUESTS",
+      placeholder: "Search portfolio or run a command...",
+      noResultsText: "No matching command",
+      quickAccessHeading: "QUICK ACCESS",
+      actionsHeading: "ACTIONS",
+      footerLegend: {
+        navigate: "Navigate",
+        open: "Open",
+        close: "Close",
+      },
+      commands: {
+        about: {
+          label: "About",
+          description: "Professional background and core engineering principles",
+          keywords: ["about", "profile", "bio", "principles", "background", "story"],
+        },
+        experience: {
+          label: "Experience",
+          description: "Two decades of IT leadership and infrastructure career stages",
+          keywords: ["experience", "career", "history", "timeline", "stages", "tenure", "leadership"],
+        },
+        expertise: {
+          label: "Technical Expertise",
+          description: "Architecture domains, systems engineering and capability matrix",
+          keywords: ["expertise", "skills", "technologies", "architecture", "systems", "capabilities", "matrix"],
+        },
+        "ai-engineering": {
+          label: "AI Engineering",
+          description: "AI agents, MCP integration, LLM workflows and context engineering",
+          keywords: ["AI", "AI Engineering", "AI Agents", "Agentic Workflows", "LLM", "MCP", "Model Context Protocol", "Context Engineering"],
+        },
+        infrastructure: {
+          label: "Infrastructure",
+          description: "Enterprise servers, virtualization, Active Directory and hybrid systems",
+          keywords: ["Infrastructure", "IT Infrastructure", "Systems", "Windows Server", "Linux", "Active Directory", "Docker"],
+        },
+        security: {
+          label: "Security",
+          description: "Network security, firewall governance, SSH and secure tunneling",
+          keywords: ["Security", "Network Security", "Sophos", "Firewall", "SSH", "VLESS", "V2Ray"],
+        },
+        infraforge: {
+          label: "InfraForge",
+          description: "Go-based MCP server for AI-assisted infrastructure operations",
+          keywords: ["InfraForge", "MCP", "server", "automation", "infrastructure", "go", "tools", "project"],
+        },
+        "reasoning-lab": {
+          label: "Operational Reasoning Lab",
+          description: "Interactive simulation of deterministic AI boundary verification",
+          keywords: ["lab", "reasoning", "simulation", "operational", "scenarios", "safety", "verification"],
+        },
+        resume: {
+          label: "Download Resume",
+          description: "Download verified professional CV in PDF format",
+          keywords: ["resume", "cv", "pdf", "download", "curriculum vitae"],
+        },
+        contact: {
+          label: "Contact",
+          description: "Direct contact channels and official professional credentials",
+          keywords: ["contact", "email", "credentials", "touch", "location"],
+        },
+        github: {
+          label: "GitHub",
+          description: "Open public GitHub repositories and open-source contributions",
+          keywords: ["github", "code", "repositories", "open source", "the-masoud"],
+        },
+        "microsoft-transcript": {
+          label: "Microsoft Transcript",
+          description: "Official Microsoft Learn verified certification transcript",
+          keywords: ["microsoft", "transcript", "certifications", "mcse", "learn", "credentials"],
+        },
+        email: {
+          label: "Email",
+          description: "Compose an email directly to zeynali@outlook.com",
+          keywords: ["email", "mail", "send", "outlook", "message"],
+        },
+        "language-en": {
+          label: "English",
+          description: "Switch interface to English language",
+          keywords: ["english", "en", "language", "locale"],
+        },
+        "language-fa": {
+          label: "فارسی",
+          description: "تغییر زبان به فارسی",
+          keywords: ["persian", "farsi", "fa", "language", "locale", "فارسی"],
+        },
+      },
+    },
   },
   hero: {
     badgeText: "ENTERPRISE ARCHITECTURE",
