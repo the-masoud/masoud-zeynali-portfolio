@@ -8,21 +8,24 @@ import { InfraForgeCaseStudy } from "@/components/work/InfraForgeCaseStudy";
 import { OperationalReasoningLab } from "@/components/lab/OperationalReasoningLab";
 import { ProfessionalRecord } from "@/components/contact/ProfessionalRecord";
 import { Footer } from "@/components/layout/Footer";
+import { faDictionary } from "@/lib/i18n/locales/fa";
 
-export default function HomePage() {
+export default function PersianHomePage() {
+  const dict = faDictionary;
+
   return (
     <div className="min-h-screen flex flex-col justify-between selection:bg-accent-cyan/20">
-      <Navbar />
+      <Navbar data={dict.navbar} />
       <main id="main-content" className="flex-grow">
-        <Hero />
-        <ProfessionalStory />
-        <CareerJourney />
-        <ExpertiseLandscape />
-        <InfraForgeCaseStudy />
-        <OperationalReasoningLab />
-        <ProfessionalRecord />
+        <Hero data={dict.hero} locale="fa" />
+        <ProfessionalStory data={dict.story} locale="fa" />
+        <CareerJourney data={dict.career} locale="fa" />
+        <ExpertiseLandscape data={dict.expertise} locale="fa" />
+        <InfraForgeCaseStudy data={dict.infraForge} locale="fa" />
+        <OperationalReasoningLab data={dict.lab} locale="fa" />
+        <ProfessionalRecord data={dict.professionalRecord} locale="fa" />
       </main>
-      <Footer />
+      <Footer data={dict.footer} />
     </div>
   );
 }
