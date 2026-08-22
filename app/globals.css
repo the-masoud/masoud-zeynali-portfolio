@@ -172,6 +172,93 @@ body {
   background: rgba(255, 255, 255, 0.28);
 }
 
+/* Topology Motion — Scroll-Reactive Infrastructure (Phase M2) */
+.topology-motion {
+  --topology-progress: 0;
+  --topology-pointer-x: 0;
+  --topology-pointer-y: 0;
+}
+
+.topology-motion > svg {
+  transition: opacity 200ms ease-out;
+}
+
+/* SVG base opacity — locale-aware with scroll-driven enhancement */
+.topology-motion[data-locale="en"] > svg {
+  opacity: calc(0.4 + var(--topology-progress) * 0.08);
+}
+
+.topology-motion[data-locale="fa"] > svg {
+  opacity: calc(0.25 + var(--topology-progress) * 0.06);
+}
+
+@media (min-width: 640px) {
+  .topology-motion[data-locale="en"] > svg {
+    opacity: calc(0.6 + var(--topology-progress) * 0.08);
+  }
+  .topology-motion[data-locale="fa"] > svg {
+    opacity: calc(0.35 + var(--topology-progress) * 0.06);
+  }
+}
+
+/* Signal flows — scroll-reactive opacity */
+.topology-motion .topology-signals {
+  opacity: calc(0.6 + var(--topology-progress) * 0.15);
+  transition: opacity 200ms ease-out;
+}
+
+/* Ambient Pulse Keyframes */
+@keyframes topology-dash-1 {
+  to {
+    stroke-dashoffset: -192;
+  }
+}
+
+@keyframes topology-dash-2 {
+  to {
+    stroke-dashoffset: -128;
+  }
+}
+
+@keyframes topology-dash-3 {
+  to {
+    stroke-dashoffset: -226;
+  }
+}
+
+.topology-motion .topology-pulse-1 {
+  animation: topology-dash-1 6s linear infinite;
+}
+
+.topology-motion .topology-pulse-2 {
+  animation: topology-dash-2 4.5s linear infinite;
+}
+
+.topology-motion .topology-pulse-3 {
+  animation: topology-dash-3 7s linear infinite;
+}
+
+/* Pointer micro-response — subtle depth translation */
+.topology-pointer-layer {
+  transition: transform 300ms ease-out;
+  transform: translate(
+    calc(var(--topology-pointer-x, 0) * 3px),
+    calc(var(--topology-pointer-y, 0) * 2px)
+  );
+}
+
+/* Reduced motion: ensure topology pointer transform and pulses are disabled */
+@media (prefers-reduced-motion: reduce) {
+  .topology-pointer-layer {
+    transform: none !important;
+  }
+  .topology-motion .topology-pulse-1,
+  .topology-motion .topology-pulse-2,
+  .topology-motion .topology-pulse-3 {
+    animation: none !important;
+  }
+}
+
 /* Accessibility: Reduced Motion */
 @media (prefers-reduced-motion: reduce) {
   *,

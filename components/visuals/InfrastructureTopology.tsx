@@ -1,4 +1,6 @@
-import React from "react";
+"use client";
+
+import React, { useRef, useEffect } from "react";
 
 interface InfrastructureTopologyProps {
   locale?: "en" | "fa";
@@ -8,11 +10,144 @@ export const InfrastructureTopology: React.FC<InfrastructureTopologyProps> = ({
   locale = "en",
 }) => {
   const isPersian = locale === "fa";
+  const wrapperRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const wrapper = wrapperRef.current;
+    if (!wrapper) return;
+
+    const heroSection = wrapper.closest("section") as HTMLElement | null;
+    if (!heroSection) return;
+
+    /* ── Capability detection ── */
+    const motionQuery = window.matchMedia("(prefers-reduced-motion: reduce)");
+    const pointerQuery = window.matchMedia(
+      "(hover: hover) and (pointer: fine)"
+    );
+    let reducedMotion = motionQuery.matches;
+    let finePointer = pointerQuery.matches;
+
+    let scrollRafId: number | null = null;
+    let pointerRafId: number | null = null;
+
+    /* ── Layer B: Hero Scroll Reactivity ── */
+    const updateScrollProgress = () => {
+      scrollRafId = null;
+      if (reducedMotion) {
+        wrapper.style.removeProperty("--topology-progress");
+        return;
+      }
+      const rect = heroSection.getBoundingClientRect();
+      const progress = Math.max(0, Math.min(1, -rect.top / rect.height));
+      wrapper.style.setProperty("--topology-progress", progress.toFixed(4));
+    };
+
+    const onScroll = () => {
+      if (reducedMotion || scrollRafId !== null) return;
+      scrollRafId = requestAnimationFrame(updateScrollProgress);
+    };
+
+    const onResize = () => {
+      if (reducedMotion || scrollRafId !== null) return;
+      scrollRafId = requestAnimationFrame(updateScrollProgress);
+    };
+
+    window.addEventListener("scroll", onScroll, { passive: true });
+    window.addEventListener("resize", onResize, { passive: true });
+
+    if (!reducedMotion) {
+      updateScrollProgress();
+    }
+
+    /* ── Layer C: Fine-Pointer Micro-Response ── */
+    let ptrX = 0;
+    let ptrY = 0;
+
+    const updatePointerVars = () => {
+      pointerRafId = null;
+      if (reducedMotion) {
+        wrapper.style.removeProperty("--topology-pointer-x");
+        wrapper.style.removeProperty("--topology-pointer-y");
+        return;
+      }
+      wrapper.style.setProperty("--topology-pointer-x", ptrX.toFixed(4));
+      wrapper.style.setProperty("--topology-pointer-y", ptrY.toFixed(4));
+    };
+
+    const onPointerMove = (e: PointerEvent) => {
+      if (!finePointer || reducedMotion) return;
+      const rect = heroSection.getBoundingClientRect();
+      const cx = rect.left + rect.width / 2;
+      const cy = rect.top + rect.height / 2;
+      ptrX = Math.max(-1, Math.min(1, (e.clientX - cx) / (rect.width / 2)));
+      ptrY = Math.max(-1, Math.min(1, (e.clientY - cy) / (rect.height / 2)));
+      if (pointerRafId === null) {
+        pointerRafId = requestAnimationFrame(updatePointerVars);
+      }
+    };
+
+    const onPointerLeave = () => {
+      ptrX = 0;
+      ptrY = 0;
+      if (pointerRafId !== null) {
+        cancelAnimationFrame(pointerRafId);
+        pointerRafId = null;
+      }
+      wrapper.style.setProperty("--topology-pointer-x", "0");
+      wrapper.style.setProperty("--topology-pointer-y", "0");
+    };
+
+    heroSection.addEventListener("pointermove", onPointerMove, {
+      passive: true,
+    });
+    heroSection.addEventListener("pointerleave", onPointerLeave);
+
+    /* ── Media query change handlers ── */
+    const onMotionChange = (e: MediaQueryListEvent) => {
+      reducedMotion = e.matches;
+      if (reducedMotion) {
+        if (scrollRafId !== null) {
+          cancelAnimationFrame(scrollRafId);
+          scrollRafId = null;
+        }
+        if (pointerRafId !== null) {
+          cancelAnimationFrame(pointerRafId);
+          pointerRafId = null;
+        }
+        wrapper.style.removeProperty("--topology-progress");
+        wrapper.style.removeProperty("--topology-pointer-x");
+        wrapper.style.removeProperty("--topology-pointer-y");
+      } else {
+        updateScrollProgress();
+      }
+    };
+
+    const onPointerChange = (e: MediaQueryListEvent) => {
+      finePointer = e.matches;
+      if (!finePointer) onPointerLeave();
+    };
+
+    motionQuery.addEventListener("change", onMotionChange);
+    pointerQuery.addEventListener("change", onPointerChange);
+
+    return () => {
+      if (scrollRafId !== null) cancelAnimationFrame(scrollRafId);
+      if (pointerRafId !== null) cancelAnimationFrame(pointerRafId);
+      window.removeEventListener("scroll", onScroll);
+      window.removeEventListener("resize", onResize);
+      heroSection.removeEventListener("pointermove", onPointerMove);
+      heroSection.removeEventListener("pointerleave", onPointerLeave);
+      motionQuery.removeEventListener("change", onMotionChange);
+      pointerQuery.removeEventListener("change", onPointerChange);
+    };
+  }, [locale]);
 
   return (
     <div
+      ref={wrapperRef}
       aria-hidden="true"
-      className="absolute inset-0 pointer-events-none overflow-hidden select-none z-0"
+      data-locale={locale}
+      className="absolute inset-0 pointer-events-none overflow-hidden select-none z-0 topology-motion"
     >
       {/* Ambient Illumination */}
       <div className={`absolute top-1/4 ${isPersian ? "left-1/3" : "left-1/2"} -translate-x-1/2 -translate-y-1/2 w-[600px] h-[350px] bg-accent-cyan/[0.035] rounded-full blur-3xl`} />
@@ -20,7 +155,7 @@ export const InfrastructureTopology: React.FC<InfrastructureTopologyProps> = ({
 
       {/* SVG Topology Vectors & Conceptual Domain Nodes */}
       <svg
-        className={`w-full h-full ${isPersian ? "opacity-25 sm:opacity-35" : "opacity-40 sm:opacity-60"}`}
+        className="w-full h-full"
         xmlns="http://www.w3.org/2000/svg"
         viewBox="0 0 1200 800"
         preserveAspectRatio="xMidYMid slice"
@@ -64,7 +199,7 @@ export const InfrastructureTopology: React.FC<InfrastructureTopologyProps> = ({
           </filter>
         </defs>
 
-        <g mask="url(#topology-title-mask)">
+        <g mask="url(#topology-title-mask)" className="topology-pointer-layer">
           {/* Conceptual Infrastructure Interconnects */}
           <g stroke="url(#line-grad-1)" strokeWidth="1.2" fill="none">
             {/* Edge to Core Path */}
@@ -82,33 +217,27 @@ export const InfrastructureTopology: React.FC<InfrastructureTopologyProps> = ({
           </g>
 
           {/* Subtle Signal Flows */}
-          <g stroke="#38bdf8" strokeWidth="1.8" fill="none" className="opacity-60">
+          <g stroke="#38bdf8" strokeWidth="1.8" fill="none" className="topology-signals">
             <path
               d="M 150,200 L 340,105 L 620,180 L 880,240"
               strokeDasharray="12 180"
               strokeDashoffset="0"
-            >
-              <animate
-                attributeName="stroke-dashoffset"
-                from="0"
-                to="-192"
-                dur="6s"
-                repeatCount="indefinite"
-              />
-            </path>
+              className="topology-pulse-1"
+            />
             <path
               d="M 500,420 L 780,390 L 880,240"
               strokeDasharray="8 120"
               strokeDashoffset="0"
-            >
-              <animate
-                attributeName="stroke-dashoffset"
-                from="0"
-                to="-128"
-                dur="4.5s"
-                repeatCount="indefinite"
-              />
-            </path>
+              className="topology-pulse-2"
+            />
+            {/* Mesh backbone signal — M2 ambient layer */}
+            <path
+              d="M 150,200 L 280,480 L 500,420 L 680,560 L 980,500 L 1050,150"
+              strokeDasharray="6 220"
+              strokeDashoffset="0"
+              strokeWidth="1.2"
+              className="opacity-50 topology-pulse-3"
+            />
           </g>
 
           {/* Conceptual Infrastructure Domain Nodes */}
