@@ -660,6 +660,167 @@ export const enDictionary: PortfolioDictionary = {
       githubAriaLabel: "View GitHub profile (opens in new tab)",
     },
   },
+  evidence: {
+    ui: {
+      mainTitle: "EVIDENCE LAYER",
+      secondaryLabel: "SOURCE TRACE",
+      countLabel: "06 RECORDS",
+      recordSectionLabels: {
+        claim: "CLAIM",
+        evidenceBasis: "EVIDENCE BASIS",
+        disclosure: "DISCLOSURE",
+        sources: "SOURCES",
+      },
+      contextualTriggerLabel: "EVIDENCE",
+      closeAccessibleLabel: "Close evidence layer",
+      activeMarker: "SELECTED",
+    },
+    records: [
+      {
+        id: "career-tenure",
+        ordinal: "01 / 06",
+        classificationKey: "professional-record",
+        classificationDisplay: "PROFESSIONAL RECORD",
+        title: "Enterprise IT & Infrastructure",
+        claim:
+          "Nearly two decades of enterprise IT and infrastructure engineering experience.",
+        evidenceBasis:
+          "Professional timeline: Tehran Raymand Consulting Engineers, 2007–Present, across help desk and network support, network management, and IT department leadership.",
+        disclosure:
+          "This reflects the professional record presented in this portfolio and CV; no independent third-party verification is claimed.",
+        sources: [
+          {
+            label: "View Experience",
+            target: "#experience",
+            type: "internal",
+          },
+          {
+            label: "Download CV",
+            target: "/resume/Masoud_Zeynali_Professional_CV_EN.pdf",
+            type: "download",
+          },
+        ],
+      },
+      {
+        id: "team-leadership",
+        ordinal: "02 / 06",
+        classificationKey: "professional-record",
+        classificationDisplay: "PROFESSIONAL RECORD",
+        title: "Technical Team Leadership",
+        claim: "15+ technical staff and specialists supervised.",
+        evidenceBasis:
+          "Leadership scope includes network, security, help desk, and infrastructure staff and specialists within the IT department.",
+        disclosure:
+          "This reflects the professional record presented in this portfolio and CV; no independent third-party verification is claimed.",
+        sources: [
+          {
+            label: "View Experience",
+            target: "#experience",
+            type: "internal",
+          },
+          {
+            label: "Download CV",
+            target: "/resume/Masoud_Zeynali_Professional_CV_EN.pdf",
+            type: "download",
+          },
+        ],
+      },
+      {
+        id: "managed-endpoints",
+        ordinal: "03 / 06",
+        classificationKey: "professional-record",
+        classificationDisplay: "PROFESSIONAL RECORD",
+        title: "Windows Endpoint Operations",
+        claim: "300+ managed Windows endpoints.",
+        evidenceBasis:
+          "Endpoint administration experience includes centralized Windows endpoint management using Endpoint Central.",
+        disclosure:
+          "This reflects the professional record presented in this portfolio and CV; no independent third-party verification is claimed.",
+        sources: [
+          {
+            label: "View Experience",
+            target: "#experience",
+            type: "internal",
+          },
+          {
+            label: "Download CV",
+            target: "/resume/Masoud_Zeynali_Professional_CV_EN.pdf",
+            type: "download",
+          },
+        ],
+      },
+      {
+        id: "ai-agents-mcp",
+        ordinal: "04 / 06",
+        classificationKey: "project-evidence",
+        classificationDisplay: "PROJECT EVIDENCE",
+        title: "AI Engineering · Agents · MCP",
+        claim:
+          "Engineering work focused on AI agents, Model Context Protocol (MCP), infrastructure automation, and operational reasoning.",
+        evidenceBasis:
+          "InfraForge demonstrates MCP-enabled infrastructure tooling and AI-assisted operational workflows.",
+        disclosure:
+          "Project evidence demonstrates engineering work; by itself, it does not independently establish employment duration or seniority.",
+        sources: [
+          {
+            label: "View InfraForge Case Study",
+            target: "#work",
+            type: "internal",
+          },
+          {
+            label: "Open GitHub Repository",
+            target: "https://github.com/the-masoud/InfraForge",
+            type: "external",
+          },
+        ],
+      },
+      {
+        id: "infraforge",
+        ordinal: "05 / 06",
+        classificationKey: "public-project-source",
+        classificationDisplay: "PUBLIC PROJECT SOURCE",
+        title: "InfraForge",
+        claim: "InfraForge — MCP-enabled infrastructure operations tooling.",
+        evidenceBasis:
+          "The public GitHub repository and portfolio case study document the project's implementation and architecture.",
+        disclosure:
+          "Repository contents are public project evidence; production usage or external adoption is not claimed unless explicitly documented.",
+        sources: [
+          {
+            label: "View Case Study",
+            target: "#work",
+            type: "internal",
+          },
+          {
+            label: "Open GitHub Repository",
+            target: "https://github.com/the-masoud/InfraForge",
+            type: "external",
+          },
+        ],
+      },
+      {
+        id: "microsoft-credentials",
+        ordinal: "06 / 06",
+        classificationKey: "official-transcript",
+        classificationDisplay: "OFFICIAL TRANSCRIPT",
+        title: "Microsoft Credentials",
+        claim:
+          "MCSE Server Infrastructure — 2012 · MCSE Cloud Platform and Infrastructure — 2016",
+        evidenceBasis:
+          "The Microsoft Learn transcript is provided as the official credential source.",
+        disclosure:
+          "Credential details should be interpreted exactly as shown in the linked Microsoft transcript.",
+        sources: [
+          {
+            label: "Open Microsoft Transcript",
+            target:
+              "https://learn.microsoft.com/en-us/users/masoudzeynali-0702/transcript/d5exjsjlkjywp48?source=docs",
+            type: "external",
+          },
+        ],
+      },
+    ],
+  },
   footer: {
     brandName: "MASOUD ZEYNALI",
     brandTag: "SYSTEMS ENGINEERING",

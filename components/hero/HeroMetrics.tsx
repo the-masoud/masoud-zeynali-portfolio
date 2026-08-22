@@ -2,6 +2,8 @@ import React from "react";
 import { Server, Users, ShieldCheck, Activity } from "lucide-react";
 import { HeroMetricItem, Locale } from "@/lib/i18n/types";
 import { SHARED_FACTS } from "@/lib/i18n/constants";
+import { EvidenceTrigger } from "@/components/evidence/EvidenceTrigger";
+import { EvidenceId } from "@/lib/evidence/types";
 
 interface HeroMetricsProps {
   header: string;
@@ -20,6 +22,12 @@ const rawNumericValues: Record<string, string> = {
   exp: SHARED_FACTS.metrics.itExperienceYears,
   team: SHARED_FACTS.metrics.teamSupervisedCount,
   endpoints: SHARED_FACTS.metrics.endpointsCount,
+};
+
+const evidenceIdMap: Record<string, EvidenceId> = {
+  exp: "career-tenure",
+  team: "team-leadership",
+  endpoints: "managed-endpoints",
 };
 
 export const HeroMetrics: React.FC<HeroMetricsProps> = ({
@@ -58,24 +66,39 @@ export const HeroMetrics: React.FC<HeroMetricsProps> = ({
         {metrics.map((metric) => {
           const Icon = iconMap[metric.id] || Server;
           const rawNum = rawNumericValues[metric.id];
+          const evidenceId = evidenceIdMap[metric.id];
           const hasSuffix = metric.value.includes(" ");
           const suffix = hasSuffix ? metric.value.split(" ").slice(1).join(" ") : "";
+
+          const triggerAriaLabel = isPersian
+            ? `مشاهده شواهد برای ${metric.label}`
+            : `View evidence for ${metric.label}`;
 
           return (
             <div
               key={metric.id}
               className="relative p-5 rounded bg-canvas-900/80 border border-border-panel hover:border-accent-cyan/40 transition-all duration-200 group telemetry-corners text-start flex flex-col justify-between"
             >
-              {/* Header coordinate tag (genuinely technical: monospace LTR, softened telemetry) */}
-              <div className="flex items-center justify-between mb-3">
+              {/* Header coordinate tag + Trigger + Icon */}
+              <div className="flex items-center justify-between gap-2 mb-3">
                 <span
                   dir="ltr"
                   className="font-mono text-[9px] text-fg-subtle group-hover:text-accent-cyan/60 transition-colors opacity-75"
                 >
                   {metric.tag}
                 </span>
-                <div className="w-6 h-6 rounded bg-canvas-950 border border-border-subtle flex items-center justify-center text-fg-muted group-hover:text-accent-cyan group-hover:border-accent-cyan/30 transition-all">
-                  <Icon className="w-3.5 h-3.5" />
+                <div className="flex items-center gap-2">
+                  {evidenceId && (
+                    <EvidenceTrigger
+                      evidenceId={evidenceId}
+                      ariaLabel={triggerAriaLabel}
+                      locale={locale}
+                      size="sm"
+                    />
+                  )}
+                  <div className="w-6 h-6 rounded bg-canvas-950 border border-border-subtle flex items-center justify-center text-fg-muted group-hover:text-accent-cyan group-hover:border-accent-cyan/30 transition-all">
+                    <Icon className="w-3.5 h-3.5" />
+                  </div>
                 </div>
               </div>
 

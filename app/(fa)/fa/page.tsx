@@ -8,6 +8,7 @@ import { InfraForgeCaseStudy } from "@/components/work/InfraForgeCaseStudy";
 import { OperationalReasoningLab } from "@/components/lab/OperationalReasoningLab";
 import { ProfessionalRecord } from "@/components/contact/ProfessionalRecord";
 import { Footer } from "@/components/layout/Footer";
+import { EvidenceLayer } from "@/components/evidence/EvidenceLayer";
 import { faDictionary } from "@/lib/i18n/locales/fa";
 
 export default function PersianHomePage() {
@@ -26,6 +27,7 @@ export default function PersianHomePage() {
         <ProfessionalRecord data={dict.professionalRecord} locale="fa" />
       </main>
       <Footer data={dict.footer} />
+      <EvidenceLayer data={dict.evidence} locale="fa" />
     </div>
   );
 }

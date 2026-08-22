@@ -3,7 +3,9 @@ import { Award, GraduationCap, ExternalLink } from "lucide-react";
 import {
   CertificationRecordData,
   EducationRecordData,
+  Locale,
 } from "@/lib/i18n/types";
+import { EvidenceTrigger } from "@/components/evidence/EvidenceTrigger";
 
 interface CredentialsEducationProps {
   transcript: {
@@ -15,6 +17,7 @@ interface CredentialsEducationProps {
   educationHeading: string;
   certifications: CertificationRecordData[];
   education: EducationRecordData[];
+  locale?: Locale;
 }
 
 export const CredentialsEducation: React.FC<CredentialsEducationProps> = ({
@@ -22,7 +25,14 @@ export const CredentialsEducation: React.FC<CredentialsEducationProps> = ({
   educationHeading,
   certifications,
   education,
+  locale = "en",
 }) => {
+  const isPersian = locale === "fa";
+
+  const triggerAriaLabel = isPersian
+    ? "مشاهده شواهد برای مدارک رسمی مایکروسافت"
+    : "View evidence for Microsoft Credentials";
+
   return (
     <div className="space-y-6 text-start">
       {/* Microsoft Credentials Block */}
@@ -34,16 +44,24 @@ export const CredentialsEducation: React.FC<CredentialsEducationProps> = ({
               {transcript.heading}
             </h3>
           </div>
-          <a
-            href={transcript.url}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex items-center gap-1.5 text-xs text-accent-cyan hover:underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent-cyan rounded px-1 py-0.5 font-sans font-medium"
-            aria-label={transcript.ariaLabel}
-          >
-            <span>{transcript.actionLabel}</span>
-            <ExternalLink className="w-3 h-3 shrink-0" aria-hidden="true" />
-          </a>
+          <div className="flex items-center gap-2 flex-wrap">
+            <EvidenceTrigger
+              evidenceId="microsoft-credentials"
+              ariaLabel={triggerAriaLabel}
+              locale={locale}
+              size="sm"
+            />
+            <a
+              href={transcript.url}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-1.5 text-xs text-accent-cyan hover:underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent-cyan rounded px-1 py-0.5 font-sans font-medium"
+              aria-label={transcript.ariaLabel}
+            >
+              <span>{transcript.actionLabel}</span>
+              <ExternalLink className="w-3 h-3 shrink-0" aria-hidden="true" />
+            </a>
+          </div>
         </div>
 
         <ul className="space-y-3">

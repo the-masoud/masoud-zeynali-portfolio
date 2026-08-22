@@ -1,6 +1,7 @@
 import React from "react";
 import { ShieldCheck } from "lucide-react";
 import { ExpertiseDomainData, Locale } from "@/lib/i18n/types";
+import { EvidenceTrigger } from "@/components/evidence/EvidenceTrigger";
 
 interface ExpertiseDomainProps {
   domain: ExpertiseDomainData;
@@ -16,6 +17,11 @@ export const ExpertiseDomain: React.FC<ExpertiseDomainProps> = ({
   locale = "en",
 }) => {
   const isPersian = locale === "fa";
+  const isAiDomain = domain.id === "ai-engineering-agents-mcp";
+
+  const triggerAriaLabel = isPersian
+    ? "مشاهده شواهد برای مهندسی هوش مصنوعی، عامل‌ها و MCP"
+    : "View evidence for AI Engineering, Agents & MCP";
 
   return (
     <article
@@ -27,21 +33,31 @@ export const ExpertiseDomain: React.FC<ExpertiseDomainProps> = ({
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-4 lg:gap-6 items-start">
         {/* Domain Index & Title */}
         <div className="lg:col-span-4 flex flex-col">
-          <div className="flex items-baseline gap-2 mb-1">
-            <span
-              className={`text-xs font-bold text-accent-cyan uppercase ${
-                isPersian ? "font-mono" : "font-mono tracking-widest"
-              }`}
-            >
-              {domain.index}
-            </span>
-            <span
-              className={`text-[10px] text-fg-subtle uppercase ${
-                isPersian ? "font-sans font-normal" : "font-mono tracking-wider"
-              }`}
-            >
-              DOMAIN
-            </span>
+          <div className="flex items-center justify-between gap-2 mb-1">
+            <div className="flex items-baseline gap-2">
+              <span
+                className={`text-xs font-bold text-accent-cyan uppercase ${
+                  isPersian ? "font-mono" : "font-mono tracking-widest"
+                }`}
+              >
+                {domain.index}
+              </span>
+              <span
+                className={`text-[10px] text-fg-subtle uppercase ${
+                  isPersian ? "font-sans font-normal" : "font-mono tracking-wider"
+                }`}
+              >
+                DOMAIN
+              </span>
+            </div>
+            {isAiDomain && (
+              <EvidenceTrigger
+                evidenceId="ai-agents-mcp"
+                ariaLabel={triggerAriaLabel}
+                locale={locale}
+                size="sm"
+              />
+            )}
           </div>
           <h3
             id={`domain-title-${domain.id}`}

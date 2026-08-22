@@ -8,6 +8,7 @@ import { InfraForgeCaseStudy } from "@/components/work/InfraForgeCaseStudy";
 import { OperationalReasoningLab } from "@/components/lab/OperationalReasoningLab";
 import { ProfessionalRecord } from "@/components/contact/ProfessionalRecord";
 import { Footer } from "@/components/layout/Footer";
+import { EvidenceLayer } from "@/components/evidence/EvidenceLayer";
 import { enDictionary } from "@/lib/i18n/locales/en";
 
 export default function EnglishHomePage() {
@@ -26,6 +27,7 @@ export default function EnglishHomePage() {
         <ProfessionalRecord data={dict.professionalRecord} />
       </main>
       <Footer data={dict.footer} />
+      <EvidenceLayer data={dict.evidence} locale="en" />
     </div>
   );
 }

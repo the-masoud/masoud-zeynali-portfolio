@@ -698,6 +698,167 @@ export const faDictionary: PortfolioDictionary = {
       githubAriaLabel: "مشاهده پروفایل گیت‌هاب (در تب جدید باز می‌شود)",
     },
   },
+  evidence: {
+    ui: {
+      mainTitle: "لایه شواهد",
+      secondaryLabel: "ردیابی منبع",
+      countLabel: "06 مورد",
+      recordSectionLabels: {
+        claim: "ادعا",
+        evidenceBasis: "مبنای شواهد",
+        disclosure: "توضیح",
+        sources: "منابع",
+      },
+      contextualTriggerLabel: "مشاهده شواهد",
+      closeAccessibleLabel: "بستن لایه شواهد",
+      activeMarker: "انتخاب‌شده",
+    },
+    records: [
+      {
+        id: "career-tenure",
+        ordinal: "01 / 06",
+        classificationKey: "professional-record",
+        classificationDisplay: "سوابق حرفه‌ای",
+        title: "فناوری اطلاعات و زیرساخت سازمانی",
+        claim:
+          "نزدیک به دو دهه تجربه در مهندسی فناوری اطلاعات و زیرساخت سازمانی.",
+        evidenceBasis:
+          "سابقه حرفه‌ای ارائه‌شده: شرکت مهندسین مشاور تهران رایمند، از 2007 تا امروز؛ در نقش‌های پشتیبانی و شبکه، مدیریت شبکه و معاونت دپارتمان فناوری اطلاعات.",
+        disclosure:
+          "این مورد بر اساس سوابق حرفه‌ای ارائه‌شده در همین وب‌سایت و رزومه است؛ برای آن تأیید مستقل شخص ثالث ادعا نمی‌شود.",
+        sources: [
+          {
+            label: "مشاهده سوابق کاری",
+            target: "#experience",
+            type: "internal",
+          },
+          {
+            label: "دانلود رزومه (EN)",
+            target: "/resume/Masoud_Zeynali_Professional_CV_EN.pdf",
+            type: "download",
+          },
+        ],
+      },
+      {
+        id: "team-leadership",
+        ordinal: "02 / 06",
+        classificationKey: "professional-record",
+        classificationDisplay: "سوابق حرفه‌ای",
+        title: "رهبری تیم فنی",
+        claim: "نظارت بر بیش از 15 نیروی فنی و متخصص.",
+        evidenceBasis:
+          "دامنه سرپرستی شامل نیروها و متخصصان شبکه، امنیت، Help Desk و زیرساخت در دپارتمان فناوری اطلاعات است.",
+        disclosure:
+          "این مورد بر اساس سوابق حرفه‌ای ارائه‌شده در همین وب‌سایت و رزومه است؛ برای آن تأیید مستقل شخص ثالث ادعا نمی‌شود.",
+        sources: [
+          {
+            label: "مشاهده سوابق کاری",
+            target: "#experience",
+            type: "internal",
+          },
+          {
+            label: "دانلود رزومه (EN)",
+            target: "/resume/Masoud_Zeynali_Professional_CV_EN.pdf",
+            type: "download",
+          },
+        ],
+      },
+      {
+        id: "managed-endpoints",
+        ordinal: "03 / 06",
+        classificationKey: "professional-record",
+        classificationDisplay: "سوابق حرفه‌ای",
+        title: "مدیریت Endpointهای ویندوز",
+        claim: "مدیریت بیش از 300 Endpoint ویندوزی.",
+        evidenceBasis:
+          "تجربه مدیریت Endpointها شامل مدیریت متمرکز سیستم‌های ویندوزی با Endpoint Central است.",
+        disclosure:
+          "این مورد بر اساس سوابق حرفه‌ای ارائه‌شده در همین وب‌سایت و رزومه است؛ برای آن تأیید مستقل شخص ثالث ادعا نمی‌شود.",
+        sources: [
+          {
+            label: "مشاهده سوابق کاری",
+            target: "#experience",
+            type: "internal",
+          },
+          {
+            label: "دانلود رزومه (EN)",
+            target: "/resume/Masoud_Zeynali_Professional_CV_EN.pdf",
+            type: "download",
+          },
+        ],
+      },
+      {
+        id: "ai-agents-mcp",
+        ordinal: "04 / 06",
+        classificationKey: "project-evidence",
+        classificationDisplay: "شواهد پروژه",
+        title: "مهندسی هوش مصنوعی · عامل‌های هوشمند · MCP",
+        claim:
+          "کار مهندسی در حوزه عامل‌های هوشمند (AI Agents)، پروتکل کانتکست مدل (MCP)، اتوماسیون زیرساخت و استدلال عملیاتی.",
+        evidenceBasis:
+          "InfraForge نمونه‌ای از ابزارسازی زیرساخت مبتنی بر MCP و جریان‌های کاری عملیاتی با کمک هوش مصنوعی است.",
+        disclosure:
+          "شواهد پروژه، کار مهندسی انجام‌شده را نشان می‌دهد؛ اما به‌تنهایی مدت سابقه شغلی یا سطح ارشدیت را به‌صورت مستقل اثبات نمی‌کند.",
+        sources: [
+          {
+            label: "مشاهده مطالعه موردی InfraForge",
+            target: "#work",
+            type: "internal",
+          },
+          {
+            label: "مشاهده مخزن گیت‌هاب",
+            target: "https://github.com/the-masoud/InfraForge",
+            type: "external",
+          },
+        ],
+      },
+      {
+        id: "infraforge",
+        ordinal: "05 / 06",
+        classificationKey: "public-project-source",
+        classificationDisplay: "منبع عمومی پروژه",
+        title: "InfraForge",
+        claim: "InfraForge — ابزار عملیات زیرساخت مبتنی بر MCP.",
+        evidenceBasis:
+          "مخزن عمومی گیت‌هاب و مطالعه موردی موجود در سایت، پیاده‌سازی و معماری پروژه را مستند می‌کنند.",
+        disclosure:
+          "محتوای مخزن، شواهد عمومی پروژه است؛ استفاده عملیاتی (Production) یا پذیرش خارجی فقط در صورت وجود مستندات صریح ادعا می‌شود.",
+        sources: [
+          {
+            label: "مشاهده مطالعه موردی",
+            target: "#work",
+            type: "internal",
+          },
+          {
+            label: "مشاهده مخزن گیت‌هاب",
+            target: "https://github.com/the-masoud/InfraForge",
+            type: "external",
+          },
+        ],
+      },
+      {
+        id: "microsoft-credentials",
+        ordinal: "06 / 06",
+        classificationKey: "official-transcript",
+        classificationDisplay: "کارنامه رسمی",
+        title: "مدارک تخصصی مایکروسافت",
+        claim:
+          "MCSE Server Infrastructure — 2012 · MCSE Cloud Platform and Infrastructure — 2016",
+        evidenceBasis:
+          "کارنامه Microsoft Learn به‌عنوان منبع رسمی مدارک ارائه شده است.",
+        disclosure:
+          "جزئیات مدارک باید دقیقاً مطابق اطلاعات نمایش‌داده‌شده در کارنامه Microsoft Learn تفسیر شود.",
+        sources: [
+          {
+            label: "مشاهده کارنامه Microsoft Learn",
+            target:
+              "https://learn.microsoft.com/en-us/users/masoudzeynali-0702/transcript/d5exjsjlkjywp48?source=docs",
+            type: "external",
+          },
+        ],
+      },
+    ],
+  },
   footer: {
     brandName: "مسعود زینالی",
     brandTag: "مهندسی سیستم‌ها",

@@ -106,6 +106,7 @@ export const ProfessionalRecord: React.FC<ProfessionalRecordProps> = ({
                 educationHeading={educationHeading}
                 certifications={certifications}
                 education={education}
+                locale={locale}
               />
             </div>
 

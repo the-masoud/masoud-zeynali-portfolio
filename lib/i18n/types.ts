@@ -338,6 +338,8 @@ export interface StructuredDataPresentation {
   credentialDescriptions: { [id: string]: string };
 }
 
+import { EvidenceLayerData } from "../evidence/types";
+
 export interface PortfolioDictionary {
   locale: Locale;
   dir: "ltr" | "rtl";
@@ -350,6 +352,7 @@ export interface PortfolioDictionary {
   infraForge: InfraForgeData;
   lab: ReasoningLabData;
   professionalRecord: ProfessionalRecordData;
+  evidence: EvidenceLayerData;
   footer: FooterData;
   schema: StructuredDataPresentation;
 }

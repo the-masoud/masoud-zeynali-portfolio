@@ -6,6 +6,7 @@ import { EngineeringPrinciples } from "./EngineeringPrinciples";
 import { DevelopmentScope } from "./DevelopmentScope";
 import { EngineeringNotes } from "./EngineeringNotes";
 import { InfraForgeData, Locale } from "@/lib/i18n/types";
+import { EvidenceTrigger } from "@/components/evidence/EvidenceTrigger";
 
 interface InfraForgeCaseStudyProps {
   data: InfraForgeData;
@@ -39,6 +40,10 @@ export const InfraForgeCaseStudy: React.FC<InfraForgeCaseStudyProps> = ({
   } = data;
 
   const isPersian = locale === "fa";
+
+  const triggerAriaLabel = isPersian
+    ? "مشاهده شواهد برای پروژه InfraForge"
+    : "View evidence for InfraForge project";
 
   return (
     <section
@@ -123,7 +128,7 @@ export const InfraForgeCaseStudy: React.FC<InfraForgeCaseStudyProps> = ({
               </p>
             </div>
 
-            {/* Right: Classification, Development State, Repository Action */}
+            {/* Right: Classification, Development State, Evidence Trigger, Repository Action */}
             <div className="flex flex-col sm:flex-row lg:flex-col items-start sm:items-center lg:items-end gap-3 sm:gap-4 lg:gap-3 shrink-0">
               <div className="flex flex-wrap items-center gap-2">
                 <span
@@ -140,6 +145,12 @@ export const InfraForgeCaseStudy: React.FC<InfraForgeCaseStudyProps> = ({
                 >
                   {developmentState}
                 </span>
+                <EvidenceTrigger
+                  evidenceId="infraforge"
+                  ariaLabel={triggerAriaLabel}
+                  locale={locale}
+                  size="sm"
+                />
               </div>
 
               <a
