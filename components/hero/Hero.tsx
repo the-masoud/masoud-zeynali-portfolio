@@ -77,7 +77,7 @@ export const Hero: React.FC<HeroProps> = ({ data, locale = "en" }) => {
                 id="hero-title"
                 className="text-4xl sm:text-6xl md:text-7xl lg:text-8xl font-black font-mono tracking-tight text-white mb-4 sm:mb-6 uppercase leading-none"
               >
-                {nameLine1} <br className="hidden sm:inline" />
+                {nameLine1} <br />
                 <span className="text-transparent bg-clip-text bg-gradient-to-r from-white via-slate-200 to-accent-cyan">
                   {nameLine2}
                 </span>
@@ -101,14 +101,14 @@ export const Hero: React.FC<HeroProps> = ({ data, locale = "en" }) => {
 
             {/* Senior Specialization Title (Restrained IRANSansX Regular 400 with cyan :: and Latin MCP) */}
             <div
-              className={`flex items-center gap-2 text-slate-300 mb-5 ${
+              className={`flex items-baseline gap-2 text-slate-300 mb-5 ${
                 isPersian
                   ? "text-xs sm:text-sm md:text-base font-sans font-normal"
-                  : "text-sm sm:text-base md:text-lg font-mono font-semibold"
+                  : "text-xs sm:text-base md:text-lg font-mono font-semibold"
               }`}
             >
-              <span className="text-accent-cyan font-mono select-none">::</span>
-              <span className={isPersian ? "tracking-normal" : "tracking-wide"}>
+              <span className="text-accent-cyan font-mono select-none shrink-0">::</span>
+              <span className={`break-words ${isPersian ? "tracking-normal" : "tracking-wide"}`}>
                 {specializationRole}
               </span>
             </div>

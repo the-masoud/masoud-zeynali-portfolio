@@ -83,16 +83,16 @@ export const Navbar: React.FC<NavbarProps> = ({ data }) => {
               <div className="w-8 h-8 rounded bg-canvas-900 border border-white/10 flex items-center justify-center text-accent-cyan group-hover:border-accent-cyan/50 group-hover:shadow-[0_0_12px_rgba(56,189,248,0.25)] transition-all">
                 <Terminal className="w-4 h-4" />
               </div>
-              <div className="flex flex-col">
+              <div className="flex flex-col min-w-0">
                 <span
-                  className={`text-sm sm:text-base font-bold text-fg-primary group-hover:text-accent-cyan transition-colors leading-tight ${
+                  className={`text-xs sm:text-base font-bold text-fg-primary group-hover:text-accent-cyan transition-colors leading-tight truncate ${
                     isPersian ? "font-sans font-bold" : "font-mono font-bold tracking-wider"
                   }`}
                 >
                   {isPersian ? "مسعود زینالی" : "MASOUD ZEYNALI"}
                 </span>
                 <span
-                  className={`text-[10px] text-fg-muted uppercase mt-0.5 ${
+                  className={`text-[9px] sm:text-[10px] text-fg-muted uppercase mt-0.5 truncate ${
                     isPersian ? "font-sans font-normal" : "font-mono tracking-widest"
                   }`}
                 >
