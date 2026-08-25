@@ -79,6 +79,34 @@ export interface HeroData {
   metrics: HeroMetricItem[];
 }
 
+export interface RecruiterDossierData {
+  sectionMarker: string;
+  role: string;
+  focusLabel: string;
+  focusValue: string;
+  foundationLabel: string;
+  foundationValue: string;
+  scaleLabel: string;
+  scaleValue: string;
+  currentRoleLabel: string;
+  currentRoleValue: string;
+  locationLabel: string;
+  locationValue: string;
+  actions: {
+    downloadCv: {
+      label: string;
+      href: string;
+      downloadName: string;
+      ariaLabel: string;
+    };
+    contact: {
+      label: string;
+      href: string;
+      ariaLabel: string;
+    };
+  };
+}
+
 export interface PrincipleItem {
   id: string;
   label: string;
@@ -346,6 +374,7 @@ export interface PortfolioDictionary {
   metadata: SiteMetadata;
   navbar: NavbarData;
   hero: HeroData;
+  recruiterDossier: RecruiterDossierData;
   story: ProfessionalStoryData;
   career: CareerJourneyData;
   expertise: ExpertiseLandscapeData;

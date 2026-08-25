@@ -176,6 +176,33 @@ export const enDictionary: PortfolioDictionary = {
       },
     ],
   },
+  recruiterDossier: {
+    sectionMarker: "RECRUITER FAST SCAN",
+    role: "Senior AI Engineer — Agents, MCP & Infrastructure",
+    focusLabel: "FOCUS",
+    focusValue: "AI Infrastructure · AI Agents & MCP · Systems Engineering",
+    foundationLabel: "FOUNDATION",
+    foundationValue: "Nearly two decades of enterprise IT and infrastructure engineering experience",
+    scaleLabel: "OPERATING SCALE",
+    scaleValue: "15+ technical staff and specialists supervised · 300+ managed Windows endpoints",
+    currentRoleLabel: "CURRENT ROLE",
+    currentRoleValue: "Deputy Head of Information Technology Department",
+    locationLabel: "LOCATION",
+    locationValue: "Tehran, Iran",
+    actions: {
+      downloadCv: {
+        label: "Download CV (EN)",
+        href: "/resume/Masoud_Zeynali_Professional_CV_EN.pdf",
+        downloadName: "Masoud_Zeynali_Professional_CV_EN.pdf",
+        ariaLabel: "Download Professional CV in English (PDF)",
+      },
+      contact: {
+        label: "Contact",
+        href: "#contact",
+        ariaLabel: "Navigate to contact section",
+      },
+    },
+  },
   story: {
     sectionMarker: "01 / PROFILE",
     technicalMarker: "SYSTEMS ARCHITECTURE",

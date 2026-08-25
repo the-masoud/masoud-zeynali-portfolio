@@ -213,6 +213,33 @@ export const faDictionary: PortfolioDictionary = {
       },
     ],
   },
+  recruiterDossier: {
+    sectionMarker: "مرور سریع حرفه‌ای",
+    role: "مهندس ارشد هوش مصنوعی — عامل‌ها، MCP و زیرساخت",
+    focusLabel: "تمرکز",
+    focusValue: "زیرساخت هوش مصنوعی · عامل‌های هوشمند (AI Agents) و MCP · مهندسی سیستم‌ها",
+    foundationLabel: "شالوده حرفه‌ای",
+    foundationValue: "نزدیک به دو دهه تجربه مهندسی فناوری اطلاعات و زیرساخت سازمانی",
+    scaleLabel: "مقیاس عملیاتی",
+    scaleValue: "بیش از 15 نیروی فنی و متخصص تحت سرپرستی · بیش از 300 Endpoint ویندوزی مدیریت‌شده",
+    currentRoleLabel: "سمت فعلی",
+    currentRoleValue: "معاون دپارتمان فناوری اطلاعات",
+    locationLabel: "موقعیت",
+    locationValue: "تهران، ایران",
+    actions: {
+      downloadCv: {
+        label: "دانلود رزومه (EN)",
+        href: "/resume/Masoud_Zeynali_Professional_CV_EN.pdf",
+        downloadName: "Masoud_Zeynali_Professional_CV_EN.pdf",
+        ariaLabel: "دانلود فایل رزومه رسمی به زبان انگلیسی (PDF)",
+      },
+      contact: {
+        label: "تماس",
+        href: "#contact",
+        ariaLabel: "انتقال به بخش اطلاعات تماس",
+      },
+    },
+  },
   story: {
     sectionMarker: "01 / معرفی حرفه‌ای",
     technicalMarker: "معماری سیستم‌ها",
