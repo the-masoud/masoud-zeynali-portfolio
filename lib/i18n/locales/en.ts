@@ -564,6 +564,91 @@ export const enDictionary: PortfolioDictionary = {
       },
     },
   },
+  systemsArchitect: {
+    sectionMarker: "SYSTEMS ARCHITECTURE",
+    sectionCategory: "MCP & CONTROL BOUNDARIES",
+    sectionHeading: "AI AGENTS AT THE INFRASTRUCTURE BOUNDARY",
+    sectionSupporting:
+      "Architectural analysis of Model Context Protocol (MCP) integration with Linux infrastructure—focusing on least-privilege operations, credential isolation, and explicit control boundaries.",
+    evidenceTriggerAriaLabel: "View project evidence for AI agents and MCP",
+    pipeline: {
+      heading: "OPERATIONAL CONTROL FLOW & ACCESS BOUNDARIES",
+      subLabel: "MCP INTEGRATION PATTERN",
+      ariaLabel: "Four-stage MCP control flow from operator intent to controlled infrastructure access",
+      nodes: [
+        {
+          step: "01",
+          title: "AI / MCP CLIENT",
+          subtitle: "OPERATOR INTENT",
+          description: "Agent receives an infrastructure task and formulates structured MCP tool invocation requests.",
+        },
+        {
+          step: "02",
+          title: "MCP SERVER BOUNDARY",
+          subtitle: "CONTROL & SCHEMA LAYER",
+          description: "InfraForge validates tool inputs against structured schemas and enforces defined operational scope.",
+        },
+        {
+          step: "03",
+          title: "CREDENTIAL HANDLING",
+          subtitle: "ISOLATION & VALIDATION",
+          description: "Server-specific SSH credentials and keys are validated for the requested operation, avoiding persistent exposure in model context.",
+        },
+        {
+          step: "04",
+          title: "LINUX TARGET INTERFACE",
+          subtitle: "INFRASTRUCTURE ACCESS",
+          description: "Restricted SSH sessions execute the requested task, maintaining clear boundaries between monitoring and administrative workflows.",
+        },
+      ],
+    },
+    invariants: {
+      heading: "SECURITY & OPERATIONAL BOUNDARIES",
+      subLabel: "DESIGN PRINCIPLES",
+      items: [
+        {
+          id: "structured-tools",
+          title: "Structured Tool Interface",
+          category: "EXECUTION CONTROL",
+          detail: "Interactions rely on structured MCP tool contracts rather than treating unrestricted interactive shells as the default operating model.",
+        },
+        {
+          id: "credential-isolation",
+          title: "Credential Hygiene & Isolation",
+          category: "ACCESS PROTECTION",
+          detail: "SSH private keys and sensitive authentication material are treated as protected data and isolated from normal operational logs and agent prompts.",
+        },
+        {
+          id: "plane-separation",
+          title: "Monitoring & Administration Separation",
+          category: "LEAST PRIVILEGE",
+          detail: "Read-only monitoring relies on restricted monitoring identities, while privileged administration requires separately validated and controlled access.",
+        },
+        {
+          id: "telemetry-handling",
+          title: "Controlled Telemetry & Log Handling",
+          category: "OBSERVABILITY",
+          detail: "System metrics, service states, and journal outputs are handled with care to prevent sensitive configuration data from leaking into model context.",
+        },
+      ],
+    },
+    decisions: {
+      heading: "ARCHITECTURAL DESIGN DECISIONS",
+      subLabel: "ENGINEERING JUDGMENT",
+      items: [
+        {
+          title: "Structured Tool Schemas vs. Direct Bash Execution",
+          rationale:
+            "Allowing unrestricted command execution increases operational and injection risk. Enforcing structured tool schemas with explicit parameter constraints prioritizes predictability, auditability, and operational safety.",
+        },
+        {
+          title: "Per-Server Credential Validation vs. Centralized Agent Key Storage",
+          rationale:
+            "Storing broad administrative keys in an open agent store creates a single point of failure. Implementing per-server credential validation and controlled enrollment helps contain the blast radius of operational actions.",
+        },
+      ],
+    },
+  },
   lab: {
     sectionMarker: "05 / INTERACTIVE EXPERIENCE",
     technicalLabel: "BROWSER-ONLY SIMULATION",

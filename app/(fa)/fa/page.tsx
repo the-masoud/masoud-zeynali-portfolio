@@ -6,6 +6,7 @@ import { ProfessionalStory } from "@/components/about/ProfessionalStory";
 import { CareerJourney } from "@/components/experience/CareerJourney";
 import { ExpertiseLandscape } from "@/components/expertise/ExpertiseLandscape";
 import { InfraForgeCaseStudy } from "@/components/work/InfraForgeCaseStudy";
+import { SystemsArchitectDeepDive } from "@/components/architecture/SystemsArchitectDeepDive";
 import { OperationalReasoningLab } from "@/components/lab/OperationalReasoningLab";
 import { ProfessionalRecord } from "@/components/contact/ProfessionalRecord";
 import { Footer } from "@/components/layout/Footer";
@@ -25,6 +26,7 @@ export default function PersianHomePage() {
         <CareerJourney data={dict.career} locale="fa" />
         <ExpertiseLandscape data={dict.expertise} locale="fa" />
         <InfraForgeCaseStudy data={dict.infraForge} locale="fa" />
+        <SystemsArchitectDeepDive data={dict.systemsArchitect} locale="fa" />
         <OperationalReasoningLab data={dict.lab} locale="fa" />
         <ProfessionalRecord data={dict.professionalRecord} locale="fa" />
       </main>

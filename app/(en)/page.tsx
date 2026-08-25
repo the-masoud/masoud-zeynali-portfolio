@@ -6,6 +6,7 @@ import { ProfessionalStory } from "@/components/about/ProfessionalStory";
 import { CareerJourney } from "@/components/experience/CareerJourney";
 import { ExpertiseLandscape } from "@/components/expertise/ExpertiseLandscape";
 import { InfraForgeCaseStudy } from "@/components/work/InfraForgeCaseStudy";
+import { SystemsArchitectDeepDive } from "@/components/architecture/SystemsArchitectDeepDive";
 import { OperationalReasoningLab } from "@/components/lab/OperationalReasoningLab";
 import { ProfessionalRecord } from "@/components/contact/ProfessionalRecord";
 import { Footer } from "@/components/layout/Footer";
@@ -25,6 +26,7 @@ export default function EnglishHomePage() {
         <CareerJourney data={dict.career} locale="en" />
         <ExpertiseLandscape data={dict.expertise} />
         <InfraForgeCaseStudy data={dict.infraForge} />
+        <SystemsArchitectDeepDive data={dict.systemsArchitect} locale="en" />
         <OperationalReasoningLab data={dict.lab} />
         <ProfessionalRecord data={dict.professionalRecord} />
       </main>

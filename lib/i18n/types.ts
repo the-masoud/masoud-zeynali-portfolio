@@ -366,6 +366,49 @@ export interface StructuredDataPresentation {
   credentialDescriptions: { [id: string]: string };
 }
 
+export interface SystemsArchitectPipelineNode {
+  step: string;
+  title: string;
+  subtitle: string;
+  description: string;
+}
+
+export interface SystemsArchitectBoundaryItem {
+  id: string;
+  title: string;
+  category: string;
+  detail: string;
+}
+
+export interface SystemsArchitectDecisionItem {
+  title: string;
+  rationale: string;
+}
+
+export interface SystemsArchitectData {
+  sectionMarker: string;
+  sectionCategory: string;
+  sectionHeading: string;
+  sectionSupporting: string;
+  evidenceTriggerAriaLabel: string;
+  pipeline: {
+    heading: string;
+    subLabel: string;
+    ariaLabel: string;
+    nodes: SystemsArchitectPipelineNode[];
+  };
+  invariants: {
+    heading: string;
+    subLabel: string;
+    items: SystemsArchitectBoundaryItem[];
+  };
+  decisions: {
+    heading: string;
+    subLabel: string;
+    items: SystemsArchitectDecisionItem[];
+  };
+}
+
 import { EvidenceLayerData } from "../evidence/types";
 
 export interface PortfolioDictionary {
@@ -379,6 +422,7 @@ export interface PortfolioDictionary {
   career: CareerJourneyData;
   expertise: ExpertiseLandscapeData;
   infraForge: InfraForgeData;
+  systemsArchitect: SystemsArchitectData;
   lab: ReasoningLabData;
   professionalRecord: ProfessionalRecordData;
   evidence: EvidenceLayerData;
