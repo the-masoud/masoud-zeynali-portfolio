@@ -10,22 +10,44 @@ export const viewport: Viewport = {
   maximumScale: 5,
 };
 
+const SITE_URL = "https://masoud-zeynali-portfolio.vercel.app";
+
 export const metadata: Metadata = {
+  metadataBase: new URL(SITE_URL),
   title: enDictionary.metadata.title,
   description: enDictionary.metadata.description,
   authors: [{ name: "Masoud Zeynali" }],
   creator: "Masoud Zeynali",
+  alternates: {
+    canonical: "/",
+    languages: {
+      en: "/",
+      fa: "/fa",
+      "x-default": "/",
+    },
+  },
   openGraph: {
     type: "website",
+    url: "/",
     locale: enDictionary.metadata.ogLocale,
     title: enDictionary.metadata.ogTitle,
     description: enDictionary.metadata.ogDescription,
     siteName: enDictionary.metadata.siteName,
+    images: [
+      {
+        url: "/images/og-en.png",
+        width: 1200,
+        height: 630,
+        alt: "Masoud Zeynali — Senior AI Engineer, Infrastructure & Security",
+        type: "image/png",
+      },
+    ],
   },
   twitter: {
-    card: "summary",
-    title: enDictionary.metadata.title,
-    description: enDictionary.metadata.description,
+    card: "summary_large_image",
+    title: enDictionary.metadata.ogTitle,
+    description: enDictionary.metadata.ogDescription,
+    images: ["/images/og-en.png"],
   },
   robots: {
     index: true,

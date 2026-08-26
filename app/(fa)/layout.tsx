@@ -28,22 +28,44 @@ export const viewport: Viewport = {
   maximumScale: 5,
 };
 
+const SITE_URL = "https://masoud-zeynali-portfolio.vercel.app";
+
 export const metadata: Metadata = {
+  metadataBase: new URL(SITE_URL),
   title: faDictionary.metadata.title,
   description: faDictionary.metadata.description,
   authors: [{ name: "Masoud Zeynali" }],
   creator: "Masoud Zeynali",
+  alternates: {
+    canonical: "/fa",
+    languages: {
+      en: "/",
+      fa: "/fa",
+      "x-default": "/",
+    },
+  },
   openGraph: {
     type: "website",
+    url: "/fa",
     locale: faDictionary.metadata.ogLocale,
     title: faDictionary.metadata.ogTitle,
     description: faDictionary.metadata.ogDescription,
     siteName: faDictionary.metadata.siteName,
+    images: [
+      {
+        url: "/images/og-fa.png",
+        width: 1200,
+        height: 630,
+        alt: "مسعود زینالی — مهندس ارشد هوش مصنوعی، زیرساخت و امنیت",
+        type: "image/png",
+      },
+    ],
   },
   twitter: {
-    card: "summary",
-    title: faDictionary.metadata.title,
-    description: faDictionary.metadata.description,
+    card: "summary_large_image",
+    title: faDictionary.metadata.ogTitle,
+    description: faDictionary.metadata.ogDescription,
+    images: ["/images/og-fa.png"],
   },
   robots: {
     index: true,
