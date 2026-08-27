@@ -157,7 +157,7 @@ export const InfraForgeCaseStudy: React.FC<InfraForgeCaseStudyProps> = ({
                 href={repositoryUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className={`inline-flex items-center justify-center gap-2 px-4 py-2 rounded bg-canvas-950 border border-border-panel hover:border-accent-cyan text-xs font-semibold text-fg-primary hover:text-accent-cyan transition-all focus-visible:ring-2 focus-visible:ring-accent-cyan shadow-sm min-h-[38px] ${
+                className={`inline-flex items-center justify-center gap-2 px-4 py-2 rounded bg-canvas-950 border border-border-panel hover:border-accent-cyan hover:-translate-y-0.5 active:translate-y-0 active:scale-[0.99] text-xs font-semibold text-fg-primary hover:text-accent-cyan transition-all duration-200 ease-out focus-visible:ring-2 focus-visible:ring-accent-cyan shadow-sm min-h-[38px] ${
                   isPersian ? "font-sans" : "font-mono"
                 }`}
                 aria-label={repositoryAriaLabel}

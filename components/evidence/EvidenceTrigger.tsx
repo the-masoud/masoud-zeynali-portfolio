@@ -37,7 +37,7 @@ export const EvidenceTrigger: React.FC<EvidenceTriggerProps> = ({
       aria-haspopup="dialog"
       aria-controls="evidence-layer-dialog"
       aria-label={ariaLabel}
-      className={`inline-flex items-center gap-1.5 rounded bg-canvas-950/80 border border-border-subtle hover:border-accent-cyan/60 hover:bg-canvas-900 text-fg-secondary hover:text-accent-cyan transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent-cyan cursor-pointer shrink-0 ${sizeClasses} ${
+      className={`inline-flex items-center gap-1.5 rounded bg-canvas-950/80 border border-border-subtle hover:border-accent-cyan/60 hover:bg-canvas-900 hover:-translate-y-0.5 active:translate-y-0 active:scale-[0.98] text-fg-secondary hover:text-accent-cyan transition-all duration-200 ease-out focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent-cyan cursor-pointer shrink-0 ${sizeClasses} ${
         isPersian ? "font-sans font-medium tracking-normal" : "font-mono font-medium tracking-wider uppercase"
       } ${className}`}
     >

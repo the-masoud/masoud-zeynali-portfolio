@@ -143,7 +143,7 @@ export const RecruiterDossier: React.FC<RecruiterDossierProps> = ({
             <a
               href={actions.downloadCv.href}
               download={actions.downloadCv.downloadName}
-              className={`inline-flex items-center justify-center gap-2 px-4 py-2 rounded bg-accent-cyan/10 border border-accent-cyan/40 hover:bg-accent-cyan/20 hover:border-accent-cyan text-accent-cyan text-xs font-semibold transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent-cyan shadow-[0_0_12px_rgba(56,189,248,0.12)] min-h-[38px] ${
+              className={`inline-flex items-center justify-center gap-2 px-4 py-2 rounded bg-accent-cyan/10 border border-accent-cyan/40 hover:bg-accent-cyan/20 hover:border-accent-cyan hover:-translate-y-0.5 active:translate-y-0 active:scale-[0.99] text-accent-cyan text-xs font-semibold transition-all duration-200 ease-out focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent-cyan shadow-[0_0_12px_rgba(56,189,248,0.12)] min-h-[38px] ${
                 isPersian ? "font-sans font-medium" : "font-mono"
               }`}
               aria-label={actions.downloadCv.ariaLabel}
@@ -154,7 +154,7 @@ export const RecruiterDossier: React.FC<RecruiterDossierProps> = ({
 
             <a
               href={actions.contact.href}
-              className={`inline-flex items-center justify-center gap-2 px-4 py-2 rounded bg-canvas-950 border border-border-panel hover:border-accent-cyan/50 hover:text-accent-cyan text-fg-primary text-xs font-medium transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent-cyan min-h-[38px] ${
+              className={`inline-flex items-center justify-center gap-2 px-4 py-2 rounded bg-canvas-950 border border-border-panel hover:border-accent-cyan/50 hover:text-accent-cyan hover:-translate-y-0.5 active:translate-y-0 active:scale-[0.99] text-fg-primary text-xs font-medium transition-all duration-200 ease-out focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent-cyan min-h-[38px] ${
                 isPersian ? "font-sans font-normal" : "font-mono"
               }`}
               aria-label={actions.contact.ariaLabel}

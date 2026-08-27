@@ -51,7 +51,7 @@ export const ResumeAccess: React.FC<ResumeAccessProps> = ({
         <a
           href={downloadUrl}
           download={fileName}
-          className="w-full inline-flex items-center justify-center gap-2 font-mono text-xs sm:text-sm font-semibold px-4 py-3 rounded bg-accent-cyan/10 text-accent-cyan border border-accent-cyan/40 hover:bg-accent-cyan/20 hover:border-accent-cyan shadow-[0_0_15px_rgba(56,189,248,0.15)] transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent-cyan active:scale-[0.99]"
+          className="w-full inline-flex items-center justify-center gap-2 font-mono text-xs sm:text-sm font-semibold px-4 py-3 rounded bg-accent-cyan/10 text-accent-cyan border border-accent-cyan/40 hover:bg-accent-cyan/20 hover:border-accent-cyan hover:-translate-y-0.5 active:translate-y-0 active:scale-[0.99] shadow-[0_0_15px_rgba(56,189,248,0.15)] transition-all duration-200 ease-out focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent-cyan"
         >
           <Download className="w-4 h-4 text-accent-cyan shrink-0" aria-hidden="true" />
           <span>{actionLabel}</span>

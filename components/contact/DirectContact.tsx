@@ -89,7 +89,7 @@ export const DirectContact: React.FC<DirectContactProps> = ({
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 pt-2">
         <a
           href={`mailto:${email}`}
-          className="inline-flex items-center justify-center gap-2 text-xs font-semibold px-4 py-2.5 rounded bg-accent-cyan/10 text-accent-cyan border border-accent-cyan/40 hover:bg-accent-cyan/20 hover:border-accent-cyan shadow-[0_0_15px_rgba(56,189,248,0.15)] transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent-cyan active:scale-[0.99] font-sans"
+          className="inline-flex items-center justify-center gap-2 text-xs font-semibold px-4 py-2.5 rounded bg-accent-cyan/10 text-accent-cyan border border-accent-cyan/40 hover:bg-accent-cyan/20 hover:border-accent-cyan hover:-translate-y-0.5 active:translate-y-0 active:scale-[0.99] shadow-[0_0_15px_rgba(56,189,248,0.15)] transition-all duration-200 ease-out focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent-cyan font-sans"
         >
           <Mail className="w-3.5 h-3.5 text-accent-cyan shrink-0" aria-hidden="true" />
           <span>{emailActionLabel}</span>
@@ -99,7 +99,7 @@ export const DirectContact: React.FC<DirectContactProps> = ({
           href={githubUrl}
           target="_blank"
           rel="noopener noreferrer"
-          className="inline-flex items-center justify-center gap-2 text-xs font-semibold px-4 py-2.5 rounded bg-canvas-900 text-fg-primary border border-border-panel hover:bg-canvas-850 hover:border-fg-muted transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent-cyan active:scale-[0.99] font-sans"
+          className="inline-flex items-center justify-center gap-2 text-xs font-semibold px-4 py-2.5 rounded bg-canvas-900 text-fg-primary border border-border-panel hover:bg-canvas-850 hover:border-fg-muted hover:-translate-y-0.5 active:translate-y-0 active:scale-[0.99] transition-all duration-200 ease-out focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent-cyan font-sans"
           aria-label={githubAriaLabel}
         >
           <Github className="w-3.5 h-3.5 text-fg-secondary shrink-0" aria-hidden="true" />

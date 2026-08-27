@@ -33,7 +33,7 @@ export const ProfessionalRecord: React.FC<ProfessionalRecordProps> = ({
     <section
       id="contact"
       aria-labelledby="contact-heading"
-      className="relative py-16 sm:py-20 lg:py-24 border-t border-white/5 scroll-mt-20"
+      className="relative py-16 sm:py-20 lg:py-24 border-t border-white/5 scroll-mt-20 content-visibility-auto"
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full">
         {/* Section Header */}
