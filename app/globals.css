@@ -197,24 +197,24 @@ body {
   --topology-pointer-y: 0;
 }
 
-.topology-motion > svg {
+.topology-motion svg {
   transition: opacity 200ms ease-out;
 }
 
 /* SVG base opacity — locale-aware with scroll-driven enhancement */
-.topology-motion[data-locale="en"] > svg {
+.topology-motion[data-locale="en"] svg {
   opacity: calc(0.4 + var(--topology-progress) * 0.08);
 }
 
-.topology-motion[data-locale="fa"] > svg {
+.topology-motion[data-locale="fa"] svg {
   opacity: calc(0.25 + var(--topology-progress) * 0.06);
 }
 
 @media (min-width: 640px) {
-  .topology-motion[data-locale="en"] > svg {
+  .topology-motion[data-locale="en"] svg {
     opacity: calc(0.6 + var(--topology-progress) * 0.08);
   }
-  .topology-motion[data-locale="fa"] > svg {
+  .topology-motion[data-locale="fa"] svg {
     opacity: calc(0.35 + var(--topology-progress) * 0.06);
   }
 }
@@ -263,6 +263,7 @@ body {
     calc(var(--topology-pointer-x, 0) * 3px),
     calc(var(--topology-pointer-y, 0) * 2px)
   );
+  will-change: transform;
 }
 
 /* Reduced motion: ensure topology pointer transform and pulses are disabled */

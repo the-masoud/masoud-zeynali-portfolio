@@ -154,148 +154,151 @@ export const InfrastructureTopology: React.FC<InfrastructureTopologyProps> = ({
       <div className={`absolute top-1/3 ${isPersian ? "left-10" : "right-10"} w-[450px] h-[250px] bg-accent-blue/[0.025] rounded-full blur-3xl`} />
 
       {/* SVG Topology Vectors & Conceptual Domain Nodes */}
-      <svg
-        className="w-full h-full"
-        xmlns="http://www.w3.org/2000/svg"
-        viewBox="0 0 1200 800"
-        preserveAspectRatio="xMidYMid slice"
-      >
-        <defs>
-          {/* Targeted Clean-Zone Mask: attenuates lines directly behind text */}
-          <radialGradient
-            id="title-clean-attenuation"
-            cx={isPersian ? "820" : "370"}
-            cy="270"
-            r={isPersian ? "450" : "320"}
-            gradientUnits="userSpaceOnUse"
-          >
-            <stop offset="0%" stopColor="#050505" />
-            <stop offset="55%" stopColor="#141414" />
-            <stop offset="85%" stopColor="#707070" />
-            <stop offset="100%" stopColor="#ffffff" />
-          </radialGradient>
+      <div className="w-full h-full topology-pointer-layer">
+        <svg
+          className="w-full h-full"
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 1200 800"
+          preserveAspectRatio="xMidYMid slice"
+        >
+          <defs>
+            {/* Targeted Clean-Zone Mask: attenuates lines directly behind text */}
+            <radialGradient
+              id="title-clean-attenuation"
+              cx={isPersian ? "820" : "370"}
+              cy="270"
+              r={isPersian ? "450" : "320"}
+              gradientUnits="userSpaceOnUse"
+            >
+              <stop offset="0%" stopColor="#050505" />
+              <stop offset="55%" stopColor="#141414" />
+              <stop offset="85%" stopColor="#707070" />
+              <stop offset="100%" stopColor="#ffffff" />
+            </radialGradient>
 
-          <mask id="topology-title-mask">
-            <rect width="1200" height="800" fill="url(#title-clean-attenuation)" />
-          </mask>
+            <mask id="topology-title-mask">
+              <rect width="1200" height="800" fill="url(#title-clean-attenuation)" />
+            </mask>
 
-          {/* Subtle line gradients */}
-          <linearGradient id="line-grad-1" x1="0%" y1="0%" x2="100%" y2="100%">
-            <stop offset="0%" stopColor="#38bdf8" stopOpacity="0.04" />
-            <stop offset="50%" stopColor="#38bdf8" stopOpacity="0.26" />
-            <stop offset="100%" stopColor="#38bdf8" stopOpacity="0.04" />
-          </linearGradient>
+            {/* Subtle line gradients */}
+            <linearGradient id="line-grad-1" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stopColor="#38bdf8" stopOpacity="0.04" />
+              <stop offset="50%" stopColor="#38bdf8" stopOpacity="0.26" />
+              <stop offset="100%" stopColor="#38bdf8" stopOpacity="0.04" />
+            </linearGradient>
 
-          <linearGradient id="line-grad-2" x1="0%" y1="100%" x2="100%" y2="0%">
-            <stop offset="0%" stopColor="#3b82f6" stopOpacity="0.04" />
-            <stop offset="50%" stopColor="#38bdf8" stopOpacity="0.2" />
-            <stop offset="100%" stopColor="#3b82f6" stopOpacity="0.04" />
-          </linearGradient>
+            <linearGradient id="line-grad-2" x1="0%" y1="100%" x2="100%" y2="0%">
+              <stop offset="0%" stopColor="#3b82f6" stopOpacity="0.04" />
+              <stop offset="50%" stopColor="#38bdf8" stopOpacity="0.2" />
+              <stop offset="100%" stopColor="#3b82f6" stopOpacity="0.04" />
+            </linearGradient>
 
-          {/* Node Glow Filter */}
-          <filter id="glow" x="-20%" y="-20%" width="140%" height="140%">
-            <feGaussianBlur stdDeviation="2.5" result="blur" />
-            <feComposite in="SourceGraphic" in2="blur" operator="over" />
-          </filter>
-        </defs>
+            {/* Node Glow Filter */}
+            <filter id="glow" x="-20%" y="-20%" width="140%" height="140%">
+              <feGaussianBlur stdDeviation="2.5" result="blur" />
+              <feComposite in="SourceGraphic" in2="blur" operator="over" />
+            </filter>
+          </defs>
 
-        <g mask="url(#topology-title-mask)" className="topology-pointer-layer">
-          {/* Conceptual Infrastructure Interconnects */}
-          <g stroke="url(#line-grad-1)" strokeWidth="1.2" fill="none">
-            {/* Edge to Core Path */}
-            <path d="M 150,200 L 340,105 L 620,180 L 880,240 L 1050,150" />
-            {/* Core to Distribution Path */}
-            <path d="M 340,105 L 500,420 L 780,390 L 880,240" />
-            {/* Mesh Structural Link */}
-            <path
-              d="M 150,200 L 280,480 L 500,420 L 680,560 L 980,500 L 1050,150"
-              strokeDasharray="4 6"
-              className="opacity-35"
-            />
-            {/* Security & Observability Channel */}
-            <path d="M 620,180 L 780,390 L 680,560" stroke="url(#line-grad-2)" strokeWidth="1" />
+          {/* Masked Interconnects and Signal Flows */}
+          <g mask="url(#topology-title-mask)">
+            {/* Conceptual Infrastructure Interconnects */}
+            <g stroke="url(#line-grad-1)" strokeWidth="1.2" fill="none">
+              {/* Edge to Core Path */}
+              <path d="M 150,200 L 340,105 L 620,180 L 880,240 L 1050,150" />
+              {/* Core to Distribution Path */}
+              <path d="M 340,105 L 500,420 L 780,390 L 880,240" />
+              {/* Mesh Structural Link */}
+              <path
+                d="M 150,200 L 280,480 L 500,420 L 680,560 L 980,500 L 1050,150"
+                strokeDasharray="4 6"
+                className="opacity-35"
+              />
+              {/* Security & Observability Channel */}
+              <path d="M 620,180 L 780,390 L 680,560" stroke="url(#line-grad-2)" strokeWidth="1" />
+            </g>
+
+            {/* Subtle Signal Flows */}
+            <g stroke="#38bdf8" strokeWidth="1.8" fill="none" className="topology-signals">
+              <path
+                d="M 150,200 L 340,105 L 620,180 L 880,240"
+                strokeDasharray="12 180"
+                strokeDashoffset="0"
+                className="topology-pulse-1"
+              />
+              <path
+                d="M 500,420 L 780,390 L 880,240"
+                strokeDasharray="8 120"
+                strokeDashoffset="0"
+                className="topology-pulse-2"
+              />
+              {/* Mesh backbone signal — M2 ambient layer */}
+              <path
+                d="M 150,200 L 280,480 L 500,420 L 680,560 L 980,500 L 1050,150"
+                strokeDasharray="6 220"
+                strokeDashoffset="0"
+                strokeWidth="1.2"
+                className="opacity-50 topology-pulse-3"
+              />
+            </g>
           </g>
 
-          {/* Subtle Signal Flows */}
-          <g stroke="#38bdf8" strokeWidth="1.8" fill="none" className="topology-signals">
-            <path
-              d="M 150,200 L 340,105 L 620,180 L 880,240"
-              strokeDasharray="12 180"
-              strokeDashoffset="0"
-              className="topology-pulse-1"
-            />
-            <path
-              d="M 500,420 L 780,390 L 880,240"
-              strokeDasharray="8 120"
-              strokeDashoffset="0"
-              className="topology-pulse-2"
-            />
-            {/* Mesh backbone signal — M2 ambient layer */}
-            <path
-              d="M 150,200 L 280,480 L 500,420 L 680,560 L 980,500 L 1050,150"
-              strokeDasharray="6 220"
-              strokeDashoffset="0"
-              strokeWidth="1.2"
-              className="opacity-50 topology-pulse-3"
-            />
-          </g>
-
-          {/* Conceptual Infrastructure Domain Nodes */}
-          {/* Node 1: Edge & Ingress (Safely inside with text positioned rightwards) */}
-          <g transform="translate(180, 200)">
-            <circle r="12" fill="#080a0f" stroke="#38bdf8" strokeWidth="1.5" strokeOpacity="0.4" />
-            <circle r="4" fill="#38bdf8" />
-            <circle r="18" fill="none" stroke="#38bdf8" strokeWidth="0.75" strokeDasharray="3 3" />
-            <text x="24" y="-8" fill="#cbd5e1" fontSize="10" fontFamily="monospace" fontWeight="500">EDGE</text>
-            <text x="24" y="6" fill="#38bdf8" fontSize="9" fontFamily="monospace">INGRESS & PROXY</text>
+          {/* Conceptual Infrastructure Domain Nodes (Clean absolute coordinates) */}
+          {/* Node 1: Edge & Ingress */}
+          <g>
+            <circle cx="150" cy="200" r="12" fill="#080a0f" stroke="#38bdf8" strokeWidth="1.5" strokeOpacity="0.4" />
+            <circle cx="150" cy="200" r="4" fill="#38bdf8" />
+            <circle cx="150" cy="200" r="18" fill="none" stroke="#38bdf8" strokeWidth="0.75" strokeDasharray="3 3" />
+            <text x="168" y="192" fill="#cbd5e1" fontSize="10" fontFamily="monospace" fontWeight="500">EDGE</text>
+            <text x="168" y="206" fill="#38bdf8" fontSize="9" fontFamily="monospace">INGRESS &amp; PROXY</text>
           </g>
 
           {/* Node 2: Security & Access */}
-          <g transform="translate(360, 110)">
-            <circle r="14" fill="#080a0f" stroke="#38bdf8" strokeWidth="1.2" strokeOpacity="0.5" />
-            <circle r="4.5" fill="#38bdf8" filter="url(#glow)" />
-            <text x="20" y="-4" fill="#cbd5e1" fontSize="10" fontFamily="monospace" fontWeight="500">SECURITY</text>
-            <text x="20" y="10" fill="#94a3b8" fontSize="9" fontFamily="monospace">FIREWALL & ACCESS</text>
+          <g>
+            <circle cx="340" cy="105" r="14" fill="#080a0f" stroke="#38bdf8" strokeWidth="1.2" strokeOpacity="0.5" />
+            <circle cx="340" cy="105" r="4.5" fill="#38bdf8" filter="url(#glow)" />
+            <text x="358" y="101" fill="#cbd5e1" fontSize="10" fontFamily="monospace" fontWeight="500">SECURITY</text>
+            <text x="358" y="115" fill="#94a3b8" fontSize="9" fontFamily="monospace">FIREWALL &amp; ACCESS</text>
           </g>
 
           {/* Node 3: Core Enterprise Infrastructure */}
-          <g transform="translate(620, 180)">
-            <rect x="-14" y="-14" width="28" height="28" fill="#080a0f" stroke="#38bdf8" strokeWidth="1.5" strokeOpacity="0.7" rx="4" />
-            <circle r="4" fill="#38bdf8" />
-            <text x="20" y="-8" fill="#f8fafc" fontSize="11" fontFamily="monospace" fontWeight="bold">CORE</text>
-            <text x="20" y="6" fill="#38bdf8" fontSize="9" fontFamily="monospace">ENTERPRISE SYSTEMS</text>
+          <g>
+            <rect x="606" y="166" width="28" height="28" fill="#080a0f" stroke="#38bdf8" strokeWidth="1.5" strokeOpacity="0.7" rx="4" />
+            <circle cx="620" cy="180" r="4" fill="#38bdf8" />
+            <text x="640" y="172" fill="#f8fafc" fontSize="11" fontFamily="monospace" fontWeight="bold">CORE</text>
+            <text x="640" y="186" fill="#38bdf8" fontSize="9" fontFamily="monospace">ENTERPRISE SYSTEMS</text>
           </g>
 
           {/* Node 4: AI & MCP Automation (Hidden on Persian to avoid competing with text) */}
-          <g transform="translate(880, 240)" className={isPersian ? "hidden" : ""}>
-            <polygon points="0,-12 11,8 -11,8" fill="#080a0f" stroke="#3b82f6" strokeWidth="1.5" strokeOpacity="0.7" />
-            <circle r="3" fill="#3b82f6" />
-            <text x="18" y="-4" fill="#cbd5e1" fontSize="10" fontFamily="monospace" fontWeight="500">AUTOMATION</text>
-            <text x="18" y="10" fill="#38bdf8" fontSize="9" fontFamily="monospace">AI & MCP RUNTIME</text>
+          <g className={isPersian ? "hidden" : ""}>
+            <polygon points="880,228 891,248 869,248" fill="#080a0f" stroke="#3b82f6" strokeWidth="1.5" strokeOpacity="0.7" />
+            <circle cx="880" cy="240" r="3" fill="#3b82f6" />
+            <text x="898" y="236" fill="#cbd5e1" fontSize="10" fontFamily="monospace" fontWeight="500">AUTOMATION</text>
+            <text x="898" y="250" fill="#38bdf8" fontSize="9" fontFamily="monospace">AI &amp; MCP RUNTIME</text>
           </g>
 
           {/* Node 5: Enterprise Services (Hidden on Persian to avoid text collision) */}
-          <g transform="translate(1050, 150)" className={isPersian ? "hidden" : ""}>
-            <circle r="10" fill="#080a0f" stroke="#94a3b8" strokeWidth="1.2" strokeOpacity="0.6" />
-            <circle r="3.5" fill="#94a3b8" />
-            <text x="-95" y="-12" fill="#cbd5e1" fontSize="10" fontFamily="monospace" fontWeight="500">SERVICES</text>
-            <text x="-95" y="2" fill="#94a3b8" fontSize="9" fontFamily="monospace">COMMUNICATIONS</text>
+          <g className={isPersian ? "hidden" : ""}>
+            <circle cx="1050" cy="150" r="10" fill="#080a0f" stroke="#94a3b8" strokeWidth="1.2" strokeOpacity="0.6" />
+            <circle cx="1050" cy="150" r="3.5" fill="#94a3b8" />
+            <text x="955" y="138" fill="#cbd5e1" fontSize="10" fontFamily="monospace" fontWeight="500">SERVICES</text>
+            <text x="955" y="152" fill="#94a3b8" fontSize="9" fontFamily="monospace">COMMUNICATIONS</text>
           </g>
 
           {/* Node 6: Endpoint Governance */}
-          <g transform="translate(480, 420)">
-            <circle r="11" fill="#080a0f" stroke="#38bdf8" strokeWidth="1.2" strokeOpacity="0.45" />
-            <circle r="4" fill="#10b981" />
-            <text x="16" y="2" fill="#cbd5e1" fontSize="10" fontFamily="monospace" fontWeight="500">ENDPOINTS</text>
-            <text x="16" y="16" fill="#10b981" fontSize="9" fontFamily="monospace">CENTRALIZED FLEET</text>
+          <g>
+            <circle cx="500" cy="420" r="11" fill="#080a0f" stroke="#38bdf8" strokeWidth="1.2" strokeOpacity="0.45" />
+            <circle cx="500" cy="420" r="4" fill="#10b981" />
+            <text x="516" y="422" fill="#cbd5e1" fontSize="10" fontFamily="monospace" fontWeight="500">ENDPOINTS</text>
+            <text x="516" y="436" fill="#10b981" fontSize="9" fontFamily="monospace">CENTRALIZED FLEET</text>
           </g>
 
           {/* Node 7: Observability & Telemetry (Hidden on Persian) */}
-          <g transform="translate(780, 390)" className={isPersian ? "hidden" : ""}>
-            <circle r="10" fill="#080a0f" stroke="#94a3b8" strokeWidth="1.2" strokeOpacity="0.6" />
-            <circle r="3" fill="#38bdf8" />
-            <text x="16" y="-4" fill="#cbd5e1" fontSize="10" fontFamily="monospace" fontWeight="500">OBSERVABILITY</text>
-            <text x="16" y="10" fill="#94a3b8" fontSize="9" fontFamily="monospace">LOGS & AUDIT</text>
+          <g className={isPersian ? "hidden" : ""}>
+            <circle cx="780" cy="390" r="10" fill="#080a0f" stroke="#94a3b8" strokeWidth="1.2" strokeOpacity="0.6" />
+            <circle cx="780" cy="390" r="3" fill="#38bdf8" />
+            <text x="796" y="386" fill="#cbd5e1" fontSize="10" fontFamily="monospace" fontWeight="500">OBSERVABILITY</text>
+            <text x="796" y="400" fill="#94a3b8" fontSize="9" fontFamily="monospace">LOGS &amp; AUDIT</text>
           </g>
 
           {/* Conceptual Architecture Markers */}
@@ -304,8 +307,8 @@ export const InfrastructureTopology: React.FC<InfrastructureTopologyProps> = ({
             <text x={isPersian ? "180" : "1000"} y="738" textAnchor={isPersian ? "start" : "end"}>+ PROTOCOLS: ENCRYPTED CHANNELS</text>
             <text x={isPersian ? "180" : "1000"} y="756" textAnchor={isPersian ? "start" : "end"}>+ DISCIPLINE: SYSTEMS ENGINEERING</text>
           </g>
-        </g>
-      </svg>
+        </svg>
+      </div>
     </div>
   );
 };
