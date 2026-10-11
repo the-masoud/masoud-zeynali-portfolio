@@ -114,7 +114,7 @@ export const SystemsArchitectDeepDive: React.FC<SystemsArchitectDeepDiveProps> =
                 return (
                   <li
                     key={node.step}
-                    className="relative flex flex-col justify-between p-4 rounded bg-canvas-950/90 border border-border-subtle hover:border-accent-cyan/40 transition-colors group text-start"
+                    tabIndex={0} className="architecture-node flow-item relative flex flex-col justify-between p-4 rounded-xl bg-canvas-950/90 border border-border-subtle group text-start"
                   >
                     <div>
                       {/* Step Header */}
@@ -133,7 +133,7 @@ export const SystemsArchitectDeepDive: React.FC<SystemsArchitectDeepDiveProps> =
 
                       {/* Primary Node Title */}
                       <h3
-                        className={`text-xs sm:text-sm font-bold text-fg-primary leading-snug mb-2 group-hover:text-white transition-colors ${
+                        className={`interaction-title text-xs sm:text-sm font-bold text-fg-primary leading-snug mb-2 group-hover:text-white transition-colors ${
                           isPersian ? "font-sans tracking-normal" : "font-mono tracking-wider uppercase"
                         }`}
                       >
@@ -150,7 +150,7 @@ export const SystemsArchitectDeepDive: React.FC<SystemsArchitectDeepDiveProps> =
                     {!isLast && (
                       <div
                         aria-hidden="true"
-                        className="absolute -end-3 top-1/2 -translate-y-1/2 z-10 hidden lg:flex items-center justify-center w-5 h-5 rounded-full bg-canvas-900 border border-border-subtle text-fg-subtle group-hover:text-accent-cyan group-hover:border-accent-cyan/40 transition-colors"
+                        className="architecture-connection absolute -end-3 top-1/2 -translate-y-1/2 z-10 hidden lg:flex items-center justify-center w-5 h-5 rounded-full bg-canvas-900 border border-border-subtle text-fg-subtle group-hover:text-accent-cyan group-hover:border-accent-cyan/40 transition-colors"
                       >
                         <ArrowRight className="w-3 h-3 rtl:rotate-180" />
                       </div>
@@ -169,7 +169,7 @@ export const SystemsArchitectDeepDive: React.FC<SystemsArchitectDeepDiveProps> =
                 const isLast = index === pipeline.nodes.length - 1;
                 return (
                   <li key={node.step} className="flex flex-col">
-                    <div className="relative flex flex-col p-4 rounded bg-canvas-950/90 border border-border-subtle hover:border-accent-cyan/40 transition-colors group text-start">
+                    <div tabIndex={0} className="architecture-node flow-item relative flex flex-col p-4 rounded-xl bg-canvas-950/90 border border-border-subtle group text-start">
                       <div className="flex items-center justify-between mb-1.5">
                         <span className="font-mono text-[10px] font-bold text-accent-cyan tracking-widest">
                           {node.step}
@@ -184,7 +184,7 @@ export const SystemsArchitectDeepDive: React.FC<SystemsArchitectDeepDiveProps> =
                       </div>
 
                       <h3
-                        className={`text-xs sm:text-sm font-bold text-fg-primary leading-snug mb-1.5 group-hover:text-white transition-colors ${
+                        className={`interaction-title text-xs sm:text-sm font-bold text-fg-primary leading-snug mb-1.5 group-hover:text-white transition-colors ${
                           isPersian ? "font-sans tracking-normal" : "font-mono tracking-wider uppercase"
                         }`}
                       >
@@ -250,7 +250,7 @@ export const SystemsArchitectDeepDive: React.FC<SystemsArchitectDeepDiveProps> =
                           {invariantIcons[idx % invariantIcons.length]}
                         </div>
                         <h3
-                          className={`text-xs sm:text-sm font-bold text-fg-primary group-hover:text-accent-cyan transition-colors leading-snug ${
+                          className={`interaction-title text-xs sm:text-sm font-bold text-fg-primary group-hover:text-accent-cyan transition-colors leading-snug ${
                             isPersian ? "font-sans tracking-normal" : "font-mono tracking-wider uppercase"
                           }`}
                         >
@@ -308,7 +308,7 @@ export const SystemsArchitectDeepDive: React.FC<SystemsArchitectDeepDiveProps> =
                       <Scale className="w-3 h-3" aria-hidden="true" />
                     </div>
                     <h3
-                      className={`text-xs sm:text-sm font-bold text-fg-primary group-hover:text-accent-cyan transition-colors leading-snug ${
+                      className={`interaction-title text-xs sm:text-sm font-bold text-fg-primary group-hover:text-accent-cyan transition-colors leading-snug ${
                         isPersian ? "font-sans tracking-normal" : "font-mono tracking-wider uppercase"
                       }`}
                     >

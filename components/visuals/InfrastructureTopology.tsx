@@ -1,314 +1,123 @@
 "use client";
 
-import React, { useRef, useEffect } from "react";
+import { useState } from "react";
+import { Activity, Bot, Calculator, FileCheck2, Network, Printer, Ruler, ScanLine, Server, Search, ArrowUpRight } from "lucide-react";
+import type { Locale } from "@/lib/i18n/types";
 
-interface InfrastructureTopologyProps {
-  locale?: "en" | "fa";
+export interface EcosystemProject {
+  id: string;
+  name: string;
+  domain: string;
+  overview: string;
+  technologies: string[];
+  href: string;
 }
 
-export const InfrastructureTopology: React.FC<InfrastructureTopologyProps> = ({
-  locale = "en",
-}) => {
+interface InfrastructureTopologyProps {
+  projects: EcosystemProject[];
+  locale: Locale;
+}
+
+const icons = [Bot, Server, Activity, Ruler, FileCheck2, ScanLine, Calculator, Printer];
+const positions = [
+  { x: 120, y: 110 }, { x: 275, y: 40 }, { x: 430, y: 115 }, { x: 70, y: 250 },
+  { x: 455, y: 265 }, { x: 125, y: 395 }, { x: 400, y: 400 }, { x: 270, y: 465 },
+];
+
+export function InfrastructureTopology({ projects, locale }: InfrastructureTopologyProps) {
+  const [selectedIndex, setSelectedIndex] = useState(0);
+  const selected = projects[selectedIndex];
   const isPersian = locale === "fa";
-  const wrapperRef = useRef<HTMLDivElement>(null);
-
-  useEffect(() => {
-    const wrapper = wrapperRef.current;
-    if (!wrapper) return;
-
-    const heroSection = wrapper.closest("section") as HTMLElement | null;
-    if (!heroSection) return;
-
-    /* ── Capability detection ── */
-    const motionQuery = window.matchMedia("(prefers-reduced-motion: reduce)");
-    const pointerQuery = window.matchMedia(
-      "(hover: hover) and (pointer: fine)"
-    );
-    let reducedMotion = motionQuery.matches;
-    let finePointer = pointerQuery.matches;
-
-    let scrollRafId: number | null = null;
-    let pointerRafId: number | null = null;
-
-    /* ── Layer B: Hero Scroll Reactivity ── */
-    const updateScrollProgress = () => {
-      scrollRafId = null;
-      if (reducedMotion) {
-        wrapper.style.removeProperty("--topology-progress");
-        return;
-      }
-      const rect = heroSection.getBoundingClientRect();
-      const progress = Math.max(0, Math.min(1, -rect.top / rect.height));
-      wrapper.style.setProperty("--topology-progress", progress.toFixed(4));
-    };
-
-    const onScroll = () => {
-      if (reducedMotion || scrollRafId !== null) return;
-      scrollRafId = requestAnimationFrame(updateScrollProgress);
-    };
-
-    const onResize = () => {
-      if (reducedMotion || scrollRafId !== null) return;
-      scrollRafId = requestAnimationFrame(updateScrollProgress);
-    };
-
-    window.addEventListener("scroll", onScroll, { passive: true });
-    window.addEventListener("resize", onResize, { passive: true });
-
-    if (!reducedMotion) {
-      updateScrollProgress();
-    }
-
-    /* ── Layer C: Fine-Pointer Micro-Response ── */
-    let ptrX = 0;
-    let ptrY = 0;
-
-    const updatePointerVars = () => {
-      pointerRafId = null;
-      if (reducedMotion) {
-        wrapper.style.removeProperty("--topology-pointer-x");
-        wrapper.style.removeProperty("--topology-pointer-y");
-        return;
-      }
-      wrapper.style.setProperty("--topology-pointer-x", ptrX.toFixed(4));
-      wrapper.style.setProperty("--topology-pointer-y", ptrY.toFixed(4));
-    };
-
-    const onPointerMove = (e: PointerEvent) => {
-      if (!finePointer || reducedMotion) return;
-      const rect = heroSection.getBoundingClientRect();
-      const cx = rect.left + rect.width / 2;
-      const cy = rect.top + rect.height / 2;
-      ptrX = Math.max(-1, Math.min(1, (e.clientX - cx) / (rect.width / 2)));
-      ptrY = Math.max(-1, Math.min(1, (e.clientY - cy) / (rect.height / 2)));
-      if (pointerRafId === null) {
-        pointerRafId = requestAnimationFrame(updatePointerVars);
-      }
-    };
-
-    const onPointerLeave = () => {
-      ptrX = 0;
-      ptrY = 0;
-      if (pointerRafId !== null) {
-        cancelAnimationFrame(pointerRafId);
-        pointerRafId = null;
-      }
-      wrapper.style.setProperty("--topology-pointer-x", "0");
-      wrapper.style.setProperty("--topology-pointer-y", "0");
-    };
-
-    heroSection.addEventListener("pointermove", onPointerMove, {
-      passive: true,
-    });
-    heroSection.addEventListener("pointerleave", onPointerLeave);
-
-    /* ── Media query change handlers ── */
-    const onMotionChange = (e: MediaQueryListEvent) => {
-      reducedMotion = e.matches;
-      if (reducedMotion) {
-        if (scrollRafId !== null) {
-          cancelAnimationFrame(scrollRafId);
-          scrollRafId = null;
-        }
-        if (pointerRafId !== null) {
-          cancelAnimationFrame(pointerRafId);
-          pointerRafId = null;
-        }
-        wrapper.style.removeProperty("--topology-progress");
-        wrapper.style.removeProperty("--topology-pointer-x");
-        wrapper.style.removeProperty("--topology-pointer-y");
-      } else {
-        updateScrollProgress();
-      }
-    };
-
-    const onPointerChange = (e: MediaQueryListEvent) => {
-      finePointer = e.matches;
-      if (!finePointer) onPointerLeave();
-    };
-
-    motionQuery.addEventListener("change", onMotionChange);
-    pointerQuery.addEventListener("change", onPointerChange);
-
-    return () => {
-      if (scrollRafId !== null) cancelAnimationFrame(scrollRafId);
-      if (pointerRafId !== null) cancelAnimationFrame(pointerRafId);
-      window.removeEventListener("scroll", onScroll);
-      window.removeEventListener("resize", onResize);
-      heroSection.removeEventListener("pointermove", onPointerMove);
-      heroSection.removeEventListener("pointerleave", onPointerLeave);
-      motionQuery.removeEventListener("change", onMotionChange);
-      pointerQuery.removeEventListener("change", onPointerChange);
-    };
-  }, [locale]);
 
   return (
-    <div
-      ref={wrapperRef}
-      aria-hidden="true"
-      data-locale={locale}
-      className="absolute inset-0 pointer-events-none overflow-hidden select-none z-0 topology-motion"
-    >
-      {/* Ambient Illumination */}
-      <div className={`absolute top-1/4 ${isPersian ? "left-1/3" : "left-1/2"} -translate-x-1/2 -translate-y-1/2 w-[600px] h-[350px] bg-accent-cyan/[0.035] rounded-full blur-3xl`} />
-      <div className={`absolute top-1/3 ${isPersian ? "left-10" : "right-10"} w-[450px] h-[250px] bg-accent-blue/[0.025] rounded-full blur-3xl`} />
-
-      {/* SVG Topology Vectors & Conceptual Domain Nodes */}
-      <div className="w-full h-full topology-pointer-layer">
-        <svg
-          className="w-full h-full"
-          xmlns="http://www.w3.org/2000/svg"
-          viewBox="0 0 1200 800"
-          preserveAspectRatio="xMidYMid slice"
-        >
+    <div className="ecosystem-panel" dir="ltr">
+      <div className="flex items-center justify-between gap-3 mb-3">
+        <span className="flex items-center gap-2 font-mono text-[10px] tracking-wider text-accent-cyan">
+          <Network size={14} aria-hidden="true" /> AI / MCP
+        </span>
+        <span className="text-[11px] text-fg-secondary font-sans" dir={isPersian ? "rtl" : "ltr"}>
+          {isPersian ? "نقشه مفهومی پروژه‌ها" : "Conceptual portfolio map"}
+        </span>
+      </div>
+      <div className="ecosystem-stage">
+        <svg className="ecosystem-globe" viewBox="0 0 540 510" aria-hidden="true">
           <defs>
-            {/* Targeted Clean-Zone Mask: attenuates lines directly behind text */}
-            <radialGradient
-              id="title-clean-attenuation"
-              cx={isPersian ? "820" : "370"}
-              cy="270"
-              r={isPersian ? "450" : "320"}
-              gradientUnits="userSpaceOnUse"
-            >
-              <stop offset="0%" stopColor="#050505" />
-              <stop offset="55%" stopColor="#141414" />
-              <stop offset="85%" stopColor="#707070" />
-              <stop offset="100%" stopColor="#ffffff" />
+            <radialGradient id={`globe-light-${locale}`} cx="32%" cy="30%">
+              <stop offset="0" stopColor="#38bdf8" stopOpacity="0.19" />
+              <stop offset="0.6" stopColor="#164379" stopOpacity="0.13" />
+              <stop offset="1" stopColor="#020617" stopOpacity="0.75" />
             </radialGradient>
-
-            <mask id="topology-title-mask">
-              <rect width="1200" height="800" fill="url(#title-clean-attenuation)" />
-            </mask>
-
-            {/* Subtle line gradients */}
-            <linearGradient id="line-grad-1" x1="0%" y1="0%" x2="100%" y2="100%">
-              <stop offset="0%" stopColor="#38bdf8" stopOpacity="0.04" />
-              <stop offset="50%" stopColor="#38bdf8" stopOpacity="0.26" />
-              <stop offset="100%" stopColor="#38bdf8" stopOpacity="0.04" />
-            </linearGradient>
-
-            <linearGradient id="line-grad-2" x1="0%" y1="100%" x2="100%" y2="0%">
-              <stop offset="0%" stopColor="#3b82f6" stopOpacity="0.04" />
-              <stop offset="50%" stopColor="#38bdf8" stopOpacity="0.2" />
-              <stop offset="100%" stopColor="#3b82f6" stopOpacity="0.04" />
-            </linearGradient>
-
-            {/* Node Glow Filter */}
-            <filter id="glow" x="-20%" y="-20%" width="140%" height="140%">
-              <feGaussianBlur stdDeviation="2.5" result="blur" />
-              <feComposite in="SourceGraphic" in2="blur" operator="over" />
-            </filter>
           </defs>
-
-          {/* Masked Interconnects and Signal Flows */}
-          <g mask="url(#topology-title-mask)">
-            {/* Conceptual Infrastructure Interconnects */}
-            <g stroke="url(#line-grad-1)" strokeWidth="1.2" fill="none">
-              {/* Edge to Core Path */}
-              <path d="M 150,200 L 340,105 L 620,180 L 880,240 L 1050,150" />
-              {/* Core to Distribution Path */}
-              <path d="M 340,105 L 500,420 L 780,390 L 880,240" />
-              {/* Mesh Structural Link */}
-              <path
-                d="M 150,200 L 280,480 L 500,420 L 680,560 L 980,500 L 1050,150"
-                strokeDasharray="4 6"
-                className="opacity-35"
-              />
-              {/* Security & Observability Channel */}
-              <path d="M 620,180 L 780,390 L 680,560" stroke="url(#line-grad-2)" strokeWidth="1" />
-            </g>
-
-            {/* Subtle Signal Flows */}
-            <g stroke="#38bdf8" strokeWidth="1.8" fill="none" className="topology-signals">
-              <path
-                d="M 150,200 L 340,105 L 620,180 L 880,240"
-                strokeDasharray="12 180"
-                strokeDashoffset="0"
-                className="topology-pulse-1"
-              />
-              <path
-                d="M 500,420 L 780,390 L 880,240"
-                strokeDasharray="8 120"
-                strokeDashoffset="0"
-                className="topology-pulse-2"
-              />
-              {/* Mesh backbone signal — M2 ambient layer */}
-              <path
-                d="M 150,200 L 280,480 L 500,420 L 680,560 L 980,500 L 1050,150"
-                strokeDasharray="6 220"
-                strokeDashoffset="0"
-                strokeWidth="1.2"
-                className="opacity-50 topology-pulse-3"
-              />
-            </g>
+          <circle cx="270" cy="255" r="185" fill={`url(#globe-light-${locale})`} className="globe-shell" />
+          <g className="globe-grid">
+            <ellipse cx="270" cy="255" rx="100" ry="185" />
+            <ellipse cx="270" cy="255" rx="45" ry="185" />
+            <ellipse cx="270" cy="255" rx="185" ry="65" />
+            <ellipse cx="270" cy="255" rx="185" ry="125" />
+            <path d="M85 255 H455 M270 70 V440" />
           </g>
-
-          {/* Conceptual Infrastructure Domain Nodes (Clean absolute coordinates) */}
-          {/* Node 1: Edge & Ingress */}
-          <g>
-            <circle cx="150" cy="200" r="12" fill="#080a0f" stroke="#38bdf8" strokeWidth="1.5" strokeOpacity="0.4" />
-            <circle cx="150" cy="200" r="4" fill="#38bdf8" />
-            <circle cx="150" cy="200" r="18" fill="none" stroke="#38bdf8" strokeWidth="0.75" strokeDasharray="3 3" />
-            <text x="168" y="192" fill="#cbd5e1" fontSize="10" fontFamily="monospace" fontWeight="500">EDGE</text>
-            <text x="168" y="206" fill="#38bdf8" fontSize="9" fontFamily="monospace">INGRESS &amp; PROXY</text>
+          <g className="globe-orbits">
+            <ellipse cx="270" cy="255" rx="238" ry="114" transform="rotate(-27 270 255)" />
+            <ellipse cx="270" cy="255" rx="210" ry="135" transform="rotate(42 270 255)" />
           </g>
-
-          {/* Node 2: Security & Access */}
-          <g>
-            <circle cx="340" cy="105" r="14" fill="#080a0f" stroke="#38bdf8" strokeWidth="1.2" strokeOpacity="0.5" />
-            <circle cx="340" cy="105" r="4.5" fill="#38bdf8" filter="url(#glow)" />
-            <text x="358" y="101" fill="#cbd5e1" fontSize="10" fontFamily="monospace" fontWeight="500">SECURITY</text>
-            <text x="358" y="115" fill="#94a3b8" fontSize="9" fontFamily="monospace">FIREWALL &amp; ACCESS</text>
-          </g>
-
-          {/* Node 3: Core Enterprise Infrastructure */}
-          <g>
-            <rect x="606" y="166" width="28" height="28" fill="#080a0f" stroke="#38bdf8" strokeWidth="1.5" strokeOpacity="0.7" rx="4" />
-            <circle cx="620" cy="180" r="4" fill="#38bdf8" />
-            <text x="640" y="172" fill="#f8fafc" fontSize="11" fontFamily="monospace" fontWeight="bold">CORE</text>
-            <text x="640" y="186" fill="#38bdf8" fontSize="9" fontFamily="monospace">ENTERPRISE SYSTEMS</text>
-          </g>
-
-          {/* Node 4: AI & MCP Automation (Hidden on Persian to avoid competing with text) */}
-          <g className={isPersian ? "hidden" : ""}>
-            <polygon points="880,228 891,248 869,248" fill="#080a0f" stroke="#3b82f6" strokeWidth="1.5" strokeOpacity="0.7" />
-            <circle cx="880" cy="240" r="3" fill="#3b82f6" />
-            <text x="898" y="236" fill="#cbd5e1" fontSize="10" fontFamily="monospace" fontWeight="500">AUTOMATION</text>
-            <text x="898" y="250" fill="#38bdf8" fontSize="9" fontFamily="monospace">AI &amp; MCP RUNTIME</text>
-          </g>
-
-          {/* Node 5: Enterprise Services (Hidden on Persian to avoid text collision) */}
-          <g className={isPersian ? "hidden" : ""}>
-            <circle cx="1050" cy="150" r="10" fill="#080a0f" stroke="#94a3b8" strokeWidth="1.2" strokeOpacity="0.6" />
-            <circle cx="1050" cy="150" r="3.5" fill="#94a3b8" />
-            <text x="955" y="138" fill="#cbd5e1" fontSize="10" fontFamily="monospace" fontWeight="500">SERVICES</text>
-            <text x="955" y="152" fill="#94a3b8" fontSize="9" fontFamily="monospace">COMMUNICATIONS</text>
-          </g>
-
-          {/* Node 6: Endpoint Governance */}
-          <g>
-            <circle cx="500" cy="420" r="11" fill="#080a0f" stroke="#38bdf8" strokeWidth="1.2" strokeOpacity="0.45" />
-            <circle cx="500" cy="420" r="4" fill="#10b981" />
-            <text x="516" y="422" fill="#cbd5e1" fontSize="10" fontFamily="monospace" fontWeight="500">ENDPOINTS</text>
-            <text x="516" y="436" fill="#10b981" fontSize="9" fontFamily="monospace">CENTRALIZED FLEET</text>
-          </g>
-
-          {/* Node 7: Observability & Telemetry (Hidden on Persian) */}
-          <g className={isPersian ? "hidden" : ""}>
-            <circle cx="780" cy="390" r="10" fill="#080a0f" stroke="#94a3b8" strokeWidth="1.2" strokeOpacity="0.6" />
-            <circle cx="780" cy="390" r="3" fill="#38bdf8" />
-            <text x="796" y="386" fill="#cbd5e1" fontSize="10" fontFamily="monospace" fontWeight="500">OBSERVABILITY</text>
-            <text x="796" y="400" fill="#94a3b8" fontSize="9" fontFamily="monospace">LOGS &amp; AUDIT</text>
-          </g>
-
-          {/* Conceptual Architecture Markers */}
-          <g fill="#64748b" fontSize="9" fontFamily="monospace" className={isPersian ? "opacity-30" : "opacity-70"}>
-            <text x={isPersian ? "180" : "1000"} y="720" textAnchor={isPersian ? "start" : "end"}>+ ARCHITECTURE: MODULAR CONCEPT</text>
-            <text x={isPersian ? "180" : "1000"} y="738" textAnchor={isPersian ? "start" : "end"}>+ PROTOCOLS: ENCRYPTED CHANNELS</text>
-            <text x={isPersian ? "180" : "1000"} y="756" textAnchor={isPersian ? "start" : "end"}>+ DISCIPLINE: SYSTEMS ENGINEERING</text>
+          {positions.map((point, index) => (
+            <path key={index} className={`ecosystem-edge ${selectedIndex === index ? "is-connected" : ""}`} data-edge={index} d={`M270 255 Q${point.x} 255 ${point.x} ${point.y}`} />
+          ))}
+          <g className="globe-stars">
+            <circle cx="95" cy="200" r="3" /><circle cx="375" cy="105" r="3" />
+            <circle cx="410" cy="330" r="3" /><circle cx="200" cy="415" r="2" />
           </g>
         </svg>
+        <div className="ecosystem-core" aria-hidden="true">
+          <span className="text-lg sm:text-xl font-semibold text-white">AI / MCP</span>
+          <span className="text-[9px] tracking-[0.2em] text-sky-200 mt-2">ENGINEERING</span>
+          <span className="text-[9px] tracking-[0.2em] text-fg-secondary mt-1">ECOSYSTEM</span>
+        </div>
+        <ol aria-label={isPersian ? "هشت پروژه مهندسی" : "Eight engineering projects"} className="ecosystem-nodes">
+          {projects.map((project, index) => {
+            const Icon = icons[index];
+            return (
+              <li key={project.id} data-node={index} style={{ left: `${positions[index].x / 5.4}%`, top: `${positions[index].y / 5.1}%` }}>
+                <button type="button" className="ecosystem-node" aria-pressed={selectedIndex === index} aria-controls={`ecosystem-detail-${locale}`} onClick={() => setSelectedIndex(index)}>
+                  <span className="ecosystem-icon"><Icon size={22} strokeWidth={1.5} aria-hidden="true" /></span>
+                  <span className="interaction-title text-[11px] sm:text-xs font-semibold font-sans">{project.name}</span>
+                </button>
+              </li>
+            );
+          })}
+        </ol>
+      </div>
+      <div className="ecosystem-detail" id={`ecosystem-detail-${locale}`} dir={isPersian ? "rtl" : "ltr"} aria-live="polite" aria-atomic="true">
+        <a href={selected.href} className="nav-item flex items-center justify-between gap-3 rounded-lg border border-transparent px-3 py-2 text-xs text-fg-secondary font-sans">
+          <span><span className="text-accent-cyan font-semibold">{selected.name}</span><span className="block mt-1 leading-5">{selected.domain}</span></span>
+          <ArrowUpRight size={17} className="shrink-0 text-accent-cyan rtl:-rotate-90" aria-hidden="true" />
+        </a>
       </div>
     </div>
   );
-};
+}
+
+export function PortfolioExplorer({ projects, locale }: InfrastructureTopologyProps) {
+  const [query, setQuery] = useState("");
+  const [selectedId, setSelectedId] = useState<string | null>(null);
+  const isPersian = locale === "fa";
+  const search = query.trim().toLocaleLowerCase();
+  const matches = projects.filter((project) => [project.name, project.domain, project.overview, ...project.technologies].join(" ").toLocaleLowerCase().includes(search));
+  const selected = matches.find((project) => project.id === selectedId);
+
+  return (
+    <div className="portfolio-explorer rounded-2xl border border-border-panel p-4 text-start">
+      <h2 className="text-sm font-semibold text-white mb-3">{isPersian ? "درباره کارهایم بیشتر بدانید" : "Explore my work"}</h2>
+      <label className="relative block">
+        <span className="sr-only">{isPersian ? "جستجوی پروژه یا فناوری" : "Find a project or technology"}</span>
+        <Search className="absolute start-3 top-3.5 text-accent-cyan" size={15} aria-hidden="true" />
+        <input type="search" value={query} onChange={(event) => setQuery(event.target.value)} placeholder={isPersian ? "جستجوی پروژه یا فناوری…" : "Project or technology…"} className="w-full rounded-lg border border-border-panel bg-canvas-950/60 ps-9 pe-3 py-3 text-xs text-fg-primary placeholder:text-fg-secondary font-sans" aria-controls={`project-search-${locale}`} />
+      </label>
+      <div id={`project-search-${locale}`} className="mt-3 flex flex-wrap gap-2">
+        {matches.map((project) => <button type="button" key={project.id} onClick={() => setSelectedId(project.id === selectedId ? null : project.id)} aria-pressed={selectedId === project.id} className="technology-badge rounded-full border border-border-panel px-2.5 py-2 text-[11px] text-fg-secondary">{project.name}</button>)}
+        {matches.length === 0 && <p role="status" className="text-xs text-fg-secondary font-sans">{isPersian ? "پروژه‌ای پیدا نشد." : "No matching projects."}</p>}
+      </div>
+      {selected && <div className="mt-4 text-xs leading-6 font-sans text-fg-secondary"><p>{selected.overview}</p><a href={selected.href} className="action-button inline-flex mt-3 rounded-lg border border-accent-cyan/30 px-3 py-2 text-accent-cyan">{isPersian ? "مشاهده جزئیات" : "View project details"}<ArrowUpRight size={14} className="ms-2" aria-hidden="true" /></a></div>}
+    </div>
+  );
+}

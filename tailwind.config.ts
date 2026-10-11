@@ -10,6 +10,11 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
+        border: {
+          subtle: "rgba(255, 255, 255, 0.08)",
+          panel: "rgba(255, 255, 255, 0.14)",
+          active: "rgba(56, 189, 248, 0.35)",
+        },
         canvas: {
           950: "#080a0f",
           900: "#0d1117",
@@ -28,8 +33,8 @@ const config: Config = {
         fg: {
           primary: "#f8fafc",
           secondary: "#94a3b8",
-          muted: "#64748b",
-          subtle: "#475569",
+          muted: "#8494ac",
+          subtle: "#75869d",
         },
       },
       fontFamily: {

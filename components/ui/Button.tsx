@@ -16,26 +16,27 @@ export const Button: React.FC<ButtonProps> = ({
   href,
   external,
   className = "",
+  "aria-label": ariaLabel,
   ...props
 }) => {
   const baseStyles =
-    "inline-flex items-center justify-center font-mono font-medium transition-all duration-200 ease-out hover:-translate-y-0.5 active:translate-y-0 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent-cyan disabled:opacity-50 disabled:pointer-events-none select-none";
+    "action-button group inline-flex items-center justify-center font-sans font-medium focus-visible:ring-2 focus-visible:ring-accent-cyan disabled:opacity-50 disabled:pointer-events-none select-none";
 
   const sizeStyles = {
-    sm: "text-xs px-3 py-1.5 rounded-sm gap-1.5",
-    md: "text-sm px-5 py-2.5 rounded gap-2",
-    lg: "text-base px-6 py-3.5 rounded gap-2.5",
+    sm: "text-xs px-3 py-2 rounded-lg gap-1.5",
+    md: "text-sm px-5 py-2.5 rounded-lg gap-2",
+    lg: "text-sm px-6 py-3.5 rounded-lg gap-2.5",
   };
 
   const variantStyles = {
     primary:
-      "bg-accent-cyan/10 text-accent-cyan border border-accent-cyan/40 hover:bg-accent-cyan/20 hover:border-accent-cyan shadow-[0_0_15px_rgba(56,189,248,0.15)] active:scale-[0.98]",
+      "bg-accent-cyan/15 text-accent-cyan border border-accent-cyan/40 shadow-[0_0_20px_rgba(56,189,248,0.08)]",
     secondary:
-      "bg-canvas-900 text-fg-primary border border-border-panel hover:bg-canvas-800 hover:border-fg-muted active:scale-[0.98]",
+      "bg-canvas-900 text-fg-primary border border-border-panel",
     outline:
-      "bg-transparent text-fg-secondary border border-border-subtle hover:text-fg-primary hover:border-fg-secondary active:scale-[0.98]",
+      "bg-transparent text-fg-secondary border border-border-subtle",
     ghost:
-      "bg-transparent text-fg-secondary hover:text-accent-cyan hover:bg-canvas-850",
+      "bg-transparent text-fg-secondary border border-transparent",
   };
 
   const combinedClasses = `${baseStyles} ${sizeStyles[size]} ${variantStyles[variant]} ${className}`;
@@ -48,20 +49,21 @@ export const Button: React.FC<ButtonProps> = ({
           target="_blank"
           rel="noopener noreferrer"
           className={combinedClasses}
+          aria-label={ariaLabel}
         >
           {children}
         </a>
       );
     }
     return (
-      <Link href={href} className={combinedClasses}>
+      <Link href={href} className={combinedClasses} aria-label={ariaLabel}>
         {children}
       </Link>
     );
   }
 
   return (
-    <button className={combinedClasses} {...props}>
+    <button className={combinedClasses} aria-label={ariaLabel} {...props}>
       {children}
     </button>
   );

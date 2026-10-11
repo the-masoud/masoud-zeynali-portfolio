@@ -85,7 +85,7 @@ export const ExpertiseDomain: React.FC<ExpertiseDomainProps> = ({
             {domain.technologies.map((tech) => (
               <li
                 key={tech}
-                className="inline-flex items-center px-2 py-0.5 rounded bg-canvas-950/70 border border-white/5 text-[11px] sm:text-xs font-mono text-fg-secondary group-hover:text-fg-primary group-hover:border-white/15 transition-colors"
+                className="technology-badge inline-flex items-center px-2.5 py-1 rounded-md bg-canvas-950/70 border border-white/5 text-[11px] sm:text-xs font-mono text-fg-secondary"
               >
                 {tech}
               </li>

@@ -39,7 +39,7 @@ export const DevelopmentScope: React.FC<DevelopmentScopeProps> = ({
         {tags.map((tag) => (
           <li
             key={tag}
-            className="inline-flex items-center px-3 py-1 rounded bg-canvas-950/90 border border-border-subtle text-xs font-mono text-fg-secondary hover:text-fg-primary hover:border-accent-cyan/40 transition-colors"
+            className="technology-badge inline-flex items-center px-3 py-1.5 rounded-md bg-canvas-950/90 border border-border-subtle text-xs font-mono text-fg-secondary"
           >
             {tag}
           </li>

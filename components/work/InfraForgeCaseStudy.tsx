@@ -89,7 +89,7 @@ export const InfraForgeCaseStudy: React.FC<InfraForgeCaseStudyProps> = ({
         {/* Featured Engineering Dossier Container */}
         <article
           aria-labelledby="project-title-infraforge"
-          className="rounded bg-canvas-900/40 border border-border-subtle p-5 sm:p-7 lg:p-8 telemetry-corners space-y-8 sm:space-y-10"
+          className="project-card featured-project rounded-2xl border border-border-subtle p-5 sm:p-7 lg:p-8 space-y-8 sm:space-y-10"
         >
           {/* A. Project Header */}
           <div className="flex flex-col lg:flex-row lg:items-start justify-between gap-6 pb-6 border-b border-white/10 text-start">
@@ -115,7 +115,7 @@ export const InfraForgeCaseStudy: React.FC<InfraForgeCaseStudyProps> = ({
 
               <h3
                 id="project-title-infraforge"
-                className="text-2xl sm:text-3xl lg:text-4xl font-black font-mono tracking-tight text-white uppercase leading-none mb-2.5"
+                className="interaction-title text-2xl sm:text-3xl lg:text-4xl font-bold font-sans tracking-tight text-slate-200 uppercase leading-none mb-2.5"
               >
                 {projectName}
               </h3>
@@ -158,7 +158,7 @@ export const InfraForgeCaseStudy: React.FC<InfraForgeCaseStudyProps> = ({
                 href={repositoryUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className={`inline-flex items-center justify-center gap-2 px-4 py-2 rounded bg-canvas-950 border border-border-panel hover:border-accent-cyan hover:-translate-y-0.5 active:translate-y-0 active:scale-[0.99] text-xs font-semibold text-fg-primary hover:text-accent-cyan transition-all duration-200 ease-out focus-visible:ring-2 focus-visible:ring-accent-cyan shadow-sm min-h-[38px] ${
+                className={`action-button inline-flex items-center justify-center gap-2 px-4 py-2 rounded-lg bg-canvas-950 border border-border-panel text-xs font-semibold text-fg-primary focus-visible:ring-2 focus-visible:ring-accent-cyan shadow-sm min-h-[44px] ${
                   isPersian ? "font-sans" : "font-mono"
                 }`}
                 aria-label={repositoryAriaLabel}

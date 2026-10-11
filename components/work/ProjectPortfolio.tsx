@@ -1,5 +1,5 @@
 import React from "react";
-import { ArrowRight, ArrowDownRight, CheckCircle2, CircleDashed, AlertTriangle, Layers3, ShieldCheck } from "lucide-react";
+import { ArrowRight, ArrowDownRight, CheckCircle2, CircleDashed, AlertTriangle, Layers3, ShieldCheck, Box, Activity, Ruler, FileCheck2, ScanLine, Calculator, Printer } from "lucide-react";
 import type { Locale } from "@/lib/i18n/types";
 import { getProjectPortfolio, type ProjectStatus } from "./projectPortfolioData";
 
@@ -18,6 +18,8 @@ function StatusIcon({ tone }: { tone: ProjectStatus }) {
   if (tone === "blocked") return <AlertTriangle size={13} aria-hidden="true" />;
   return <CircleDashed size={13} aria-hidden="true" />;
 }
+
+const projectIcons = [Box, Activity, Ruler, FileCheck2, ScanLine, Calculator, Printer];
 
 export function ProjectPortfolio({ locale }: ProjectPortfolioProps) {
   const copy = getProjectPortfolio(locale);
@@ -52,16 +54,19 @@ export function ProjectPortfolio({ locale }: ProjectPortfolioProps) {
         </p>
       </div>
 
-      <div className="grid grid-cols-1 xl:grid-cols-2 gap-5 sm:gap-6">
-        {copy.projects.map((project, index) => (
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-5 sm:gap-6">
+        {copy.projects.map((project, index) => {
+          const Icon = projectIcons[index];
+          return (
           <article
             id={project.id}
             key={project.id}
             aria-labelledby={project.id + "-title"}
-            className="group flex flex-col scroll-mt-24 rounded-lg border border-border-subtle bg-canvas-900/40 p-5 sm:p-7 text-start transition-colors duration-200 hover:border-accent-cyan/25"
+            className="project-card group flex flex-col scroll-mt-24 rounded-2xl border border-border-subtle p-5 sm:p-7 text-start"
           >
             <div className="mb-5 flex flex-wrap items-center justify-between gap-x-3 gap-y-2">
-              <span className="font-mono text-[11px] font-bold text-accent-cyan tracking-[0.15em]" dir="ltr">
+              <span className="flex items-center gap-3 font-mono text-[11px] font-bold text-accent-cyan tracking-[0.15em]" dir="ltr">
+                <span className="project-icon"><Icon size={19} strokeWidth={1.5} aria-hidden="true" /></span>
                 PROJECT / {String(index + 2).padStart(2, "0")}
               </span>
               {!["oasisops", "sewerpilot", "plotwise"].includes(project.id) && (
@@ -82,7 +87,7 @@ export function ProjectPortfolio({ locale }: ProjectPortfolioProps) {
             </p>
             <h4
               id={project.id + "-title"}
-              className="text-2xl sm:text-[28px] leading-none font-mono font-extrabold tracking-tight text-white"
+              className="interaction-title text-2xl sm:text-[28px] leading-none font-sans font-bold tracking-tight text-slate-200"
               dir="ltr"
             >
               {project.name}
@@ -103,15 +108,15 @@ export function ProjectPortfolio({ locale }: ProjectPortfolioProps) {
               </div>
               <ol className="flex flex-wrap items-center gap-x-2 gap-y-2.5" aria-label={copy.architectureLabel}>
                 {project.architecture.map((node, nodeIndex) => (
-                  <li key={node} className="inline-flex items-center gap-2">
-                    <span className="rounded border border-border-subtle bg-canvas-950/70 px-2.5 py-2 text-[11px] sm:text-xs text-fg-primary leading-snug font-sans">
+                  <li key={node} className="flow-item inline-flex items-center gap-2">
+                    <span tabIndex={0} className="architecture-node rounded-lg border border-border-subtle bg-canvas-950/70 px-2.5 py-2 text-[11px] sm:text-xs text-fg-primary leading-snug font-sans">
                       {node}
                     </span>
                     {nodeIndex < project.architecture.length - 1 && (
                       <ArrowRight
                         size={12}
                         aria-hidden="true"
-                        className={"shrink-0 text-accent-cyan/60 " + (isPersian ? "rotate-180" : "")}
+                        className={"architecture-connection shrink-0 text-accent-cyan/40 " + (isPersian ? "rotate-180" : "")}
                       />
                     )}
                   </li>
@@ -128,7 +133,7 @@ export function ProjectPortfolio({ locale }: ProjectPortfolioProps) {
               </h5>
               <ul className="flex flex-wrap gap-2" aria-label={copy.stackLabel}>
                 {project.technologies.map((technology) => (
-                  <li key={technology} dir="ltr" className="rounded bg-canvas-950 px-2.5 py-1.5 border border-border-subtle font-mono text-[11px] text-slate-300">
+                  <li key={technology} dir="ltr" className="technology-badge rounded-md bg-canvas-950 px-2.5 py-1.5 border border-border-subtle font-mono text-[11px] text-slate-300">
                     {technology}
                   </li>
                 ))}
@@ -136,7 +141,7 @@ export function ProjectPortfolio({ locale }: ProjectPortfolioProps) {
             </div>
 
             <details className="mt-6 border-t border-white/10 pt-4 [&_summary::-webkit-details-marker]:hidden">
-              <summary className="flex cursor-pointer list-none items-center justify-between gap-3 rounded py-1 text-accent-cyan hover:text-white focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-accent-cyan">
+              <summary className="dossier-action flex cursor-pointer list-none items-center justify-between gap-3 rounded-lg px-3 py-3 text-accent-cyan border border-transparent focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-accent-cyan">
                 <span className={isPersian
                   ? "text-xs sm:text-sm font-bold font-sans"
                   : "text-[11px] sm:text-xs font-bold font-mono uppercase tracking-wider"}
@@ -172,7 +177,8 @@ export function ProjectPortfolio({ locale }: ProjectPortfolioProps) {
               </div>
             )}
           </article>
-        ))}
+          );
+        })}
       </div>
 
       <p className="mt-6 max-w-4xl border-s-2 border-accent-cyan/30 ps-4 text-xs sm:text-sm leading-7 text-fg-muted font-sans text-start">

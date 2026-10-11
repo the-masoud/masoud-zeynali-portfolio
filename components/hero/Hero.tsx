@@ -3,161 +3,79 @@ import { ArrowRight, ChevronRight, Shield, Cpu } from "lucide-react";
 import { Button } from "@/components/ui/Button";
 import { Badge } from "@/components/ui/Badge";
 import { HeroMetrics } from "./HeroMetrics";
-import { InfrastructureTopology } from "@/components/visuals/InfrastructureTopology";
-import { HeroData, Locale } from "@/lib/i18n/types";
+import { InfrastructureTopology, PortfolioExplorer } from "@/components/visuals/InfrastructureTopology";
+import { getProjectPortfolio } from "@/components/work/projectPortfolioData";
+import type { ArchitectureNodeData, HeroData, Locale } from "@/lib/i18n/types";
 
 interface HeroProps {
   data: HeroData;
+  architectureNodes: ArchitectureNodeData[];
   locale?: Locale;
 }
 
-export const Hero: React.FC<HeroProps> = ({ data, locale = "en" }) => {
-  const {
-    badgeText,
-    securityText,
-    aiAgentsText,
-    nameLine1,
-    nameLine2,
-    specialtyAi,
-    specialtyInfra,
-    specialtySecurity,
-    specializationRole,
-    statement,
-    ctaPrimary,
-    ctaSecondary,
-    metricsHeader,
-    metricsSubheader,
-    metrics,
-  } = data;
-
+export const Hero: React.FC<HeroProps> = ({ data, architectureNodes, locale = "en" }) => {
   const isPersian = locale === "fa";
+  const projects = [
+    { id: "infraforge", name: "InfraForge", domain: architectureNodes[1].supportingLabel, overview: architectureNodes.map((node) => node.supportingLabel).join(" · "), technologies: ["Go", "MCP", "SSH", "Linux"], href: "#work" },
+    ...getProjectPortfolio(locale).projects.map((project) => ({ id: project.id, name: project.name, domain: project.domain, overview: project.overview, technologies: project.technologies, href: `#${project.id}` })),
+  ];
 
   return (
-    <section
-      id="hero"
-      aria-labelledby="hero-title"
-      className="relative min-h-[calc(100vh-80px)] flex flex-col justify-center pt-8 pb-16 sm:py-20 lg:py-24 overflow-hidden"
-    >
-      {/* Infrastructure Topology Visual Layer with explicit locale awareness */}
-      <InfrastructureTopology locale={locale} />
-
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full">
-        {/* Persian Layout: Responsive centered-flex with max-w-4xl to prevent far-right jamming */}
-        <div className={isPersian ? "w-full max-w-3xl lg:max-w-4xl ms-0 me-auto lg:me-12 text-start" : "max-w-4xl"}>
-          {/* Subtle Technical Strip */}
-          <div className="inline-flex flex-wrap items-center gap-2 sm:gap-2.5 mb-5 sm:mb-6 animate-fade-in bg-canvas-900/60 border border-border-subtle/60 rounded px-2.5 py-1.5 backdrop-blur-sm">
-            <Badge variant="cyan" dot={false}>
-              {badgeText}
-            </Badge>
-            <span className="hidden sm:inline-block text-border-panel select-none">|</span>
-            <span className="hidden sm:flex items-center gap-1.5 text-[11px] text-fg-muted font-sans font-normal">
-              <Shield className="w-3 h-3 text-accent-cyan shrink-0" />
-              <span>{securityText}</span>
-            </span>
-            <span className="hidden sm:inline-block text-border-panel select-none">|</span>
-            <span className="hidden md:flex items-center gap-1.5 text-[11px] text-fg-secondary font-sans font-normal">
-              <Cpu className="w-3 h-3 text-accent-cyan shrink-0" />
-              <span>{aiAgentsText}</span>
-            </span>
-          </div>
-
-          {/* Hero Name / Identity */}
-          <div className="mb-6 sm:mb-8">
-            {isPersian ? (
-              /* Persian Name: Authoritative, controlled size (3xl to 6xl), IRANSansX Bold 700 */
-              <h1
-                id="hero-title"
-                className="text-3xl sm:text-5xl md:text-6xl font-bold font-sans tracking-normal text-white mb-3 sm:mb-4 leading-tight"
-              >
-                {nameLine1}
-              </h1>
-            ) : (
-              /* English Name: Two lines, uppercase monospace with gradient surname */
-              <h1
-                id="hero-title"
-                className="text-4xl sm:text-6xl md:text-7xl lg:text-8xl font-black font-mono tracking-tight text-white mb-4 sm:mb-6 uppercase leading-none"
-              >
-                {nameLine1} <br />
-                <span className="text-transparent bg-clip-text bg-gradient-to-r from-white via-slate-200 to-accent-cyan">
-                  {nameLine2}
-                </span>
-              </h1>
-            )}
-
-            {/* Specialty Row (Semantic priority: AI Engineering · IT Infrastructure · Security) */}
-            <div
-              className={`flex flex-wrap items-center gap-2 sm:gap-2.5 font-medium text-accent-cyan mb-2.5 ${
-                isPersian
-                  ? "text-base sm:text-xl md:text-2xl font-sans tracking-normal"
-                  : "text-lg sm:text-2xl md:text-3xl font-mono"
-              }`}
-            >
-              <span>{specialtyAi}</span>
-              <span className="text-fg-subtle select-none px-0.5">·</span>
-              <span>{specialtyInfra}</span>
-              <span className="text-fg-subtle select-none px-0.5">·</span>
-              <span>{specialtySecurity}</span>
-            </div>
-
-            {/* Senior Specialization Title (Restrained IRANSansX Regular 400 with cyan :: and Latin MCP) */}
-            <div
-              className={`flex items-baseline gap-2 text-slate-300 mb-5 ${
-                isPersian
-                  ? "text-xs sm:text-sm md:text-base font-sans font-normal"
-                  : "text-xs sm:text-base md:text-lg font-mono font-semibold"
-              }`}
-            >
-              <span className="text-accent-cyan font-mono select-none shrink-0">::</span>
-              <span className={`break-words ${isPersian ? "tracking-normal" : "tracking-wide"}`}>
-                {specializationRole}
+    <section id="hero" aria-labelledby="hero-title" className="hero-section relative py-12 sm:py-16 lg:py-20">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative w-full">
+        <div className="grid lg:grid-cols-2 xl:grid-cols-[1fr_1.35fr_0.85fr] items-center gap-10 xl:gap-6">
+          <div className="min-w-0 text-start">
+            <div className="flex flex-wrap items-center gap-3 mb-7">
+              <Badge variant="cyan">{data.badgeText}</Badge>
+              <span className="inline-flex items-center gap-1.5 text-xs text-fg-secondary font-sans">
+                <Shield size={13} className="text-accent-cyan" aria-hidden="true" />{data.securityText}
+              </span>
+              <span className="inline-flex items-center gap-1.5 text-xs text-fg-secondary font-sans">
+                <Cpu size={13} className="text-accent-cyan" aria-hidden="true" />{data.aiAgentsText}
               </span>
             </div>
 
-            {/* Supporting Statement Paragraph */}
-            <p
-              className={`text-slate-300/85 leading-relaxed font-sans font-normal ${
-                isPersian
-                  ? "text-sm sm:text-base md:text-lg max-w-2xl text-start"
-                  : "text-base sm:text-lg md:text-xl max-w-3xl"
-              }`}
-            >
-              {statement}
+            <h1 id="hero-title" className={`hero-name font-sans font-bold text-white ${isPersian ? "text-4xl sm:text-5xl xl:text-5xl leading-[1.5]" : "text-5xl sm:text-6xl xl:text-5xl leading-[1.08] tracking-tight"}`}>
+              {data.nameLine1}
+              {!isPersian && <><br /><span className="hero-name-accent">{data.nameLine2}</span></>}
+            </h1>
+
+            <div className="flex flex-wrap items-center gap-x-3 gap-y-2 mt-6 text-sm sm:text-base font-sans font-medium text-accent-cyan">
+              <span>{data.specialtyAi}</span><span className="text-fg-muted" aria-hidden="true">/</span>
+              <span>{data.specialtyInfra}</span><span className="text-fg-muted" aria-hidden="true">/</span>
+              <span>{data.specialtySecurity}</span>
+            </div>
+            <p className="mt-4 text-sm sm:text-base text-fg-primary font-sans leading-7">
+              {data.specializationRole}
             </p>
+            <p className="mt-5 max-w-xl text-base sm:text-lg leading-8 text-fg-secondary font-sans">
+              {data.statement}
+            </p>
+
+            <div className="flex flex-wrap items-center gap-3 mt-8">
+              <Button href={data.ctaPrimary.href} size="lg" aria-label={data.ctaPrimary.ariaLabel} className="font-sans">
+                <span>{data.ctaPrimary.label}</span>
+                <ArrowRight className="w-4 h-4 rtl:rotate-180" aria-hidden="true" />
+              </Button>
+              <Button href={data.ctaSecondary.href} variant="secondary" size="lg" aria-label={data.ctaSecondary.ariaLabel} className="font-sans">
+                <span>{data.ctaSecondary.label}</span>
+                <ChevronRight className="w-4 h-4 rtl:rotate-180" aria-hidden="true" />
+              </Button>
+            </div>
           </div>
-
-          {/* Hero Actions */}
-          <div className="flex flex-wrap items-center gap-3.5 sm:gap-4 mb-8">
-            <Button
-              href={ctaPrimary.href}
-              variant="primary"
-              size="lg"
-              className={isPersian ? "font-sans font-normal shadow-[0_0_20px_rgba(56,189,248,0.2)]" : "font-mono font-medium"}
-              aria-label={ctaPrimary.ariaLabel}
-            >
-              <span>{ctaPrimary.label}</span>
-              <ArrowRight className="w-4 h-4 text-accent-cyan rtl:rotate-180 group-hover:translate-x-1 rtl:group-hover:-translate-x-1 transition-transform shrink-0" />
-            </Button>
-
-            <Button
-              href={ctaSecondary.href}
-              variant="secondary"
-              size="lg"
-              className={isPersian ? "font-sans font-normal" : "font-mono font-medium"}
-              aria-label={ctaSecondary.ariaLabel}
-            >
-              <span>{ctaSecondary.label}</span>
-              <ChevronRight className="w-4 h-4 text-fg-muted rtl:rotate-180 group-hover:text-fg-primary group-hover:translate-x-0.5 rtl:group-hover:-translate-x-0.5 transition-all shrink-0" />
-            </Button>
+          <InfrastructureTopology projects={projects} locale={locale} />
+          <div className="lg:col-span-2 xl:col-span-1 flex flex-col gap-5 self-center">
+            <HeroMetrics header={data.metricsHeader} subheader={data.metricsSubheader} metrics={data.metrics} locale={locale} compact />
+            <PortfolioExplorer projects={projects} locale={locale} />
           </div>
         </div>
-
-        {/* Professional Metrics */}
-        <HeroMetrics
-          header={metricsHeader}
-          subheader={metricsSubheader}
-          metrics={metrics}
-          locale={locale}
-        />
+        <div className="technology-strip mt-12 flex flex-wrap items-center justify-between gap-5 rounded-xl border border-border-subtle px-5 py-4">
+          <span className="text-xs text-accent-cyan font-sans">{isPersian ? "فناوری‌های منتخب" : "Featured technologies"}</span>
+          <ul className="flex flex-wrap gap-2" aria-label={isPersian ? "فناوری‌های منتخب" : "Featured technologies"}>
+            {["Go", ".NET", "Next.js", "PostgreSQL", "Linux", "MCP", "OpenFlows Sewer", "AutoCAD 2021", "WPF"].map((technology) => <li key={technology} className="technology-badge rounded-md border border-transparent px-2 py-1 text-xs text-fg-secondary font-mono" dir="ltr">{technology}</li>)}
+          </ul>
+          <a href="#expertise" className="action-button inline-flex items-center gap-2 border border-accent-cyan/25 px-3 py-2 rounded-lg text-xs text-accent-cyan font-sans">{isPersian ? "همه فناوری‌ها" : "All technologies"}<ArrowRight size={14} className="rtl:rotate-180" aria-hidden="true" /></a>
+        </div>
       </div>
     </section>
   );

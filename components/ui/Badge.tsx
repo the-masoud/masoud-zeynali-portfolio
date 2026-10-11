@@ -14,7 +14,7 @@ export const Badge: React.FC<BadgeProps> = ({
   className = "",
 }) => {
   const baseStyles =
-    "inline-flex items-center gap-1.5 px-2.5 py-1 text-xs font-mono font-medium rounded-full tracking-wider border transition-colors";
+    "technology-badge inline-flex items-center gap-1.5 px-2.5 py-1 text-xs font-mono font-medium rounded-full tracking-wider border";
 
   const variantStyles = {
     cyan: "bg-accent-cyan/10 text-accent-cyan border-accent-cyan/30",
@@ -34,9 +34,6 @@ export const Badge: React.FC<BadgeProps> = ({
     <span className={`${baseStyles} ${variantStyles[variant]} ${className}`}>
       {dot && (
         <span className="relative flex h-1.5 w-1.5">
-          <span
-            className={`animate-ping absolute inline-flex h-full w-full rounded-full opacity-75 ${dotColors[variant]}`}
-          />
           <span
             className={`relative inline-flex rounded-full h-1.5 w-1.5 ${dotColors[variant]}`}
           />

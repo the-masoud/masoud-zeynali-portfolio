@@ -266,7 +266,7 @@ export const CommandPalette: React.FC<CommandPaletteProps> = ({
         {/* Header telemetry / status line */}
         <div className="flex items-center justify-between px-4 py-2.5 bg-canvas-900/90 border-b border-border-subtle font-mono text-[11px] select-none">
           <div className="flex items-center gap-2">
-            <span className="w-2 h-2 rounded-full bg-accent-cyan animate-pulse" />
+            <span className="w-2 h-2 rounded-full bg-accent-cyan" />
             <span className="text-fg-primary font-bold tracking-wider">{paletteData.title}</span>
             <span className="text-border-panel">/</span>
             <span className="text-fg-muted uppercase tracking-widest hidden sm:inline">

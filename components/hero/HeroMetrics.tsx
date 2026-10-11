@@ -10,6 +10,7 @@ interface HeroMetricsProps {
   subheader: string;
   metrics: HeroMetricItem[];
   locale?: Locale;
+  compact?: boolean;
 }
 
 const iconMap: Record<string, React.ComponentType<{ className?: string }>> = {
@@ -35,11 +36,12 @@ export const HeroMetrics: React.FC<HeroMetricsProps> = ({
   subheader,
   metrics,
   locale = "en",
+  compact = false,
 }) => {
   const isPersian = locale === "fa";
 
   return (
-    <div className="w-full mt-10 sm:mt-14 pt-6 sm:pt-8 border-t border-white/10">
+    <div className={compact ? "metrics-panel rounded-2xl border border-border-panel p-4" : "w-full mt-10 sm:mt-14 pt-6 sm:pt-8 border-t border-white/10"}>
       <div className="flex items-center justify-between mb-4">
         <div
           className={`flex items-center gap-2 uppercase ${
@@ -52,7 +54,7 @@ export const HeroMetrics: React.FC<HeroMetricsProps> = ({
           <span>{header}</span>
         </div>
         <span
-          className={`hidden sm:inline-block ${
+          className={`${compact ? "hidden" : "hidden sm:inline-block"} ${
             isPersian
               ? "font-sans text-xs text-fg-muted font-normal"
               : "font-mono text-xs text-fg-muted tracking-wide"
@@ -62,8 +64,8 @@ export const HeroMetrics: React.FC<HeroMetricsProps> = ({
         </span>
       </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-4 sm:gap-5">
-        {metrics.map((metric) => {
+      <div className={compact ? "grid grid-cols-1 sm:grid-cols-3 xl:grid-cols-2 gap-3" : "grid grid-cols-1 md:grid-cols-3 gap-4 sm:gap-5"}>
+        {metrics.map((metric, index) => {
           const Icon = iconMap[metric.id] || Server;
           const rawNum = rawNumericValues[metric.id];
           const evidenceId = evidenceIdMap[metric.id];
@@ -77,13 +79,13 @@ export const HeroMetrics: React.FC<HeroMetricsProps> = ({
           return (
             <div
               key={metric.id}
-              className="relative p-5 rounded bg-canvas-900/80 border border-border-panel hover:border-accent-cyan/40 transition-all duration-200 group telemetry-corners text-start flex flex-col justify-between"
+              className={`metric-card relative ${compact ? "p-3" : "p-5"} ${compact && index === metrics.length - 1 ? "xl:col-span-2" : ""} rounded-xl border border-border-panel group text-start flex flex-col justify-between`}
             >
               {/* Header coordinate tag + Trigger + Icon */}
               <div className="flex items-center justify-between gap-2 mb-3">
                 <span
                   dir="ltr"
-                  className="font-mono text-[9px] text-fg-subtle group-hover:text-accent-cyan/60 transition-colors opacity-75"
+                  className={compact ? "sr-only" : "font-mono text-[9px] text-fg-subtle group-hover:text-accent-cyan/60 transition-colors opacity-75"}
                 >
                   {metric.tag}
                 </span>
@@ -94,6 +96,7 @@ export const HeroMetrics: React.FC<HeroMetricsProps> = ({
                       ariaLabel={triggerAriaLabel}
                       locale={locale}
                       size="sm"
+                      iconOnly={compact}
                     />
                   )}
                   <div className="w-6 h-6 rounded bg-canvas-950 border border-border-subtle flex items-center justify-center text-fg-muted group-hover:text-accent-cyan group-hover:border-accent-cyan/30 transition-all">

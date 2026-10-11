@@ -29,8 +29,8 @@ The visual and interactive foundation for **Masoud Zeynali**'s personal technolo
 |---|---|---|
 | `--fg-primary` | `#f8fafc` | Headings, primary brand text, emphasis |
 | `--fg-secondary` | `#94a3b8` | Body copy, descriptive annotations |
-| `--fg-muted` | `#64748b` | Labels, secondary metadata, inactive links |
-| `--fg-subtle` | `#475569` | Coordinates, telemetry markers, timestamps |
+| `--fg-muted` | `#8494ac` | Labels, secondary metadata, inactive links |
+| `--fg-subtle` | `#75869d` | Coordinates, telemetry markers, timestamps |
 
 ### Technological Accents
 | Token | Hex Value | Application |
@@ -49,7 +49,7 @@ The visual and interactive foundation for **Masoud Zeynali**'s personal technolo
 - **Technical & Telemetry**: Monospace Stack (`JetBrains Mono`, `ui-monospace`, `SFMono-Regular`, `Menlo`, `monospace`)
 
 ### Type Scale
-- **Display / Hero H1**: `text-4xl` to `text-8xl` (40px–96px), tracking-tight, uppercase, font-black monospace with gradient clipping.
+- **Display / Hero H1**: Responsive sans-serif display type, bold weight, natural Persian spacing, and a cyan-to-blue English surname gradient.
 - **Positioning Statement**: `text-lg` to `text-3xl` (18px–30px), font-mono, medium weight, cyan accent.
 - **Body Text**: `text-base` to `text-xl` (16px–20px), line-height 1.7, high readability, font-sans.
 - **Telemetry & Labels**: `text-xs` to `text-sm` (10px–14px), font-mono, tracking-wider, uppercase.
@@ -58,22 +58,21 @@ The visual and interactive foundation for **Masoud Zeynali**'s personal technolo
 
 ## 5. Surface & Border Philosophy
 - **Borders**: 1px subtle borders (`rgba(255, 255, 255, 0.08)` to `rgba(255, 255, 255, 0.14)`).
-- **Corner Radii**: Precise and restrained (2px–8px). No overly bulbous or bubble-like cards.
-- **Telemetry Corners**: Custom CSS pseudo-elements providing technical crosshairs/corner bounding on interactive cards (`.telemetry-corners`).
+- **Corner Radii**: 8px controls, 12px compact cards, and 16px dossier surfaces.
+- **Lighting**: Navy glass-like surfaces with static radial lighting; gradients shift subtly on hover and keyboard focus.
 
 ---
 
 ## 6. Motion Philosophy & Accessibility
-- **Transitions**: Refined micro-interactions (`150ms`–`300ms` `cubic-bezier(0.16, 1, 0.3, 1)`).
-- **Animations**:
-  - `fade-in` / `slide-up`: 0.8s smooth entrance on hero load.
-  - `signal-flow`: SVG animated stroke offsets simulating data transmission.
+- **Transitions**: Shared `220ms ease-out` CSS transitions for cards, navigation, buttons, badges, and architecture connections. Titles brighten without changing font weight or dimensions.
+- **Interactions**: At most a 2px hover lift on cards and actions for fine pointers. No continuous signal, pulse, or pointer-tracking animation. Keyboard focus receives the same border and lighting treatment.
 - **Reduced Motion Support**:
-  All continuous keyframes, signal flows, and transition delays are gracefully nulled when `prefers-reduced-motion: reduce` is detected in user system settings.
+  Animations, transitions, hover lifts, and smooth scrolling are disabled for `prefers-reduced-motion: reduce`; structural positioning and RTL arrow rotations remain intact.
 
 ---
 
 ## 7. Responsive Breakpoints
+- **Approved AI-first composition**: `approved-design.png` guides the three-column desktop hero, static SVG globe, eight selectable project nodes, local project search, technology strip, and compact project previews. Project summaries link to the existing full dossiers; factual content and development statuses remain sourced from existing bilingual data.
 - **Mobile (`<640px`)**: Single-column metrics layout, full-width touch targets, slide-out navigation drawer with accessible escape handling, optimized SVG topology scaling.
 - **Tablet (`640px–1024px`)**: Balanced 2/3 column layout, fluid typography scaling.
 - **Desktop (`>1024px`)**: 3-column metric telemetry panel, extended network topology vectors, full horizontal navigation bar.

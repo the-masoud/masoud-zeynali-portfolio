@@ -1,6 +1,7 @@
 import React from "react";
 import { Navbar } from "@/components/navigation/Navbar";
 import { Hero } from "@/components/hero/Hero";
+import { FeaturedProjects } from "@/components/work/FeaturedProjects";
 import { RecruiterDossier } from "@/components/recruiter/RecruiterDossier";
 import { ProfessionalStory } from "@/components/about/ProfessionalStory";
 import { CareerJourney } from "@/components/experience/CareerJourney";
@@ -20,7 +21,8 @@ export default function EnglishHomePage() {
     <div className="min-h-screen flex flex-col justify-between selection:bg-accent-cyan/20">
       <Navbar data={dict.navbar} />
       <main id="main-content" className="flex-grow">
-        <Hero data={dict.hero} locale="en" />
+        <Hero data={dict.hero} architectureNodes={dict.infraForge.architecture.nodes} locale="en" />
+        <FeaturedProjects featured={dict.infraForge} locale="en" />
         <RecruiterDossier data={dict.recruiterDossier} locale="en" />
         <ProfessionalStory data={dict.story} locale="en" />
         <CareerJourney data={dict.career} locale="en" />
