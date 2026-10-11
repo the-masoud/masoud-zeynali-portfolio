@@ -5,6 +5,7 @@ import { InfraForgeArchitecture } from "./InfraForgeArchitecture";
 import { EngineeringPrinciples } from "./EngineeringPrinciples";
 import { DevelopmentScope } from "./DevelopmentScope";
 import { EngineeringNotes } from "./EngineeringNotes";
+import { ProjectPortfolio } from "./ProjectPortfolio";
 import { InfraForgeData, Locale } from "@/lib/i18n/types";
 import { EvidenceTrigger } from "@/components/evidence/EvidenceTrigger";
 
@@ -257,6 +258,7 @@ export const InfraForgeCaseStudy: React.FC<InfraForgeCaseStudyProps> = ({
             />
           </div>
         </article>
+        <ProjectPortfolio locale={locale} />
       </div>
     </section>
   );
