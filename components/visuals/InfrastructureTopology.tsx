@@ -1,7 +1,8 @@
 "use client";
 
 import { useState } from "react";
-import { Activity, Bot, Calculator, FileCheck2, Network, Printer, Ruler, ScanLine, Server, Search, ArrowUpRight } from "lucide-react";
+import Image from "next/image";
+import { Network, Search, ArrowUpRight } from "lucide-react";
 import type { Locale } from "@/lib/i18n/types";
 
 export interface EcosystemProject {
@@ -18,7 +19,6 @@ interface InfrastructureTopologyProps {
   locale: Locale;
 }
 
-const icons = [Bot, Server, Activity, Ruler, FileCheck2, ScanLine, Calculator, Printer];
 const positions = [
   { x: 120, y: 110 }, { x: 275, y: 40 }, { x: 430, y: 115 }, { x: 70, y: 250 },
   { x: 455, y: 265 }, { x: 125, y: 395 }, { x: 400, y: 400 }, { x: 270, y: 465 },
@@ -75,11 +75,20 @@ export function InfrastructureTopology({ projects, locale }: InfrastructureTopol
         </div>
         <ol aria-label={isPersian ? "هشت پروژه مهندسی" : "Eight engineering projects"} className="ecosystem-nodes">
           {projects.map((project, index) => {
-            const Icon = icons[index];
+            const imageSlug = project.id === "oasisops" ? "ops" : project.id;
             return (
               <li key={project.id} data-node={index} style={{ left: `${positions[index].x / 5.4}%`, top: `${positions[index].y / 5.1}%` }}>
                 <button type="button" className="ecosystem-node" aria-pressed={selectedIndex === index} aria-controls={`ecosystem-detail-${locale}`} onClick={() => setSelectedIndex(index)}>
-                  <span className="ecosystem-icon"><Icon size={22} strokeWidth={1.5} aria-hidden="true" /></span>
+                  <span className="ecosystem-icon" aria-hidden="true">
+                    <Image
+                      src={`/images/projects/${imageSlug}.webp`}
+                      alt=""
+                      width={96}
+                      height={96}
+                      unoptimized
+                      className="ecosystem-thumbnail"
+                    />
+                  </span>
                   <span className="interaction-title text-[11px] sm:text-xs font-semibold font-sans">{project.name}</span>
                 </button>
               </li>

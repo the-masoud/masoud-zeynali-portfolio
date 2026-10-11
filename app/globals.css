@@ -376,13 +376,28 @@ html[lang="fa"] #main-content h2 {
 }
 .ecosystem-icon {
   display: flex; align-items: center; justify-content: center;
-  width: 44px; height: 44px; border-radius: 50%;
-  border: 1px solid rgba(56, 189, 248, 0.5);
-  background: radial-gradient(circle at 30% 20%, #153b59, #081627 70%);
+  width: 54px; height: 54px; border-radius: 50%;
+  border: 2px solid rgba(56, 189, 248, 0.58);
+  overflow: hidden; position: relative; flex-shrink: 0;
+  background: #071726;
   color: #7dd3fc;
   box-shadow: 0 0 15px rgba(56, 189, 248, 0.08);
   transition: border-color 220ms ease-out, box-shadow 220ms ease-out, background-position 220ms ease-out, transform 220ms ease-out;
   background-size: 150% 150%;
+}
+.ecosystem-thumbnail {
+  display: block; width: 100%; height: 100%;
+  object-fit: cover; object-position: center;
+  filter: brightness(1.18) saturate(1.12);
+  transition: filter 220ms ease-out;
+}
+.ecosystem-icon::after {
+  content: ""; position: absolute; inset: 0;
+  border-radius: inherit; pointer-events: none;
+  background: radial-gradient(circle, transparent 40%, rgba(5, 14, 26, 0.25) 100%);
+}
+.ecosystem-node:is(:hover, :focus-visible, [aria-pressed="true"]) .ecosystem-thumbnail {
+  filter: brightness(1.32) saturate(1.18);
 }
 .ecosystem-node:is(:hover, :focus-visible, [aria-pressed="true"]) {
   color: #e0f2fe; border-color: rgba(56, 189, 248, 0.35); background-color: rgba(10, 28, 44, 0.95);
@@ -436,7 +451,7 @@ html[lang="fa"] #main-content h2 {
 }
 .project-preview:is(:hover, :focus-visible) .interaction-title { color: #7dd3fc; }
 @media (max-width: 359px) {
-  .ecosystem-icon { width: 34px; height: 34px; }
+  .ecosystem-icon { width: 38px; height: 38px; }
   .ecosystem-node { gap: 3px; padding: 2px; }
   .ecosystem-core > span:first-child { font-size: 14px; }
   .ecosystem-core > span:not(:first-child) { font-size: 7px; }
