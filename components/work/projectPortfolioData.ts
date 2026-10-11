@@ -47,7 +47,7 @@ export const projectPortfolio: Record<Locale, PortfolioProjectPresentation> = {
     projects: [
       {
         id: "oasisops",
-        name: "OasisOps",
+        name: "Ops",
         domain: "ON-PREM IT OPERATIONS",
         tagline: "An offline-first operations and diagnostic control plane",
         overview:
@@ -188,7 +188,7 @@ export const projectPortfolio: Record<Locale, PortfolioProjectPresentation> = {
     projects: [
       {
         id: "oasisops",
-        name: "OasisOps",
+        name: "Ops",
         domain: "عملیات فناوری اطلاعات درون‌سازمانی",
         tagline: "مرکز کنترل عملیات و عیب‌یابی بدون وابستگی به ابر",
         overview:
