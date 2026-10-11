@@ -10,7 +10,7 @@ export const viewport: Viewport = {
   maximumScale: 5,
 };
 
-const SITE_URL = "https://masoud-zeynali-portfolio.vercel.app";
+const SITE_URL = "https://masoudzeynali.ir";
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
