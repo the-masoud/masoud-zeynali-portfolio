@@ -11,7 +11,7 @@ This roadmap outlines the multi-phase engineering plan for building the personal
   - Modern ESLint configuration (`eslint.config.mjs`).
   - High-end dark design system with design tokens, typography hierarchy, and telemetry components.
   - Global responsive navigation with mobile drawer and non-destructive resume action.
-  - Hero experience featuring primary positioning (*IT Infrastructure · Security · AI Automation*), supporting statement accurately distinguishing two decades of enterprise IT experience from modern AI/MCP tooling, verified scale metrics (~20 Years, 15+ Team, 300+ Endpoints), and conceptual SVG infrastructure topology visualization.
+  - Hero experience featuring primary positioning (*IT Infrastructure · Security · AI Automation*), supporting statement accurately distinguishing two decades of enterprise IT experience from modern AI/MCP tooling, verified scale metrics (~20 Years, 30+ Team, 300+ Endpoints), and conceptual SVG infrastructure topology visualization.
   - Accessibility foundation (WCAG AA, skip link, keyboard focus rings, `prefers-reduced-motion`).
   - Core project documentation and design system specs.
 

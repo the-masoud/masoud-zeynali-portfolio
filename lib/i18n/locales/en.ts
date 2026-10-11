@@ -184,7 +184,7 @@ export const enDictionary: PortfolioDictionary = {
     foundationLabel: "FOUNDATION",
     foundationValue: "Nearly two decades of enterprise IT and infrastructure engineering experience",
     scaleLabel: "OPERATING SCALE",
-    scaleValue: "15+ technical staff and specialists supervised · 300+ managed Windows endpoints",
+    scaleValue: "30+ technical staff and specialists supervised · 300+ managed Windows endpoints",
     currentRoleLabel: "CURRENT ROLE",
     currentRoleValue: "Deputy Head of Information Technology Department",
     locationLabel: "LOCATION",
@@ -213,7 +213,7 @@ export const enDictionary: PortfolioDictionary = {
     focusMarker: "FOCUS::RESILIENT_OPERATIONS",
     paragraphs: [
       "Masoud’s career began in hands-on IT support, troubleshooting, and network operations, building a practical foundation across Windows client environments, Active Directory support, Group Policy, and organization-wide incident resolution. His responsibilities later expanded into the design and management of enterprise network infrastructure, administration and security of enterprise server environments, and centralized endpoint operations across more than 300 Windows endpoints.",
-      "As his responsibilities grew, Masoud moved into IT leadership and departmental responsibility, leading infrastructure development planning, defining the organization’s technology roadmap, supervising critical technology projects, and guiding more than 15 technical staff and specialists across network, security, help desk, and infrastructure functions. Today, nearly two decades of enterprise IT, infrastructure governance, and network security leadership serve as the foundation for his current engineering direction as a Senior AI Engineer—focused on AI agents, Model Context Protocol (MCP), infrastructure automation, and secure AI-assisted operational workflows.",
+      "As his responsibilities grew, Masoud moved into IT leadership and departmental responsibility, leading infrastructure development planning, defining the organization’s technology roadmap, supervising critical technology projects, and guiding more than 30 technical staff and specialists across network, security, help desk, and infrastructure functions. Today, nearly two decades of enterprise IT, infrastructure governance, and network security leadership serve as the foundation for his current engineering direction as a Senior AI Engineer—focused on AI agents, Model Context Protocol (MCP), infrastructure automation, and secure AI-assisted operational workflows.",
     ],
     principlesHeader: "ENGINEERING DISCIPLINES & PRINCIPLES",
     principlesSubheader: "CORE TENETS",
@@ -301,11 +301,11 @@ export const enDictionary: PortfolioDictionary = {
           "Leads the IT department, plans infrastructure development, defines the organization’s technology roadmap, and supervises critical technology projects while contributing to resource allocation, IT budgeting, and technology lifecycle oversight.",
         responsibilitiesHeader: "KEY RESPONSIBILITIES & SCOPE:",
         responsibilities: [
-          "Direct supervision, evaluation, and guidance of more than 15 employees, senior specialists, and technical professionals across network, security, help desk, and infrastructure functions.",
+          "Direct supervision, evaluation, and guidance of more than 30 employees, senior specialists, and technical professionals across network, security, help desk, and infrastructure functions.",
           "Infrastructure development planning, technology roadmap definition, and oversight of critical technology projects.",
           "Resource allocation, contribution to IT budgeting, technology asset lifecycle oversight, and development of the team’s technical capabilities.",
         ],
-        scaleHighlight: "15+ technical staff and specialists",
+        scaleHighlight: "30+ technical staff and specialists",
         tag: "ROLE::IT_LEADERSHIP",
       },
     ],
@@ -819,7 +819,7 @@ export const enDictionary: PortfolioDictionary = {
         classificationKey: "professional-record",
         classificationDisplay: "PROFESSIONAL RECORD",
         title: "Technical Team Leadership",
-        claim: "15+ technical staff and specialists supervised.",
+        claim: "30+ technical staff and specialists supervised.",
         evidenceBasis:
           "Leadership scope includes network, security, help desk, and infrastructure staff and specialists within the IT department.",
         disclosure:

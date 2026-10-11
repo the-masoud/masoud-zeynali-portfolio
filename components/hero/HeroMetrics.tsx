@@ -105,7 +105,7 @@ export const HeroMetrics: React.FC<HeroMetricsProps> = ({
                 </div>
               </div>
 
-              {/* Metric Value: Bidi-isolated numeric Latin token (~20, 15+, 300+) */}
+              {/* Metric Value: Bidi-isolated numeric Latin token (~20, 30+, 300+) */}
               <div className="text-2xl sm:text-3xl font-bold tracking-tight text-fg-primary group-hover:text-white mb-1.5 flex items-baseline gap-1.5">
                 <bdi dir="ltr" className="font-mono font-bold tracking-tight">
                   {rawNum || metric.value}

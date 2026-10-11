@@ -57,11 +57,11 @@ export const careerStages: CareerStageItem[] = [
     narrative:
       "Leads the IT department, plans infrastructure development, defines the organization’s technology roadmap, and supervises critical technology projects while contributing to resource allocation, IT budgeting, and technology lifecycle oversight.",
     responsibilities: [
-      "Direct supervision, evaluation, and guidance of more than 15 employees, senior specialists, and technical professionals across network, security, help desk, and infrastructure functions.",
+      "Direct supervision, evaluation, and guidance of more than 30 employees, senior specialists, and technical professionals across network, security, help desk, and infrastructure functions.",
       "Infrastructure development planning, technology roadmap definition, and oversight of critical technology projects.",
       "Resource allocation, contribution to IT budgeting, technology asset lifecycle oversight, and development of the team’s technical capabilities.",
     ],
-    scaleHighlight: "15+ technical staff and specialists",
+    scaleHighlight: "30+ technical staff and specialists",
     tag: "ROLE::IT_LEADERSHIP",
   },
 ];

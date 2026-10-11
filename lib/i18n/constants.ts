@@ -12,7 +12,7 @@ export const SHARED_FACTS = {
   },
   metrics: {
     itExperienceYears: "~20",
-    teamSupervisedCount: "15+",
+    teamSupervisedCount: "30+",
     endpointsCount: "300+",
   },
   career: {
@@ -39,7 +39,7 @@ export const SHARED_FACTS = {
         stageNumber: "03",
         tag: "ROLE::IT_LEADERSHIP",
         durationYears: "Last 5 years — Present",
-        scaleHighlightRaw: "15+ technical staff and specialists",
+        scaleHighlightRaw: "30+ technical staff and specialists",
       },
     ],
   },
