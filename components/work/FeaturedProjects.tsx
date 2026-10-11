@@ -25,7 +25,7 @@ export function FeaturedProjects({ featured, locale }: { featured: InfraForgeDat
                 <a href={project.href} className="project-card project-preview block h-full rounded-xl border border-border-subtle overflow-hidden">
                   <div className="project-preview-art">
                     <Image
-                      src={`/images/projects/${project.id}.svg`}
+                      src={`/images/projects/${project.id}.webp`}
                       alt={isPersian
                         ? `تصویر مفهومی مرتبط با ${project.name}: ${project.domain}`
                         : `Conceptual illustration of ${project.name}: ${project.domain}`}
