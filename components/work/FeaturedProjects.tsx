@@ -1,8 +1,8 @@
-import { ArrowUpRight, Activity, Bot, Box, Calculator, FileCheck2, Printer, Ruler, ScanLine } from "lucide-react";
+import { ArrowUpRight } from "lucide-react";
+import Image from "next/image";
 import type { InfraForgeData, Locale } from "@/lib/i18n/types";
 import { getProjectPortfolio } from "./projectPortfolioData";
 
-const icons = [Bot, Box, Activity, Ruler, FileCheck2, ScanLine, Calculator, Printer];
 
 export function FeaturedProjects({ featured, locale }: { featured: InfraForgeData; locale: Locale }) {
   const isPersian = locale === "fa";
@@ -19,14 +19,21 @@ export function FeaturedProjects({ featured, locale }: { featured: InfraForgeDat
           <a href="#work" className="nav-item rounded-lg border border-transparent px-3 py-2 text-xs text-accent-cyan font-sans">{isPersian ? "مشاهده همه جزئیات پروژه‌ها" : "Explore all project details"}<ArrowUpRight size={15} className="inline-block ms-2" aria-hidden="true" /></a>
         </div>
         <ul className="grid grid-cols-1 min-[360px]:grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4">
-          {projects.map((project, index) => {
-            const Icon = icons[index];
+          {projects.map((project) => {
             return (
               <li key={project.id} className="min-w-0">
                 <a href={project.href} className="project-card project-preview block h-full rounded-xl border border-border-subtle overflow-hidden">
-                  <div className="project-preview-art" aria-hidden="true">
-                    <svg viewBox="0 0 240 90" preserveAspectRatio="xMidYMid slice" className="absolute inset-0 w-full h-full"><g fill="none" stroke="currentColor" strokeWidth="0.7"><path d="M0 45 H65 V20 H115 M240 45 H175 V70 H125 M65 45 H175 M120 0 V90" /><circle cx="65" cy="45" r="6" /><circle cx="175" cy="45" r="6" /><rect x="97" y="23" width="46" height="44" rx="10" /></g></svg>
-                    <Icon size={23} strokeWidth={1.5} className="relative" />
+                  <div className="project-preview-art">
+                    <Image
+                      src={`/images/projects/${project.id}.svg`}
+                      alt={isPersian
+                        ? `تصویر مفهومی مرتبط با ${project.name}: ${project.domain}`
+                        : `Conceptual illustration of ${project.name}: ${project.domain}`}
+                      width={800}
+                      height={360}
+                      unoptimized
+                      className="project-preview-image h-full w-full object-cover"
+                    />
                   </div>
                   <div className="p-4">
                     <h3 className="interaction-title font-sans font-semibold text-base text-slate-200 break-words" dir="ltr">{project.name}</h3>

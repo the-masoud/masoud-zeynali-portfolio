@@ -88,8 +88,12 @@ export function InfrastructureTopology({ projects, locale }: InfrastructureTopol
         </ol>
       </div>
       <div className="ecosystem-detail" id={`ecosystem-detail-${locale}`} dir={isPersian ? "rtl" : "ltr"} aria-live="polite" aria-atomic="true">
-        <a href={selected.href} className="nav-item flex items-center justify-between gap-3 rounded-lg border border-transparent px-3 py-2 text-xs text-fg-secondary font-sans">
-          <span><span className="text-accent-cyan font-semibold">{selected.name}</span><span className="block mt-1 leading-5">{selected.domain}</span></span>
+        <a href={selected.href} className="nav-item flex items-center justify-between gap-3 rounded-lg border border-transparent px-3 py-3 text-xs text-fg-secondary font-sans">
+          <span className="min-w-0">
+            <span className="text-accent-cyan font-semibold text-sm">{selected.name}</span>
+            <span className="block mt-1 leading-5 text-fg-primary">{selected.domain}</span>
+            <span className="block mt-2 leading-5 text-fg-secondary line-clamp-2">{selected.overview}</span>
+          </span>
           <ArrowUpRight size={17} className="shrink-0 text-accent-cyan rtl:-rotate-90" aria-hidden="true" />
         </a>
       </div>

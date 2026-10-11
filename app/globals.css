@@ -381,7 +381,7 @@ html[lang="fa"] #main-content h2 {
   background: radial-gradient(circle at 30% 20%, #153b59, #081627 70%);
   color: #7dd3fc;
   box-shadow: 0 0 15px rgba(56, 189, 248, 0.08);
-  transition: border-color 220ms ease-out, box-shadow 220ms ease-out, background-position 220ms ease-out;
+  transition: border-color 220ms ease-out, box-shadow 220ms ease-out, background-position 220ms ease-out, transform 220ms ease-out;
   background-size: 150% 150%;
 }
 .ecosystem-node:is(:hover, :focus-visible, [aria-pressed="true"]) {
@@ -389,6 +389,14 @@ html[lang="fa"] #main-content h2 {
 }
 .ecosystem-node:is(:hover, :focus-visible, [aria-pressed="true"]) .ecosystem-icon {
   border-color: #7dd3fc; box-shadow: 0 0 22px rgba(56, 189, 248, 0.2); background-position: 25% 20%;
+}
+.ecosystem-node[aria-pressed="true"] .ecosystem-icon {
+  transform: scale(1.2);
+  border-color: #8be4ff;
+  box-shadow: 0 0 0 4px rgba(56, 189, 248, 0.12), 0 0 25px rgba(56, 189, 248, 0.26);
+}
+@media (prefers-reduced-motion: reduce) {
+  .ecosystem-node[aria-pressed="true"] .ecosystem-icon { transform: none; }
 }
 .ecosystem-stage:has([data-node="0"]:is(:hover, :focus-within)) [data-edge="0"],
 .ecosystem-stage:has([data-node="1"]:is(:hover, :focus-within)) [data-edge="1"],
@@ -405,14 +413,27 @@ html[lang="fa"] #main-content h2 {
 }
 .portfolio-explorer [aria-pressed="true"] { border-color: var(--accent-cyan); color: #e0f2fe; background-color: rgba(56, 189, 248, 0.1); }
 .project-preview-art {
-  position: relative; height: 84px; display: flex; align-items: center; justify-content: center;
+  position: relative; height: clamp(112px, 16vw, 156px);
+  display: flex; align-items: center; justify-content: center;
   color: #7dd3fc; overflow: hidden;
-  background-image: radial-gradient(ellipse at 50% 80%, rgba(56, 189, 248, 0.09), transparent 70%), linear-gradient(110deg, #08111f, #102037, #08111f);
-  background-size: 150% 100%; background-position: 0% 0%;
+  background: #091727;
   border-bottom: 1px solid var(--border-subtle);
-  transition: background-position 220ms ease-out;
 }
-.project-preview:is(:hover, :focus-visible) .project-preview-art { background-position: 30% 0%; }
+.project-preview-art::after {
+  content: ""; position: absolute; inset: 0; pointer-events: none;
+  background: linear-gradient(to top, rgba(5, 12, 24, 0.25), transparent 65%);
+}
+.project-preview-image {
+  display: block; transform: scale(1);
+  transition: transform 220ms ease-out, filter 220ms ease-out;
+}
+@media (hover: hover) and (pointer: fine) {
+  .project-preview:hover .project-preview-image { transform: scale(1.035); filter: brightness(1.11); }
+}
+.project-preview:focus-visible .project-preview-image { filter: brightness(1.11); }
+@media (prefers-reduced-motion: reduce) {
+  .project-preview:hover .project-preview-image { transform: none; }
+}
 .project-preview:is(:hover, :focus-visible) .interaction-title { color: #7dd3fc; }
 @media (max-width: 359px) {
   .ecosystem-icon { width: 34px; height: 34px; }
