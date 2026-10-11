@@ -1,8 +1,8 @@
 "use client";
 
-import { useState } from "react";
+import { useRef, useState } from "react";
 import Image from "next/image";
-import { Network, Search, ArrowUpRight } from "lucide-react";
+import { Network, Search, ArrowUpRight, X } from "lucide-react";
 import type { Locale } from "@/lib/i18n/types";
 
 export interface EcosystemProject {
@@ -26,8 +26,14 @@ const positions = [
 
 export function InfrastructureTopology({ projects, locale }: InfrastructureTopologyProps) {
   const [selectedIndex, setSelectedIndex] = useState(0);
+  const dialogRef = useRef<HTMLDialogElement>(null);
   const selected = projects[selectedIndex];
+  const selectedImageSlug = selected.id === "oasisops" ? "ops" : selected.id;
   const isPersian = locale === "fa";
+  const openProjectPreview = (index: number) => {
+    setSelectedIndex(index);
+    dialogRef.current?.showModal();
+  };
 
   return (
     <div className="ecosystem-panel" dir="ltr">
@@ -78,7 +84,7 @@ export function InfrastructureTopology({ projects, locale }: InfrastructureTopol
             const imageSlug = project.id === "oasisops" ? "ops" : project.id;
             return (
               <li key={project.id} data-node={index} style={{ left: `${positions[index].x / 5.4}%`, top: `${positions[index].y / 5.1}%` }}>
-                <button type="button" className="ecosystem-node" aria-pressed={selectedIndex === index} aria-controls={`ecosystem-detail-${locale}`} onClick={() => setSelectedIndex(index)}>
+                <button type="button" className="ecosystem-node" aria-pressed={selectedIndex === index} aria-haspopup="dialog" aria-controls={`ecosystem-preview-${locale}`} onClick={() => openProjectPreview(index)}>
                   <span className="ecosystem-icon" aria-hidden="true">
                     <Image
                       src={`/images/projects/${imageSlug}.webp`}
@@ -96,16 +102,59 @@ export function InfrastructureTopology({ projects, locale }: InfrastructureTopol
           })}
         </ol>
       </div>
-      <div className="ecosystem-detail" id={`ecosystem-detail-${locale}`} dir={isPersian ? "rtl" : "ltr"} aria-live="polite" aria-atomic="true">
-        <a href={selected.href} className="nav-item flex items-center justify-between gap-3 rounded-lg border border-transparent px-3 py-3 text-xs text-fg-secondary font-sans">
-          <span className="min-w-0">
-            <span className="text-accent-cyan font-semibold text-sm">{selected.name}</span>
-            <span className="block mt-1 leading-5 text-fg-primary">{selected.domain}</span>
-            <span className="block mt-2 leading-5 text-fg-secondary line-clamp-2">{selected.overview}</span>
-          </span>
-          <ArrowUpRight size={17} className="shrink-0 text-accent-cyan rtl:-rotate-90" aria-hidden="true" />
-        </a>
-      </div>
+      <dialog
+        ref={dialogRef}
+        id={`ecosystem-preview-${locale}`}
+        aria-labelledby={`ecosystem-preview-title-${locale}`}
+        aria-describedby={`ecosystem-preview-description-${locale}`}
+        className="ecosystem-preview-dialog"
+        dir={isPersian ? "rtl" : "ltr"}
+        onClick={(event) => {
+          if (event.target === event.currentTarget) event.currentTarget.close();
+        }}
+      >
+        <div className="ecosystem-preview-content">
+          <button
+            type="button"
+            className="ecosystem-preview-close"
+            aria-label={isPersian ? "بستن پیش‌نمایش پروژه" : "Close project preview"}
+            onClick={() => dialogRef.current?.close()}
+          >
+            <X size={18} aria-hidden="true" />
+          </button>
+          <a
+            href={selected.href}
+            className="ecosystem-preview-image-link"
+            aria-label={isPersian ? `مشاهده جزئیات کامل ${selected.name}` : `Explore ${selected.name} in detail`}
+            onClick={() => dialogRef.current?.close()}
+          >
+            <span className="ecosystem-preview-image">
+              <Image
+                src={`/images/projects/${selectedImageSlug}.webp`}
+                alt=""
+                width={432}
+                height={432}
+                unoptimized
+                className="ecosystem-thumbnail"
+              />
+            </span>
+          </a>
+          <h3 id={`ecosystem-preview-title-${locale}`} className="ecosystem-preview-title" dir="ltr">
+            {selected.name}
+          </h3>
+          <p className="ecosystem-preview-domain">{selected.domain}</p>
+          <p id={`ecosystem-preview-description-${locale}`} className="ecosystem-preview-description">
+            {selected.overview}
+          </p>
+          <p className="ecosystem-preview-hint">
+            {isPersian ? "برای اطلاعات بیشتر روی تصویر کلیک کنید" : "Click the image for more information"}
+          </p>
+          <a href={selected.href} className="ecosystem-preview-cta" onClick={() => dialogRef.current?.close()}>
+            <span>{isPersian ? "مشاهده جزئیات کامل پروژه" : "Explore full project details"}</span>
+            <ArrowUpRight size={17} className="shrink-0" aria-hidden="true" />
+          </a>
+        </div>
+      </dialog>
     </div>
   );
 }

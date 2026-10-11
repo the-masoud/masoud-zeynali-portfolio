@@ -421,7 +421,84 @@ html[lang="fa"] #main-content h2 {
 .ecosystem-stage:has([data-node="5"]:is(:hover, :focus-within)) [data-edge="5"],
 .ecosystem-stage:has([data-node="6"]:is(:hover, :focus-within)) [data-edge="6"],
 .ecosystem-stage:has([data-node="7"]:is(:hover, :focus-within)) [data-edge="7"] { stroke: #7dd3fc; stroke-width: 1.5; }
-.ecosystem-detail { margin-top: 22px; min-height: 72px; border-top: 1px solid var(--border-subtle); }
+/* Four-times-larger cinematic preview for selected topology nodes. */
+.ecosystem-preview-dialog {
+  position: fixed; inset: 0; margin: auto; z-index: 100;
+  width: min(360px, calc(100vw - 28px)); max-width: none;
+  max-height: calc(100dvh - 28px);
+  padding: 0; overflow: auto; overscroll-behavior: contain;
+  color: #e2f3fb;
+  background: linear-gradient(155deg, #142c43, #080f1c 82%);
+  border: 1px solid rgba(95, 207, 251, 0.52);
+  border-radius: 22px;
+  box-shadow: 0 24px 86px rgba(0, 0, 0, 0.7), 0 0 48px rgba(56, 189, 248, 0.16), inset 0 1px rgba(255, 255, 255, 0.09);
+}
+.ecosystem-preview-dialog::backdrop {
+  background: rgba(2, 7, 18, 0.75);
+  backdrop-filter: blur(6px);
+}
+.ecosystem-preview-content {
+  position: relative; display: flex; flex-direction: column;
+  align-items: center; gap: 10px; padding: 32px 25px 24px;
+  font-family: var(--font-sans), sans-serif;
+  text-align: center;
+}
+.ecosystem-preview-close {
+  position: absolute; inset-block-start: 13px; inset-inline-end: 13px;
+  display: grid; place-items: center; width: 34px; height: 34px;
+  border: 1px solid rgba(125, 211, 252, 0.28); border-radius: 10px;
+  background: rgba(6, 17, 31, 0.8); color: #a9d6ec;
+  transition: color 220ms ease-out, background-color 220ms ease-out, border-color 220ms ease-out;
+}
+.ecosystem-preview-close:hover, .ecosystem-preview-close:focus-visible {
+  color: #ffffff; background: rgba(56, 189, 248, 0.17); border-color: #7dd3fc;
+}
+.ecosystem-preview-image-link {
+  display: block; border-radius: 50%; margin: 8px 0 4px;
+  outline-offset: 5px;
+}
+.ecosystem-preview-image {
+  position: relative; display: block;
+  width: 216px; height: 216px; border-radius: 50%;
+  overflow: hidden; border: 3px solid rgba(125, 211, 252, 0.78);
+  background: #06111f;
+  box-shadow: 0 0 0 5px rgba(56, 189, 248, 0.11), 0 0 48px rgba(56, 189, 248, 0.23);
+  transition: border-color 220ms ease-out, box-shadow 220ms ease-out;
+}
+.ecosystem-preview-image-link:is(:hover, :focus-visible) .ecosystem-preview-image {
+  border-color: #d9f7ff;
+  box-shadow: 0 0 0 6px rgba(56, 189, 248, 0.18), 0 0 56px rgba(56, 189, 248, 0.32);
+}
+.ecosystem-preview-title {
+  margin-top: 4px; font-size: 20px; line-height: 1.3;
+  font-weight: 750; color: #f8fdff;
+}
+.ecosystem-preview-domain {
+  font-size: 12px; line-height: 1.7; font-weight: 600;
+  color: #7dd3fc; max-width: 290px;
+}
+.ecosystem-preview-description {
+  display: -webkit-box; -webkit-box-orient: vertical; -webkit-line-clamp: 2;
+  overflow: hidden; max-width: 295px;
+  font-size: 13px; line-height: 1.8; color: #c4d5e2;
+}
+.ecosystem-preview-hint {
+  margin-top: 4px; color: #91b7c9; font-size: 11px; line-height: 1.65;
+}
+.ecosystem-preview-cta {
+  display: flex; justify-content: center; align-items: center; gap: 10px;
+  margin-top: 4px; width: 100%; padding: 12px 14px;
+  border: 1px solid rgba(125, 211, 252, 0.48); border-radius: 12px;
+  background: rgba(38, 137, 184, 0.21); color: #e0f6ff;
+  font-size: 13px; font-weight: 650; line-height: 1.5;
+  transition: border-color 220ms ease-out, background-color 220ms ease-out;
+}
+.ecosystem-preview-cta:is(:hover, :focus-visible) {
+  border-color: #a5e8ff; background: rgba(38, 137, 184, 0.37);
+}
+@media (prefers-reduced-motion: reduce) {
+  .ecosystem-preview-image-link, .ecosystem-preview-image { transition: none; }
+}
 .metrics-panel, .portfolio-explorer, .technology-strip {
   background: linear-gradient(120deg, rgba(18, 35, 50, 0.65), rgba(8, 14, 24, 0.9));
   box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.025);
