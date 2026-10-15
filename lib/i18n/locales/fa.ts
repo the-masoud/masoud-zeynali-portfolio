@@ -21,6 +21,7 @@ export const faDictionary: PortfolioDictionary = {
       { label: "تخصص‌ها", href: "#expertise" },
       { label: "سوابق کاری", href: "#experience" },
       { label: "پروژه‌ها", href: "#work" },
+      { label: "بازی‌سازی", href: "#games" },
       { label: "تماس و مدارک", href: "#contact" },
     ],
     resumeLabel: "رزومه (EN)",

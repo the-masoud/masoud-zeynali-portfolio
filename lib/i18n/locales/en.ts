@@ -21,6 +21,7 @@ export const enDictionary: PortfolioDictionary = {
       { label: "Expertise", href: "#expertise" },
       { label: "Experience", href: "#experience" },
       { label: "Work", href: "#work" },
+      { label: "Games", href: "#games" },
       { label: "Contact", href: "#contact" },
     ],
     resumeLabel: "Resume",
