@@ -1,11 +1,10 @@
 import Image from "next/image";
-import { ArrowDownRight, BrainCircuit, Gamepad2, Layers3, ShieldCheck, Sparkles } from "lucide-react";
+import { ArrowDownRight, BrainCircuit, Gamepad2, Layers3, Monitor, ShieldCheck, Sparkles } from "lucide-react";
 import type { Locale } from "@/lib/i18n/types";
 import { getGamePortfolio } from "./gamePortfolioData";
 
 export function GameDevelopment({ locale }: { locale: Locale }) {
   const data = getGamePortfolio(locale);
-  const isPersian = locale === "fa";
 
   return (
     <section id="games" aria-labelledby="game-development-heading" className="scroll-mt-28 pb-16 sm:pb-24">
@@ -55,8 +54,8 @@ export function GameDevelopment({ locale }: { locale: Locale }) {
                   className="object-cover transition-transform duration-[220ms] ease-out motion-reduce:transform-none group-hover:scale-[1.02]"
                 />
                 <div className="absolute inset-x-0 bottom-0 h-24 bg-gradient-to-t from-[#080a0f]/90 to-transparent pointer-events-none" aria-hidden="true" />
-                <span className="absolute bottom-3 start-4 rounded-md border border-white/20 bg-canvas-950/75 px-2 py-1 text-[10px] text-slate-200 backdrop-blur font-sans">
-                  {data.screenshotLabel}
+                <span className="absolute bottom-3 start-4 rounded-md border border-accent-cyan/35 bg-canvas-950/80 px-2.5 py-1 text-[11px] font-medium text-accent-cyan backdrop-blur font-sans">
+                  {data.conceptArtLabel}
                 </span>
               </div>
 
@@ -103,6 +102,35 @@ export function GameDevelopment({ locale }: { locale: Locale }) {
                         </span>
                       ))}
                     </div>
+
+                    {/* Preserved Actual Development Screenshot */}
+                    <div className="rounded-xl border border-border-subtle bg-canvas-900/80 p-3.5 sm:p-4">
+                      <div className="mb-2.5 flex flex-wrap items-center justify-between gap-2">
+                        <h4 className="flex items-center gap-2 text-xs font-bold text-accent-cyan font-sans">
+                          <Monitor size={14} aria-hidden="true" /> {data.screenshotLabel}
+                        </h4>
+                        <span dir="ltr" className="rounded border border-white/10 bg-canvas-950 px-2 py-0.5 text-[10px] font-mono text-slate-300">
+                          BUILD CAPTURE
+                        </span>
+                      </div>
+                      <div className="relative aspect-video w-full overflow-hidden rounded-lg border border-white/10 bg-canvas-950">
+                        <Image
+                          src={game.devScreenshot}
+                          alt={game.devScreenshotAlt}
+                          fill
+                          unoptimized
+                          sizes="(min-width: 1024px) 45vw, 90vw"
+                          className="object-cover"
+                        />
+                      </div>
+                      <p className="mt-2.5 text-xs text-fg-secondary font-sans leading-5">
+                        {game.devScreenshotCaption}
+                      </p>
+                      <p className="mt-1 text-[11px] text-slate-400 font-sans italic">
+                        {data.visualStatusNote}
+                      </p>
+                    </div>
+
                     <div>
                       <h4 className="text-xs font-bold text-accent-cyan font-sans">{data.engineeringLabel}</h4>
                       <p className="mt-2 text-sm leading-7 text-fg-secondary font-sans">{game.engineering}</p>

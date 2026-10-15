@@ -8,6 +8,9 @@ export interface PortfolioGame {
   description: string;
   image: string;
   imageAlt: string;
+  devScreenshot: string;
+  devScreenshotAlt: string;
+  devScreenshotCaption: string;
   technologies: string[];
   gameplay: string[];
   engineering: string;
@@ -28,6 +31,8 @@ export interface GamePortfolioCopy {
   evidenceLabel: string;
   limitationsLabel: string;
   screenshotLabel: string;
+  conceptArtLabel: string;
+  visualStatusNote: string;
   statusLabel: string;
   games: PortfolioGame[];
 }
@@ -46,6 +51,8 @@ export const gamePortfolioData: Record<Locale, GamePortfolioCopy> = {
     evidenceLabel: "IMPLEMENTATION EVIDENCE",
     limitationsLabel: "CURRENT BOUNDARY",
     screenshotLabel: "Actual development capture",
+    conceptArtLabel: "Concept artwork · Final visuals in development",
+    visualStatusNote: "Work-in-progress capture from active prototype. Production art direction, assets and shaders remain in development.",
     statusLabel: "IN DEVELOPMENT",
     games: [
       {
@@ -54,8 +61,11 @@ export const gamePortfolioData: Record<Locale, GamePortfolioCopy> = {
         genre: "PERSIAN COGNITIVE-TRAINING GAME · ANDROID",
         headline: "A Persian-first memory garden built around daily play",
         description: "A native Android game combining a persistent Memory Garden with four short exercises for memory, attention and flexible thinking. Local adaptive difficulty, daily missions and progress feedback are designed for accessible, low-pressure play.",
-        image: "/images/games/yadmana.webp",
-        imageAlt: "Actual YadMana Android Memory Garden screen with colorful trees, pathways and a small house",
+        image: "/images/games/yadmana-concept-cover.webp",
+        imageAlt: "Original Achaemenid-inspired fantasy concept artwork for YadMana featuring Persepolis-style columns, double-headed animal capitals, ancient stone reliefs and a magical memory garden",
+        devScreenshot: "/images/games/yadmana.webp",
+        devScreenshotAlt: "Actual YadMana Android development capture showing the playable Memory Garden screen with trees, pathways and interactive zones",
+        devScreenshotCaption: "Playable Android prototype build capture (Jetpack Compose / Canvas) demonstrating the persistent Memory Garden flow.",
         technologies: ["Kotlin", "Jetpack Compose", "Android", "Offline-first", "AI + MCP development"],
         gameplay: ["Pattern Recall", "Card Pairs", "Target Hunt", "Rule Switch", "Daily missions & rewards"],
         engineering: "Modular Kotlin game logic, deterministic training and progression, local encrypted storage, Persian RTL interface and reduced-motion/accessibility provisions. AI agents and MCP-connected developer tooling support the engineering workflow, not gameplay decisions.",
@@ -68,8 +78,11 @@ export const gamePortfolioData: Record<Locale, GamePortfolioCopy> = {
         genre: "3D VOXEL SANDBOX · EXPLORATION & BUILDING",
         headline: "Explore, gather, build—and restore a colorful world",
         description: "A child-friendly voxel sandbox/adventure in Godot, combining block interaction, crafting, friendly creatures, quests and environmental restoration. The art direction is a bright, stylized 3D fantasy rather than a direct clone of an existing block-building game.",
-        image: "/images/games/blocky-adventures.webp",
-        imageAlt: "Actual Blocky Adventures Godot development capture showing pastel 3D voxel landscape, vegetation and world restoration effects",
+        image: "/images/games/blocky-adventures-concept-cover.webp",
+        imageAlt: "Original fantasy concept artwork for Blocky Adventures showing a young explorer planting a sapling as a dry voxel landscape transforms into a thriving green world",
+        devScreenshot: "/images/games/blocky-adventures.webp",
+        devScreenshotAlt: "Actual Blocky Adventures Godot 4 development capture showing voxel terrain generation, foliage, slime and restoration effects",
+        devScreenshotCaption: "Playable Godot 4 prototype build capture showing 3D voxel terrain streaming, world restoration systems and creature spawning.",
         technologies: ["Godot 4.7.2", "GDScript", "Voxel Tools", "3D gameplay", "AI + MCP development"],
         gameplay: ["Voxel exploration & building", "Gathering & crafting", "Friendly animals & slime", "Quests", "World restoration"],
         engineering: "Godot/GDScript architecture with voxel streaming, typed gameplay modules, scene-based QA and desktop/mobile performance constraints. AI agents and MCP-connected tools assist implementation and review; the game itself does not require an MCP connection.",
@@ -91,6 +104,8 @@ export const gamePortfolioData: Record<Locale, GamePortfolioCopy> = {
     evidenceLabel: "شواهد پیاده‌سازی",
     limitationsLabel: "وضعیت و محدودیت فعلی",
     screenshotLabel: "تصویر واقعی از نسخه در حال توسعه",
+    conceptArtLabel: "طرح مفهومی · جلوه‌های بصری نهایی در حال توسعه است",
+    visualStatusNote: "تصویر ثبت‌شده از نسخه آزمایشی در حال توسعه. سبک بصری، دارایی‌های گرافیکی و سایه‌زن‌های نهایی همچنان در دست ارتقا هستند.",
     statusLabel: "در حال توسعه (In Development)",
     games: [
       {
@@ -99,8 +114,11 @@ export const gamePortfolioData: Record<Locale, GamePortfolioCopy> = {
         genre: "بازی تمرین حافظه و توجه · اندروید",
         headline: "باغ یادآوری؛ تمرین روزانه حافظه و توجه به زبان فارسی",
         description: "بازی بومی اندروید با محیط باغ یادآوری و چهار تمرین کوتاه برای حافظه، توجه و انعطاف‌پذیری شناختی. تنظیم تدریجی دشواری، مأموریت روزانه و نمایش پیشرفت برای تجربه‌ای آرام و دسترس‌پذیر طراحی شده‌اند.",
-        image: "/images/games/yadmana.webp",
-        imageAlt: "نمای واقعی باغ یادآوری بازی یادمانا با درختان، مسیرهای رنگی و خانه",
+        image: "/images/games/yadmana-concept-cover.webp",
+        imageAlt: "طرح مفهومی فانتزی یادمانا با الهام از معماری هخامنشی، ستون‌های تخت جمشید، سرستون‌های دو‌سر، نقش‌برجسته‌های سنگی و باغ یادآوری",
+        devScreenshot: "/images/games/yadmana.webp",
+        devScreenshotAlt: "تصویر واقعی ثبت‌شده از نسخه در حال توسعه بازی یادمانا در اندروید و محیط باغ یادآوری",
+        devScreenshotCaption: "تصویر ثبت‌شده از نسخه آزمایشی قابل اجرا در اندروید (Jetpack Compose / Canvas) نشان‌دهنده جریان باغ یادآوری.",
         technologies: ["Kotlin", "Jetpack Compose", "Android", "Offline-first", "AI + MCP development"],
         gameplay: ["یادآوری الگو", "جفت‌کارت‌ها", "پیداکردن هدف", "تغییر قانون", "مأموریت روزانه و پاداش"],
         engineering: "معماری ماژولار Kotlin، منطق تمرین قطعی، ذخیره‌سازی رمزگذاری‌شده محلی، رابط فارسی راست‌به‌چپ و پشتیبانی از دسترس‌پذیری. عامل‌های هوشمند و ابزارهای متصل از طریق MCP در توسعه کمک می‌کنند و جایگزین منطق بازی نیستند.",
@@ -113,8 +131,11 @@ export const gamePortfolioData: Record<Locale, GamePortfolioCopy> = {
         genre: "ماجراجویی و ساخت‌وساز سه‌بعدی · Voxel",
         headline: "کاوش، جمع‌آوری، ساخت‌وساز و بازسازی یک دنیای رنگارنگ",
         description: "بازی ماجراجویی و ساخت‌وساز کودک‌پسند در Godot با تعامل با بلوک‌ها، ساخت ابزار، موجودات دوستانه، مأموریت و احیای طبیعت. هویت بصری آن فانتزی سه‌بعدی و مستقل از بازی‌های مشابه است.",
-        image: "/images/games/blocky-adventures.webp",
-        imageAlt: "تصویر واقعی نسخه در حال توسعه Blocky Adventures، دنیای سه‌بعدی مکعبی، پوشش گیاهی و جلوه‌های احیای محیط",
+        image: "/images/games/blocky-adventures-concept-cover.webp",
+        imageAlt: "طرح مفهومی فانتزی بازی Blocky Adventures با ماجراجویی که درخت می‌کارد و سرزمین مکعبی خشک را به دنیایی سرسبز و زنده تبدیل می‌کند",
+        devScreenshot: "/images/games/blocky-adventures.webp",
+        devScreenshotAlt: "تصویر واقعی نسخه در حال توسعه Blocky Adventures، دنیای سه‌بعدی مکعبی، پوشش گیاهی و جلوه‌های احیای محیط",
+        devScreenshotCaption: "تصویر ثبت‌شده از نسخه اولیه قابل اجرا در Godot 4 شامل بارگذاری دنیای وکسل، سامانه‌های احیای محیط و موجودات بازی.",
         technologies: ["Godot 4.7.2", "GDScript", "Voxel Tools", "3D gameplay", "AI + MCP development"],
         gameplay: ["اکتشاف و ساخت‌وساز", "گردآوری منابع و ساخت ابزار", "حیوانات دوستانه و اسلایم", "مأموریت‌ها", "احیای محیط"],
         engineering: "معماری Godot/GDScript با مدیریت دنیای Voxel، ماژول‌های گیم‌پلی، آزمون‌های صحنه و محدودیت‌های عملکرد دسکتاپ و موبایل. عامل‌های هوش مصنوعی و ابزارهای مبتنی بر MCP به پیاده‌سازی و بازبینی کمک می‌کنند؛ اجرای بازی به اتصال MCP وابسته نیست.",
