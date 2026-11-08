@@ -20,8 +20,9 @@ interface InfrastructureTopologyProps {
 }
 
 const positions = [
-  { x: 120, y: 110 }, { x: 275, y: 40 }, { x: 430, y: 115 }, { x: 70, y: 250 },
-  { x: 455, y: 265 }, { x: 125, y: 395 }, { x: 400, y: 400 }, { x: 270, y: 465 },
+  { x: 270, y: 45 }, { x: 405, y: 94 }, { x: 477, y: 219 },
+  { x: 452, y: 360 }, { x: 342, y: 452 }, { x: 198, y: 452 },
+  { x: 88, y: 360 }, { x: 63, y: 219 }, { x: 135, y: 94 },
 ];
 
 export function InfrastructureTopology({ projects, locale }: InfrastructureTopologyProps) {
@@ -79,12 +80,12 @@ export function InfrastructureTopology({ projects, locale }: InfrastructureTopol
           <span className="text-[9px] tracking-[0.2em] text-sky-200 mt-2">ENGINEERING</span>
           <span className="text-[9px] tracking-[0.2em] text-fg-secondary mt-1">ECOSYSTEM</span>
         </div>
-        <ol aria-label={isPersian ? "هشت پروژه مهندسی" : "Eight engineering projects"} className="ecosystem-nodes">
+        <ol aria-label={isPersian ? "نه پروژه مهندسی و مدیریتی" : "Nine engineering and management projects"} className="ecosystem-nodes">
           {projects.map((project, index) => {
             const imageSlug = project.id === "oasisops" ? "ops" : project.id;
             return (
               <li key={project.id} data-node={index} style={{ left: `${positions[index].x / 5.4}%`, top: `${positions[index].y / 5.1}%` }}>
-                <button type="button" className="ecosystem-node" aria-pressed={selectedIndex === index} aria-haspopup="dialog" aria-controls={`ecosystem-preview-${locale}`} onClick={() => openProjectPreview(index)}>
+                <button type="button" className="ecosystem-node" aria-label={project.name} aria-pressed={selectedIndex === index} aria-haspopup="dialog" aria-controls={`ecosystem-preview-${locale}`} onClick={() => openProjectPreview(index)}>
                   <span className="ecosystem-icon" aria-hidden="true">
                     <Image
                       src={`/images/projects/${imageSlug}.webp`}
@@ -95,7 +96,7 @@ export function InfrastructureTopology({ projects, locale }: InfrastructureTopol
                       className="ecosystem-thumbnail"
                     />
                   </span>
-                  <span className="interaction-title text-[11px] sm:text-xs font-semibold font-sans">{project.name}</span>
+                  <span className="interaction-title text-[11px] sm:text-xs font-semibold font-sans">{project.id === "pamenar" ? (isPersian ? "پامنار" : "Pamenar") : project.name}</span>
                 </button>
               </li>
             );
@@ -139,7 +140,7 @@ export function InfrastructureTopology({ projects, locale }: InfrastructureTopol
               />
             </span>
           </a>
-          <h3 id={`ecosystem-preview-title-${locale}`} className="ecosystem-preview-title" dir="ltr">
+          <h3 id={`ecosystem-preview-title-${locale}`} className="ecosystem-preview-title" dir={isPersian && selected.id === "pamenar" ? "rtl" : "ltr"}>
             {selected.name}
           </h3>
           <p className="ecosystem-preview-domain">{selected.domain}</p>

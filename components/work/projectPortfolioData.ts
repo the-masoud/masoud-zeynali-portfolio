@@ -33,11 +33,11 @@ export interface PortfolioProjectPresentation {
 
 export const projectPortfolio: Record<Locale, PortfolioProjectPresentation> = {
   en: {
-    eyebrow: "PROJECT INDEX / 02—08",
+    eyebrow: "PROJECT INDEX / 02—09",
     heading: "MORE SYSTEMS. REAL ENGINEERING BOUNDARIES.",
     introduction:
-      "Seven additional projects across on-prem operations, observability, engineering applications and document workflows. Statuses describe verified milestones—not a claim that every feature is production-ready. MCP is used across the engineering workflows; dedicated product MCP interfaces are described as implemented only where repository evidence supports them.",
-    countLabel: "07 / ADDITIONAL PROJECTS",
+      "Eight additional projects spanning AI-assisted strategic management, on-prem operations, observability, engineering software and document workflows. Each status distinguishes tested milestones from capabilities still in development; educational prototypes are not presented as production deployments.",
+    countLabel: "08 / ADDITIONAL PROJECTS",
     architectureLabel: "SYSTEM FLOW",
     stackLabel: "TECHNOLOGIES & DOMAIN",
     challengeLabel: "ENGINEERING PROBLEM",
@@ -45,6 +45,24 @@ export const projectPortfolio: Record<Locale, PortfolioProjectPresentation> = {
     evidenceLabel: "VERIFIED MILESTONE / LIMITATION",
     disclosure: "Public engineering summaries only. Private source code, infrastructure identifiers, client models and operational secrets are intentionally excluded.",
     projects: [
+      {
+        id: "pamenar",
+        name: "Design and Implementation of an Intelligent Strategic Management System",
+        domain: "AI-ASSISTED STRATEGIC MANAGEMENT / PAMENAR",
+        tagline: "An AI-enabled organizational strategy dashboard and Telegram assistant",
+        overview:
+          "An educational strategic management prototype for Pamenar, combining a seven-page management dashboard with n8n Cloud workflows, Gemini AI and a Telegram bot. The system presents eight KPIs across four departments, tracks organizational tasks, retrieves market-news headlines and supports management analysis. KPI, task and news views draw on connected data services, while parts of the management content use illustrative sample data.",
+        status: "EDUCATIONAL PROTOTYPE · TESTED WORKFLOWS",
+        statusTone: "in-progress",
+        architecture: ["Connected KPIs / tasks / news", "n8n Cloud automation", "Gemini analysis & RAG", "Dashboard / Telegram alerts"],
+        technologies: ["n8n Cloud", "Gemini", "Telegram Bot", "RAG", "HTML Dashboard", "KPI Monitoring", "SWOT"],
+        challenge:
+          "Bring performance monitoring, strategic analysis, task coordination and timely management alerts together without confusing simulated organizational information with production data.",
+        engineering:
+          "Combine four departments and eight target-based KPIs in a seven-page dashboard; orchestrate task assignment and scheduled alerts in n8n, generate SWOT and 90-day strategic recommendations with Gemini, and answer document- and news-grounded questions through RAG with source references.",
+        evidence:
+          "Telegram task assignment, daily KPI-alert scheduling and receipt of a real alert message were reported as tested. Several RAG questions were exercised. The project is an academic demonstration with illustrative organizational data, not a validated production enterprise deployment.",
+      },
       {
         id: "oasisops",
         name: "Ops",
@@ -174,11 +192,11 @@ export const projectPortfolio: Record<Locale, PortfolioProjectPresentation> = {
     ],
   },
   fa: {
-    eyebrow: "فهرست پروژه‌ها / ۰۲ تا ۰۸",
+    eyebrow: "فهرست پروژه‌ها / ۰۲ تا ۰۹",
     heading: "سامانه‌های بیشتر، با مرزبندی فنی واقعی",
     introduction:
-      "هفت پروژه دیگر در حوزه عملیات زیرساخت، پایش، نرم‌افزارهای مهندسی و کنترل مدارک. وضعیت هر پروژه بر اساس مراحل تأییدشده نوشته شده است، نه ادعای آماده‌بودن همه قابلیت‌ها برای تولید. MCP در فرایند مهندسی پروژه‌ها استفاده می‌شود؛ رابط‌های اختصاصی آن تنها در مواردی قابلیت محصول محسوب می‌شوند که در کد و مستندات تأیید شده باشند.",
-    countLabel: "۷ پروژه تکمیلی",
+      "هشت پروژه دیگر در حوزه مدیریت استراتژیک هوشمند، عملیات زیرساخت، پایش، نرم‌افزارهای مهندسی و کنترل مدارک. وضعیت هر پروژه بر اساس مراحل تأییدشده مشخص شده است؛ نمونه‌های آموزشی با سامانه‌های آماده بهره‌برداری سازمانی یکسان در نظر گرفته نمی‌شوند.",
+    countLabel: "۸ پروژه تکمیلی",
     architectureLabel: "مسیر معماری سامانه",
     stackLabel: "فناوری‌ها و حوزه فنی",
     challengeLabel: "چالش مهندسی",
@@ -186,6 +204,24 @@ export const projectPortfolio: Record<Locale, PortfolioProjectPresentation> = {
     evidenceLabel: "مرحله تأییدشده / محدودیت فعلی",
     disclosure: "این معرفی‌ها صرفاً فنی و عمومی‌اند؛ سورس خصوصی، نشانی‌های زیرساخت، مدل‌های کارفرما و اطلاعات محرمانه منتشر نمی‌شوند.",
     projects: [
+      {
+        id: "pamenar",
+        name: "طراحی و پیاده‌سازی سیستم مدیریت استراتژیک هوشمند",
+        domain: "هوش مصنوعی استراتژیک در کسب‌وکار / شرکت پامنار",
+        tagline: "داشبورد مدیریتی و دستیار هوشمند سازمانی با اتصال به تلگرام",
+        overview:
+          "نمونه کاربردی و آموزشی سیستم مدیریت استراتژیک شرکت پامنار با استفاده از n8n Cloud، هوش مصنوعی Gemini و ربات تلگرام. داشبورد هفت‌صفحه‌ای، هشت شاخص عملکرد در چهار واحد سازمانی، وظایف، اخبار بازار، تحلیل مدیریتی و دستیار مبتنی بر RAG را یکپارچه می‌کند. داده‌های شاخص‌ها، وظایف و اخبار از سرویس‌های متصل دریافت می‌شوند، اما بخشی از اطلاعات سازمانی و خروجی‌های مدیریتی نمونه و آموزشی‌اند.",
+        status: "نمونه آموزشی · گردش‌کارهای عملی آزمایش‌شده",
+        statusTone: "in-progress",
+        architecture: ["شاخص‌ها / وظایف / اخبار", "اتوماسیون n8n Cloud", "تحلیل Gemini و RAG", "داشبورد / هشدار تلگرام"],
+        technologies: ["n8n Cloud", "Gemini", "Telegram Bot", "RAG", "HTML Dashboard", "KPI Monitoring", "SWOT"],
+        challenge:
+          "یکپارچه‌سازی پایش عملکرد، تحلیل استراتژیک، هماهنگی وظایف و هشدارهای مدیریتی با حفظ مرز روشن بین اطلاعات نمونه و داده‌های عملیاتی.",
+        engineering:
+          "طراحی داشبورد هفت‌صفحه‌ای و مقایسه هشت KPI هدف‌دار در چهار واحد؛ تخصیص مسئول وظایف و ارسال هشدارهای زمان‌بندی‌شده در تلگرام؛ تحلیل SWOT و برنامه پیشنهادی ۹۰ روزه با Gemini؛ و پاسخ به پرسش‌های مبتنی بر اسناد سازمان و اخبار همراه با ارجاع به منابع.",
+        evidence:
+          "عملکرد تخصیص وظیفه در تلگرام، اجرای زمان‌بندی روزانه و دریافت واقعی پیام هشدار مدیرعامل آزمایش شده است. چند پرسش RAG نیز بررسی شده‌اند. این پروژه یک نمونه دانشگاهی با بخشی از داده‌های نمایشی است و ادعای استقرار سازمانی در محیط تولید ندارد.",
+      },
       {
         id: "oasisops",
         name: "Ops",

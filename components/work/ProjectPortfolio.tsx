@@ -1,5 +1,5 @@
 import React from "react";
-import { ArrowRight, ArrowDownRight, CheckCircle2, CircleDashed, AlertTriangle, Layers3, ShieldCheck, Box, Activity, Ruler, FileCheck2, ScanLine, Calculator, Printer } from "lucide-react";
+import { ArrowRight, ArrowDownRight, CheckCircle2, CircleDashed, AlertTriangle, Layers3, ShieldCheck, Box, Activity, Ruler, FileCheck2, ScanLine, Calculator, Printer, BrainCircuit } from "lucide-react";
 import type { Locale } from "@/lib/i18n/types";
 import { getProjectPortfolio, type ProjectStatus } from "./projectPortfolioData";
 
@@ -19,7 +19,7 @@ function StatusIcon({ tone }: { tone: ProjectStatus }) {
   return <CircleDashed size={13} aria-hidden="true" />;
 }
 
-const projectIcons = [Box, Activity, Ruler, FileCheck2, ScanLine, Calculator, Printer];
+const projectIcons = [BrainCircuit, Box, Activity, Ruler, FileCheck2, ScanLine, Calculator, Printer];
 
 export function ProjectPortfolio({ locale }: ProjectPortfolioProps) {
   const copy = getProjectPortfolio(locale);
@@ -87,8 +87,8 @@ export function ProjectPortfolio({ locale }: ProjectPortfolioProps) {
             </p>
             <h4
               id={project.id + "-title"}
-              className="interaction-title text-2xl sm:text-[28px] leading-none font-sans font-bold tracking-tight text-slate-200"
-              dir="ltr"
+              className="interaction-title text-2xl sm:text-[28px] leading-snug font-sans font-bold tracking-tight text-slate-200"
+              dir={isPersian && project.id === "pamenar" ? "rtl" : "ltr"}
             >
               {project.name}
             </h4>

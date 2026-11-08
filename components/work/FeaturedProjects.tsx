@@ -36,7 +36,7 @@ export function FeaturedProjects({ featured, locale }: { featured: InfraForgeDat
                     />
                   </div>
                   <div className="p-4">
-                    <h3 className="interaction-title font-sans font-semibold text-base text-slate-200 break-words" dir="ltr">{project.name}</h3>
+                    <h3 className="interaction-title font-sans font-semibold text-base leading-6 text-slate-200 break-words" dir={isPersian && project.id === "pamenar" ? "rtl" : "ltr"}>{project.name}</h3>
                     <p className="mt-2 text-xs leading-6 text-fg-secondary font-sans">{project.domain}</p>
                     <div className="mt-4 flex items-start justify-between gap-2 border-t border-white/5 pt-3">
                       <span className="text-[10px] leading-5 text-accent-cyan font-sans">{project.status}</span>
