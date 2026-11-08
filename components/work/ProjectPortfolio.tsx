@@ -1,5 +1,5 @@
 import React from "react";
-import { ArrowRight, ArrowDownRight, CheckCircle2, CircleDashed, AlertTriangle, Layers3, ShieldCheck, Box, Activity, Ruler, FileCheck2, ScanLine, Calculator, Printer, BrainCircuit } from "lucide-react";
+import { ArrowRight, ArrowDownRight, CheckCircle2, CircleDashed, AlertTriangle, Layers3, ShieldCheck, Box, Activity, Ruler, FileCheck2, ScanLine, Calculator, Printer, BrainCircuit, Route } from "lucide-react";
 import type { Locale } from "@/lib/i18n/types";
 import { getProjectPortfolio, type ProjectStatus } from "./projectPortfolioData";
 
@@ -19,7 +19,7 @@ function StatusIcon({ tone }: { tone: ProjectStatus }) {
   return <CircleDashed size={13} aria-hidden="true" />;
 }
 
-const projectIcons = [BrainCircuit, Box, Activity, Ruler, FileCheck2, ScanLine, Calculator, Printer];
+const projectIcons = [BrainCircuit, Box, Activity, Ruler, Route, FileCheck2, ScanLine, Calculator, Printer];
 
 export function ProjectPortfolio({ locale }: ProjectPortfolioProps) {
   const copy = getProjectPortfolio(locale);

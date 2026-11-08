@@ -20,9 +20,10 @@ interface InfrastructureTopologyProps {
 }
 
 const positions = [
-  { x: 270, y: 45 }, { x: 405, y: 94 }, { x: 477, y: 219 },
-  { x: 452, y: 360 }, { x: 342, y: 452 }, { x: 198, y: 452 },
-  { x: 88, y: 360 }, { x: 63, y: 219 }, { x: 135, y: 94 },
+  { x: 270, y: 50 }, { x: 390, y: 89 }, { x: 465, y: 193 },
+  { x: 465, y: 317 }, { x: 390, y: 421 }, { x: 270, y: 460 },
+  { x: 150, y: 421 }, { x: 75, y: 317 }, { x: 75, y: 193 },
+  { x: 150, y: 89 },
 ];
 
 export function InfrastructureTopology({ projects, locale }: InfrastructureTopologyProps) {
@@ -80,7 +81,7 @@ export function InfrastructureTopology({ projects, locale }: InfrastructureTopol
           <span className="text-[9px] tracking-[0.2em] text-sky-200 mt-2">ENGINEERING</span>
           <span className="text-[9px] tracking-[0.2em] text-fg-secondary mt-1">ECOSYSTEM</span>
         </div>
-        <ol aria-label={isPersian ? "نه پروژه مهندسی و مدیریتی" : "Nine engineering and management projects"} className="ecosystem-nodes">
+        <ol aria-label={isPersian ? "ده پروژه مهندسی و مدیریتی" : "Ten engineering and management projects"} className="ecosystem-nodes">
           {projects.map((project, index) => {
             const imageSlug = project.id === "oasisops" ? "ops" : project.id;
             return (
@@ -96,7 +97,7 @@ export function InfrastructureTopology({ projects, locale }: InfrastructureTopol
                       className="ecosystem-thumbnail"
                     />
                   </span>
-                  <span className="interaction-title text-[11px] sm:text-xs font-semibold font-sans">{project.id === "pamenar" ? (isPersian ? "پامنار" : "Pamenar") : project.name}</span>
+                  <span className="interaction-title text-[11px] sm:text-xs font-semibold font-sans">{project.id === "pamenar" ? (isPersian ? "پامنار" : "Pamenar") : project.id === "access-road-designer" ? "Road Designer" : project.name}</span>
                 </button>
               </li>
             );

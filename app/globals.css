@@ -421,7 +421,8 @@ html[lang="fa"] #main-content h2 {
 .ecosystem-stage:has([data-node="5"]:is(:hover, :focus-within)) [data-edge="5"],
 .ecosystem-stage:has([data-node="6"]:is(:hover, :focus-within)) [data-edge="6"],
 .ecosystem-stage:has([data-node="7"]:is(:hover, :focus-within)) [data-edge="7"],
-.ecosystem-stage:has([data-node="8"]:is(:hover, :focus-within)) [data-edge="8"] { stroke: #7dd3fc; stroke-width: 1.5; }
+.ecosystem-stage:has([data-node="8"]:is(:hover, :focus-within)) [data-edge="8"],
+.ecosystem-stage:has([data-node="9"]:is(:hover, :focus-within)) [data-edge="9"] { stroke: #7dd3fc; stroke-width: 1.5; }
 /* Four-times-larger cinematic preview for selected topology nodes. */
 .ecosystem-preview-dialog {
   position: fixed; inset: 0; margin: auto; z-index: 100;

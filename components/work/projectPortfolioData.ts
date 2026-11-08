@@ -33,11 +33,11 @@ export interface PortfolioProjectPresentation {
 
 export const projectPortfolio: Record<Locale, PortfolioProjectPresentation> = {
   en: {
-    eyebrow: "PROJECT INDEX / 02—09",
+    eyebrow: "PROJECT INDEX / 02—10",
     heading: "MORE SYSTEMS. REAL ENGINEERING BOUNDARIES.",
     introduction:
-      "Eight additional projects spanning AI-assisted strategic management, on-prem operations, observability, engineering software and document workflows. Each status distinguishes tested milestones from capabilities still in development; educational prototypes are not presented as production deployments.",
-    countLabel: "08 / ADDITIONAL PROJECTS",
+      "Nine additional projects spanning AI-assisted strategic management, on-prem operations, observability, road design, engineering software and document workflows. Each status distinguishes tested milestones from capabilities still in development; educational prototypes are not presented as production deployments.",
+    countLabel: "09 / ADDITIONAL PROJECTS",
     architectureLabel: "SYSTEM FLOW",
     stackLabel: "TECHNOLOGIES & DOMAIN",
     challengeLabel: "ENGINEERING PROBLEM",
@@ -103,19 +103,37 @@ export const projectPortfolio: Record<Locale, PortfolioProjectPresentation> = {
         id: "sewerpilot",
         name: "SewerPilot",
         domain: "ENGINEERING SOFTWARE INTEGRATION",
-        tagline: "A version-tolerant interface to OpenFlows Sewer models",
+        tagline: "A guarded OpenFlows Sewer workbench with a verified internal software release",
         overview:
-          "A desktop engineering workbench that interacts with OpenFlows Sewer through a guarded adapter layer. The confirmed real-runtime path reads conduit and structure information without modifying the source model. A local read-only MCP server over stdio exposes stored project metadata to AI clients without opening Bentley models, invoking solvers or modifying project files.",
-        status: "IN DEVELOPMENT",
-        statusTone: "in-progress",
-        architecture: ["OpenFlows runtime", "Capability adapter", "Read-only model intake", "Desktop workspace"],
-        technologies: ["C# / .NET", "OpenFlows Sewer", "Adapter Contracts", "Desktop UI", "Model Integrity", "MCP / stdio (read-only)"],
+          "A Windows engineering assistant for OpenFlows Sewer models. Its version-tolerant adapter supports source-model inspection, controlled native calculation of existing models, results readback, diagnostic exports and engineering review. The software passed its internal acceptance campaign; model-specific hydraulic and design approvals remain independent.",
+        status: "PERSONAL / INTERNAL RELEASE · v1.1 BETA",
+        statusTone: "verified",
+        architecture: ["OpenFlows runtime", "Capability adapter", "Model calculation / readback", "Desktop diagnostics"],
+        technologies: ["C# / .NET", "OpenFlows Sewer", "Windows Desktop", "Hydraulic Results", "Model Integrity", "MCP / stdio (read-only)"],
         challenge:
-          "Integrate with a specialized engineering runtime without binding the product to one fixed vendor assembly shape or risking a live model.",
+          "Interact with different vendor runtime configurations while retaining the original model, explicit engineering gates and reliable result provenance.",
         engineering:
-          "Discover capabilities at runtime, gate unproven write and solver operations, and validate model integrity with unchanged source hashes.",
+          "Isolate native runtime interactions, guard write and calculation paths, expose read-only project metadata to MCP clients, and distinguish software acceptance from hydraulic design approval.",
         evidence:
-          "Real-runtime read-only model access was proven; intake and automated regression checks also passed. Full graphical workflows and live engineering execution are separately validated before release.",
+          "Software acceptance: 16/16 tasks PASS. A sealed v1.1.0-beta.1 installer was accepted for PERSONAL_INTERNAL use on 6 November 2026. This is not a public release; qualified execution across every model configuration and project-specific hydraulic design sign-off are not claimed.",
+      },
+      {
+        id: "access-road-designer",
+        name: "Automatic Access Road Designer",
+        domain: "AUTODESK CIVIL 3D / ACCESS ROAD ENGINEERING",
+        tagline: "Operator-driven access-road workflow with native Civil 3D validation gates",
+        overview:
+          "An installable Autodesk Civil 3D 2021 add-in that accepts operator-supplied project data, binds a native alignment and existing-ground surface, previews geometry and evaluates deterministic assembly choices. Native profile, corridor, surface and earthwork adapters have been demonstrated in controlled working copies. Real-project design remains gated by missing authoritative engineering inputs.",
+        status: "OPERATOR PILOT · DESIGN ACCEPTANCE PENDING",
+        statusTone: "in-progress",
+        architecture: ["Operator project inputs", "Civil 3D alignment / ground", "Profile & corridor adapters", "Native readback / design gates"],
+        technologies: ["Autodesk Civil 3D 2021", "C# / .NET Framework 4.8", "AutoCAD API", "DWG", "Road Geometry", "Engineering QA"],
+        challenge:
+          "Connect real drawing data to automated road-design engines without inventing approved alignments, profiles, assembly requirements or engineering authority.",
+        engineering:
+          "Validate project and drawing identity, read existing ground with explicit coverage reporting, reuse deterministic assembly resolution, and permit native design writes only through controlled working-copy and approval gates.",
+        evidence:
+          "The 8 November 2026 native operator demonstration reached verified alignment binding, 306/306 existing-ground samples with no sample gaps, and specific assembly/data blockers. Installer and command smoke checks passed. Full operator-driven end-to-end design and controlled pilot release remain NOT READY pending source-backed engineering authorization.",
       },
       {
         id: "dccsentry",
@@ -192,11 +210,11 @@ export const projectPortfolio: Record<Locale, PortfolioProjectPresentation> = {
     ],
   },
   fa: {
-    eyebrow: "فهرست پروژه‌ها / ۰۲ تا ۰۹",
+    eyebrow: "فهرست پروژه‌ها / ۰۲ تا ۱۰",
     heading: "سامانه‌های بیشتر، با مرزبندی فنی واقعی",
     introduction:
-      "هشت پروژه دیگر در حوزه مدیریت استراتژیک هوشمند، عملیات زیرساخت، پایش، نرم‌افزارهای مهندسی و کنترل مدارک. وضعیت هر پروژه بر اساس مراحل تأییدشده مشخص شده است؛ نمونه‌های آموزشی با سامانه‌های آماده بهره‌برداری سازمانی یکسان در نظر گرفته نمی‌شوند.",
-    countLabel: "۸ پروژه تکمیلی",
+      "نه پروژه دیگر در حوزه مدیریت استراتژیک هوشمند، عملیات زیرساخت، پایش، طراحی راه، نرم‌افزارهای مهندسی و کنترل مدارک. وضعیت هر پروژه بر اساس مراحل تأییدشده مشخص شده است؛ نمونه‌های آموزشی با سامانه‌های آماده بهره‌برداری سازمانی یکسان در نظر گرفته نمی‌شوند.",
+    countLabel: "۹ پروژه تکمیلی",
     architectureLabel: "مسیر معماری سامانه",
     stackLabel: "فناوری‌ها و حوزه فنی",
     challengeLabel: "چالش مهندسی",
@@ -261,20 +279,38 @@ export const projectPortfolio: Record<Locale, PortfolioProjectPresentation> = {
       {
         id: "sewerpilot",
         name: "SewerPilot",
-        domain: "یکپارچه‌سازی نرم‌افزار مهندسی",
-        tagline: "رابط سازگار با نسخه‌های مختلف مدل‌های OpenFlows Sewer",
+        domain: "یکپارچه‌سازی نرم‌افزار مهندسی و تحلیل هیدرولیکی",
+        tagline: "نرم‌افزار مهندسی OpenFlows Sewer با انتشار داخلی تأییدشده",
         overview:
-          "محیط کاری مهندسی دسکتاپ با لایه آداپتور کنترل‌شده برای OpenFlows Sewer. مسیر اثبات‌شده در اجرای واقعی، اطلاعات لوله‌ها و سازه‌ها را بدون تغییر مدل مبدأ می‌خواند. سرور محلی و فقط‌خواندنی MCP از طریق stdio فراداده ذخیره‌شده پروژه را به کلاینت هوشمند ارائه می‌کند، بدون بازکردن مدل Bentley، اجرای حل‌گر یا تغییر فایل‌های پروژه.",
-        status: "در حال توسعه (In Development)",
-        statusTone: "in-progress",
-        architecture: ["موتور OpenFlows", "آداپتور قابلیت‌ها", "خواندن مدل", "محیط کاری دسکتاپ"],
-        technologies: ["C# / .NET", "OpenFlows Sewer", "Adapter Contracts", "Desktop UI", "Model Integrity", "MCP / stdio (read-only)"],
+          "دستیار مهندسی ویندوز برای کار با مدل‌های OpenFlows Sewer که از طریق آداپتور سازگار با نسخه‌های مختلف، خواندن مدل، اجرای کنترل‌شده محاسبات موجود، بازخوانی نتایج هیدرولیکی، خروجی عیب‌یابی و بازبینی مهندسی را فراهم می‌کند. پذیرش نرم‌افزاری داخلی تکمیل شده، ولی تأیید محاسبات و طراحی هر مدل واقعی مستقل از آن است.",
+        status: "انتشار شخصی و داخلی · نسخه آزمایشی ۱.۱",
+        statusTone: "verified",
+        architecture: ["موتور OpenFlows", "آداپتور سازگار", "محاسبه و بازخوانی مدل", "گزارش و عیب‌یابی دسکتاپ"],
+        technologies: ["C# / .NET", "OpenFlows Sewer", "Windows Desktop", "Hydraulic Results", "Model Integrity", "MCP / stdio (read-only)"],
         challenge:
-          "اتصال به موتور تخصصی بدون قفل‌شدن به یک نسخه از اسمبلی‌های سازنده یا ایجاد خطر برای مدل واقعی.",
+          "ارتباط مطمئن با نسخه‌ها و پیکربندی‌های مختلف موتور تخصصی بدون تغییر ناخواسته مدل مبدأ و بدون عبور از گیت‌های مهندسی.",
         engineering:
-          "کشف قابلیت‌ها در زمان اجرا، مسدودسازی عملیات نوشتن و حل‌گرِ تأییدنشده و کنترل تغییرنکردن هش مدل مبدأ.",
+          "جداسازی عملیات موتور واقعی، کنترل مسیرهای نوشتن و محاسبه، ارائه فراداده فقط‌خواندنی پروژه به MCP و تفکیک صریح پذیرش نرم‌افزار از تأیید طراحی هیدرولیکی.",
         evidence:
-          "خواندن فقط‌خواندنی مدل در موتور واقعی اثبات شد و آزمون‌های دریافت مدل و رگرسیون نیز موفق بودند. مسیرهای کامل گرافیکی و اجرای زنده مهندسی پیش از انتشار به‌طور مستقل ارزیابی می‌شوند.",
+          "هر ۱۶ مرحله پذیرش نرم‌افزار موفق بوده است. نصب‌کننده نسخه 1.1.0-beta.1 در ۶ نوامبر ۲۰۲۶ برای استفاده شخصی و داخلی تأیید شد. انتشار عمومی صادر نشده و تأیید تمام پیکربندی‌های محاسباتی یا امضای مهندسی مدل‌های واقعی ادعا نمی‌شود.",
+      },
+      {
+        id: "access-road-designer",
+        name: "Automatic Access Road Designer",
+        domain: "طراحی خودکار راه دسترسی در Autodesk Civil 3D",
+        tagline: "گردش‌کار طراحی راه دسترسی با خواندن مدل واقعی و کنترل‌های پذیرش",
+        overview:
+          "افزونه قابل‌نصب برای Autodesk Civil 3D 2021 که ورودی‌های ارائه‌شده توسط اپراتور را دریافت می‌کند، Alignment و سطح زمین موجود را از نقشه واقعی تشخیص می‌دهد و با استفاده از موتورهای توسعه‌یافته، پیش‌نمایش طراحی و انتخاب کنترل‌شده Assembly را انجام می‌دهد. تولید Native Profile، Corridor، Surface و محاسبات عملیات خاکی در نسخه‌های آزمایشی کنترل‌شده بررسی شده است. طراحی کامل پروژه واقعی همچنان به مدارک و تأییدهای مهندسی وابسته است.",
+        status: "پایلوت اپراتوری · پذیرش طراحی در انتظار مدارک",
+        statusTone: "in-progress",
+        architecture: ["ورودی پروژه و اپراتور", "مسیر و زمین در Civil 3D", "موتور Profile و Corridor", "بازخوانی و گیت پذیرش"],
+        technologies: ["Autodesk Civil 3D 2021", "C# / .NET Framework 4.8", "AutoCAD API", "DWG", "Road Geometry", "Engineering QA"],
+        challenge:
+          "اتصال داده‌های واقعی نقشه به محاسبات خودکار راه بدون ساختن فرض‌های غیرمجاز درباره مسیر، پروفیل طولی، مشخصات مقطع و مرجع تأییدشده طراحی.",
+        engineering:
+          "اعتبارسنجی هویت پروژه و نقشه، خواندن ارتفاع زمین با ثبت دقیق پوشش نمونه‌ها، انتخاب قطعی Assembly و محدودکردن نوشتن در نقشه به نسخه کاری و مسیرهای دارای مجوز مهندسی.",
+        evidence:
+          "دموی واقعی ۸ نوامبر ۲۰۲۶ اتصال Alignment و خواندن ۳۰۶ نمونه از ۳۰۶ نمونه سطح زمین را بدون فاصله نمونه‌برداری از دست‌رفته نشان داد و کمبودهای داده برای Assembly را گزارش کرد. نصب و تست بارگذاری موفق بوده‌اند، اما اجرای کامل طراحی توسط اپراتور و پذیرش پایلوت عملیاتی همچنان به داده‌های مهندسی معتبر نیاز دارند.",
       },
       {
         id: "dccsentry",
